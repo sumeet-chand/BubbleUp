@@ -1,0 +1,39 @@
+\doxysection{Save\+Load\+Data.\+hpp}
+\hypertarget{_save_load_data_8hpp_source}{}\label{_save_load_data_8hpp_source}\index{headers/SaveLoadData.hpp@{headers/SaveLoadData.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <sstream>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00059\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_save_load_data}{SaveLoadData}}}
+\DoxyCodeLine{00060\ \{}
+\DoxyCodeLine{00061\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00062\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00072\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_save_load_data_a43ee7f8c70c097f0e0eb9e938670a1df}{save\_settings}}(\textcolor{keyword}{const}\ std::string\ \&fileName,\ \textcolor{keyword}{const}\ std::string\ \&language);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00083\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_save_load_data_ab07fb97d5faa99a47c5a1165b76e1fea}{load\_settings}}(\textcolor{keyword}{const}\ std::string\ \&fileName,\ std::string\ \&language,\ std::vector<int>\ \&unlockedAchievements);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00093\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_save_load_data_a7d8d0a18451de6cf39418236bda4a492}{save\_file}}(\textcolor{keyword}{const}\ std::string\ \&fileName,\ \textcolor{keyword}{const}\ std::vector<int>\ \&unlockedAchievements);}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00103\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_save_load_data_ac2384d36d8fd243808106e58c184ee7c}{load\_file}}(\textcolor{keyword}{const}\ std::string\ \&fileName,\ std::vector<int>\ \&unlockedAchievements);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00112\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_save_load_data_a2109f58aa00debe83fdfa8800194893f}{does\_file\_exist}}(\textcolor{keyword}{const}\ std::string\ \&fileName);}
+\DoxyCodeLine{00113\ }
+\DoxyCodeLine{00121\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_save_load_data_a36492511d16043ee19cdfabfb1551750}{delete\_file}}(\textcolor{keyword}{const}\ std::string\ \&fileName);}
+\DoxyCodeLine{00122\ \};}
+
+\end{DoxyCode}

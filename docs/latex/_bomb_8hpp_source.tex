@@ -1,0 +1,26 @@
+\doxysection{Bomb.\+hpp}
+\hypertarget{_bomb_8hpp_source}{}\label{_bomb_8hpp_source}\index{headers/entities/Bomb.hpp@{headers/entities/Bomb.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Subclass\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}Enemy.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_bomb}{Bomb}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_enemy}{Enemy}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{class_bomb_a9421b9be1871698cd90746a6f1985aac}{Bomb}}(\textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_bomb_ad94f86d622808fdd89637177b3c4adee}{handle\_player\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_bomb_af4ee84daf0eeb22a208b18c9424bde19}{move\_entity}}(\textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_entity_a677aa4645f0eac72384a1bb1474261d5}{acceleration}})\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ \};}
+
+\end{DoxyCode}

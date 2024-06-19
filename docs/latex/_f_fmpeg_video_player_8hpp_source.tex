@@ -1,0 +1,297 @@
+\doxysection{FFmpeg\+Video\+Player.\+hpp}
+\hypertarget{_f_fmpeg_video_player_8hpp_source}{}\label{_f_fmpeg_video_player_8hpp_source}\index{headers/FFmpegVideoPlayer.hpp@{headers/FFmpegVideoPlayer.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 18/04/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_ttf.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_image.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <SDL2/SDL\_mixer.h>}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ <libavformat/avformat.h>}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ <libavcodec/avcodec.h>}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <libswscale/swscale.h>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <libavutil/channel\_layout.h>}}
+\DoxyCodeLine{00023\ \}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00146\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_f_fmpeg_video_player}{FFmpegVideoPlayer}}}
+\DoxyCodeLine{00147\ \{}
+\DoxyCodeLine{00148\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00149\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *videoFile\{\};\ }
+\DoxyCodeLine{00150\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *musicFile\{\};\ }
+\DoxyCodeLine{00151\ \ \ \ \ SDL\_Window\ *window\{\};\ }
+\DoxyCodeLine{00152\ \ \ \ \ SDL\_Renderer\ *renderer\{\};\ }
+\DoxyCodeLine{00153\ \ \ \ \ AVFormatContext\ *formatCtx\{\};\ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keywordtype}{int}\ videoStreamIndex\{\};\ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{int}\ audioStreamIndex\{\};\ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keyword}{const}\ AVCodec\ *videoCodec\{\};\ }
+\DoxyCodeLine{00157\ \ \ \ \ \textcolor{keyword}{const}\ AVCodec\ *audioCodec\{\};\ }
+\DoxyCodeLine{00158\ \ \ \ \ AVCodecContext\ *videoCodecCtx\{\};\ }
+\DoxyCodeLine{00159\ \ \ \ \ AVCodecContext\ *audioCodecCtx\{\};\ }
+\DoxyCodeLine{00160\ \ \ \ \ Mix\_Music\ *music\{\};\ }
+\DoxyCodeLine{00162\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00167\ \ \ \ \ \mbox{\hyperlink{class_f_fmpeg_video_player_ae8543119fe857f1e38996542f2326d5f}{FFmpegVideoPlayer}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *videoFile,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *musicFile,\ SDL\_Window\ *window,\ SDL\_Renderer\ *renderer)}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ :\ videoFile(videoFile),\ musicFile(musicFile),\ window(window),\ renderer(renderer),\ formatCtx(nullptr),}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ videoStreamIndex(-\/1),\ audioStreamIndex(-\/1),\ videoCodec(nullptr),\ audioCodec(nullptr),}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ videoCodecCtx(nullptr),\ audioCodecCtx(nullptr),\ music(nullptr)}
+\DoxyCodeLine{00171\ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ avformat\_network\_init();}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ the\ input\ file}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (avformat\_open\_input(\&formatCtx,\ videoFile,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr})\ <\ 0)}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ errbuf[AV\_ERROR\_MAX\_STRING\_SIZE];}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ av\_strerror(errno,\ errbuf,\ AV\_ERROR\_MAX\_STRING\_SIZE);}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ Video\ file:\ "{}}\ <<\ videoFile\ <<\ \textcolor{stringliteral}{"{}\ -\/\ "{}}\ <<\ errbuf\ <<\ std::endl;}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //\ Debug:\ Printing\ stream\ information\ for\ debugging}}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Debug:\ Printing\ stream\ information\ for\ debugging:"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ av\_dump\_format(formatCtx,\ 0,\ videoFile,\ 0);}}
+\DoxyCodeLine{00186\ }
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ stream\ information}}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (avformat\_find\_stream\_info(formatCtx,\ \textcolor{keyword}{nullptr})\ <\ 0)}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}\ errbuf[AV\_ERROR\_MAX\_STRING\_SIZE];}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ av\_strerror(errno,\ errbuf,\ AV\_ERROR\_MAX\_STRING\_SIZE);}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ find\ stream\ information:\ "{}}\ <<\ errbuf\ <<\ std::endl;}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Find\ the\ first\ video\ stream\ and\ audio\ stream}}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ formatCtx-\/>nb\_streams;\ i++)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (formatCtx-\/>streams[i]-\/>codecpar-\/>codec\_type\ ==\ AVMEDIA\_TYPE\_VIDEO\ \&\&\ videoStreamIndex\ <\ 0)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ videoStreamIndex\ =\ i;}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Found\ Video\ Stream:\ Index\ "{}}\ <<\ videoStreamIndex\ <<\ std::endl;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //\ Debug:\ Print\ video\ codec\ information}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Debug:\ Video\ Codec\ Information:"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ av\_dump\_format(formatCtx,\ videoStreamIndex,\ videoFile,\ 0);}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (formatCtx-\/>streams[i]-\/>codecpar-\/>codec\_type\ ==\ AVMEDIA\_TYPE\_AUDIO\ \&\&\ audioStreamIndex\ <\ 0)}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ audioStreamIndex\ =\ i;}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Found\ Audio\ Stream:\ Index\ "{}}\ <<\ audioStreamIndex\ <<\ std::endl;}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ //\ Debug:\ Print\ audio\ codec\ information}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ std::cout\ <<\ "{}Debug:\ Audio\ Codec\ Information:"{}\ <<\ std::endl;}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ av\_dump\_format(formatCtx,\ audioStreamIndex,\ videoFile,\ 0);\ //\ Changed\ this\ line}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (videoStreamIndex\ ==\ -\/1\ \&\&\ audioStreamIndex\ ==\ -\/1)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ find\ video\ or\ audio\ stream."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ video\ codec}}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (videoStreamIndex\ >=\ 0)}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ videoCodecCtx\ =\ avcodec\_alloc\_context3(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!videoCodecCtx)}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ allocate\ video\ codec\ context."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ avcodec\_parameters\_to\_context(videoCodecCtx,\ formatCtx-\/>streams[videoStreamIndex]-\/>codecpar);}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ videoCodec\ =\ avcodec\_find\_decoder(videoCodecCtx-\/>codec\_id);}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!videoCodec)}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ find\ video\ codec."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (avcodec\_open2(videoCodecCtx,\ videoCodec,\ \textcolor{keyword}{nullptr})\ <\ 0)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ video\ codec."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00250\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Open\ audio\ codec}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (audioStreamIndex\ >=\ 0)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ audioCodecCtx\ =\ avcodec\_alloc\_context3(\textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!audioCodecCtx)}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ allocate\ audio\ codec\ context."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \ \ \ \ avcodec\_parameters\_to\_context(audioCodecCtx,\ formatCtx-\/>streams[audioStreamIndex]-\/>codecpar);}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ audioCodec\ =\ avcodec\_find\_decoder(audioCodecCtx-\/>codec\_id);}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!audioCodec)}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ find\ audio\ codec."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (avcodec\_open2(audioCodecCtx,\ audioCodec,\ \textcolor{keyword}{nullptr})\ <\ 0)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ open\ audio\ codec."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);\ \textcolor{comment}{//\ Close\ input\ on\ failure}}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00275\ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ SDL\ Mixer}}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Mix\_OpenAudio(44100,\ MIX\_DEFAULT\_FORMAT,\ 2,\ 4096)\ ==\ -\/1)}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Failed\ to\ open\ audio\ channel:\ "{}}\ <<\ Mix\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00282\ }
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Initialize\ music\ with\ SDL\ Mixer}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ music\ =\ Mix\_LoadMUS(musicFile);}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!music)}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Failed\ to\ load\ music\ file:\ "{}}\ <<\ Mix\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00291\ \ \ \ \ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \ \ \ \ \mbox{\hyperlink{class_f_fmpeg_video_player_a3fbc755471d0b1013656330e75e15ce9}{\string~FFmpegVideoPlayer}}()}
+\DoxyCodeLine{00297\ \ \ \ \ \{}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (videoCodecCtx)}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ avcodec\_free\_context(\&videoCodecCtx);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (audioCodecCtx)}
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ avcodec\_free\_context(\&audioCodecCtx);}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (formatCtx)}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00308\ \ \ \ \ \ \ \ \ \ \ \ \ avformat\_close\_input(\&formatCtx);}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (music)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ Mix\_FreeMusic(music);}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ Mix\_CloseAudio();}
+\DoxyCodeLine{00315\ \ \ \ \ \}}
+\DoxyCodeLine{00316\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691}{playAudio}}()}
+\DoxyCodeLine{00325\ \ \ \ \ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Play\ music}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Mix\_PlayMusic(music,\ 0)\ ==\ -\/1)}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Failed\ to\ play\ music:\ "{}}\ <<\ Mix\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ \ \ \ \ \}}
+\DoxyCodeLine{00333\ }
+\DoxyCodeLine{00345\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_f_fmpeg_video_player_af2c678c88a09d5b5bbbddb38d57ab2ff}{playVideo}}()}
+\DoxyCodeLine{00346\ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{comment}{//\ Check\ if\ constructor\ initialised\ successfully}}
+\DoxyCodeLine{00348\ \ \ \ \ \textcolor{keywordflow}{if}\ (!formatCtx\ ||\ !videoCodecCtx\ ||\ !audioCodecCtx)}
+\DoxyCodeLine{00349\ \ \ \ \ \{}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ FFmpeg\ initialization\ failed."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00352\ \ \ \ \ \}}
+\DoxyCodeLine{00353\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{comment}{//\ Create\ SDL\ texture}}
+\DoxyCodeLine{00355\ \ \ \ \ SDL\_Texture\ *texture\ =\ SDL\_CreateTexture(renderer,\ SDL\_PIXELFORMAT\_YV12,\ SDL\_TEXTUREACCESS\_STREAMING,}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ videoCodecCtx-\/>width,\ videoCodecCtx-\/>height);}
+\DoxyCodeLine{00357\ \ \ \ \ \textcolor{keywordflow}{if}\ (texture\ ==\ \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{00358\ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ std::cerr\ <<\ \textcolor{stringliteral}{"{}Error:\ Could\ not\ create\ SDL\ texture:\ "{}}\ <<\ SDL\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00361\ \ \ \ \ \}}
+\DoxyCodeLine{00362\ }
+\DoxyCodeLine{00363\ \ \ \ \ \textcolor{comment}{//\ Allocate\ frame}}
+\DoxyCodeLine{00364\ \ \ \ \ AVFrame\ *frame\ =\ av\_frame\_alloc();}
+\DoxyCodeLine{00365\ \ \ \ \ AVPacket\ packet;}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \textcolor{comment}{//\ Calculate\ delay\ to\ achieve\ desired\ frame\ rate}}
+\DoxyCodeLine{00368\ \ \ \ \ \textcolor{keywordtype}{double}\ frame\_delay\ =\ 1.0\ /\ av\_q2d(formatCtx-\/>streams[videoStreamIndex]-\/>avg\_frame\_rate);}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \textcolor{comment}{//\ Start\ audio\ playback}}
+\DoxyCodeLine{00371\ \ \ \ \ \mbox{\hyperlink{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691}{playAudio}}();}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \textcolor{comment}{//\ Start\ video\ playback\ loop}}
+\DoxyCodeLine{00374\ \ \ \ \ \textcolor{keywordtype}{bool}\ end\_of\_stream\ =\ \textcolor{keyword}{false};\ \textcolor{comment}{//\ Flag\ to\ track\ end\ of\ video\ stream}}
+\DoxyCodeLine{00375\ \ \ \ \ \textcolor{keywordflow}{while}\ (!end\_of\_stream)\ \ \ \ \ \ \textcolor{comment}{//\ Loop\ until\ end\ of\ stream}}
+\DoxyCodeLine{00376\ \ \ \ \ \{}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ video\ frames}}
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (!end\_of\_stream\ \&\&\ av\_read\_frame(formatCtx,\ \&packet)\ >=\ 0)}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (packet.stream\_index\ ==\ videoStreamIndex)}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avcodec\_send\_packet(videoCodecCtx,\ \&packet);}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ avcodec\_receive\_frame(videoCodecCtx,\ frame);}
+\DoxyCodeLine{00384\ }
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderClear(renderer);}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ video\ texture}}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_UpdateYUVTexture(texture,\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame-\/>data[0],\ frame-\/>linesize[0],}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame-\/>data[1],\ frame-\/>linesize[1],}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ frame-\/>data[2],\ frame-\/>linesize[2]);}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Render\ the\ video\ frame}}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderCopy(renderer,\ texture,\ \textcolor{keyword}{nullptr},\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderPresent(renderer);}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Delay\ the\ video\ so\ that\ it\ plays\ at\ the\ same\ speed\ as\ video\ stream}}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Delay((Uint32)(frame\_delay\ *\ 1000));\ \textcolor{comment}{//\ Convert\ to\ milliseconds}}
+\DoxyCodeLine{00399\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00401\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ It's\ necessary\ to\ have\ an\ event\ loop\ here.}}
+\DoxyCodeLine{00402\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ The\ reason\ is\ while\ the\ video\ is\ playing,\ if\ you\ move\ the\ window}}
+\DoxyCodeLine{00403\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\ expects\ their\ to\ be\ a\ key\ input\ handle\ loop\ logic\ to\ take\ care\ of\ this\ event}}
+\DoxyCodeLine{00404\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ but\ because\ their\ are\ no\ case\ for\ events\ it\ will\ crash.}}
+\DoxyCodeLine{00405\ \textcolor{comment}{}}
+\DoxyCodeLine{00406\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Thus\ we\ initialise\ a\ fake\ event\ loop\ and\ also\ pressing\ any\ button\ skips\ the\ cutscene\ which}}
+\DoxyCodeLine{00407\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ can\ be\ customised}}
+\DoxyCodeLine{00408\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Event\ event;}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (SDL\_PollEvent(\&event))}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (event.type)}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_QUIT:}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_KEYDOWN:}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_CONTROLLERBUTTONDOWN:}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_MOUSEBUTTONDOWN:}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ SDL\_FINGERDOWN:}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ end\_of\_stream\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ av\_packet\_unref(\&packet);}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00426\ }
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ When\ video\ stream\ ends,\ quit\ and\ return}}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (av\_read\_frame(formatCtx,\ \&packet)\ ==\ AVERROR\_EOF)}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ end\_of\_stream\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00430\ \ \ \ \ \}}
+\DoxyCodeLine{00431\ }
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{comment}{//\ Cleanup}}
+\DoxyCodeLine{00433\ \ \ \ \ av\_frame\_free(\&frame);}
+\DoxyCodeLine{00434\ \ \ \ \ SDL\_DestroyTexture(texture);}
+\DoxyCodeLine{00435\ \}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00437\ \};}
+
+\end{DoxyCode}

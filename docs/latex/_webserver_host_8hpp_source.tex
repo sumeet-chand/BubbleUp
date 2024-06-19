@@ -1,0 +1,74 @@
+\doxysection{Webserver\+Host.\+hpp}
+\hypertarget{_webserver_host_8hpp_source}{}\label{_webserver_host_8hpp_source}\index{headers/WebserverHost.hpp@{headers/WebserverHost.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Score.hpp"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}Entity.hpp"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ Forward\ declarations}}
+\DoxyCodeLine{00017\ \textcolor{keyword}{struct\ }score;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00036\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_webserver_host}{WebserverHost}}}
+\DoxyCodeLine{00037\ \{}
+\DoxyCodeLine{00038\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ webserverIPAddress\ =\ \textcolor{stringliteral}{"{}192.168.0.1"{}};\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ webserverPort\ =\ 8080;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00041\ \ \ \ \ std::vector<Score>\ serverScores\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ std::vector<Entity\ *>\ serverEntities\{\};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00050\ \ \ \ \ \mbox{\hyperlink{class_webserver_host_aa6beea74c6a7bd7dbc8240f7d0793dc3}{WebserverHost}}()}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Constructed:\ WebserverClient"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_webserver_host_aead9dbebd5be8eb55cc4f2978eed2b18}{\string~WebserverHost}}()}
+\DoxyCodeLine{00058\ \ \ \ \ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Destroyed:\ WebserverClient"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00060\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ \ \ \ \ std::vector<Entity\ *>\ \mbox{\hyperlink{class_webserver_host_a3e7f9195ac0ef02a091a7eb45847ffc2}{get\_webserver\_entities}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ serverEntities;}
+\DoxyCodeLine{00066\ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_webserver_host_a4c40ee01857e06b4c46cb743b0702c68}{webserver\_process\_single\_game\_player\_score}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_score}{Score}}\&\ s)}
+\DoxyCodeLine{00071\ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ playerFound\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Iterate\ through\ the\ scores\ vector\ to\ find\ the\ player\ by\ playerID}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ \&existingScore\ :\ serverScores)}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (existingScore.playerID\ ==\ s.\mbox{\hyperlink{struct_score_a977641fa24070891a3b54d357df48ae6}{playerID}})}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Update\ the\ player's\ score\ and\ datetime}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ existingScore.score\ =\ s.\mbox{\hyperlink{struct_score_a331b0927105c83ba760954eff6cf9fe9}{score}};}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ existingScore.datetime\ =\ s.\mbox{\hyperlink{struct_score_a8ce48c0cba7d5e029f705780be31b260}{datetime}};}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ playerFound\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Updated\ Scoreboard\ time\ for\ "{}}\ <<\ s.\mbox{\hyperlink{struct_score_a977641fa24070891a3b54d357df48ae6}{playerID}}\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ s.\mbox{\hyperlink{struct_score_a032be36bf1b53fb70fe78624e6d0fe32}{name}}\ <<\ \textcolor{stringliteral}{"{}\ to:\ "{}}\ <<\ s.\mbox{\hyperlink{struct_score_a8ce48c0cba7d5e029f705780be31b260}{datetime}}\ <<\ std::endl;}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ player\ was\ not\ found,\ add\ the\ new\ score\ entry}}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!playerFound)}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ serverScores.push\_back(s);}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Scoreboard\ time\ for\ "{}}\ <<\ s.\mbox{\hyperlink{struct_score_a977641fa24070891a3b54d357df48ae6}{playerID}}\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ s.\mbox{\hyperlink{struct_score_a032be36bf1b53fb70fe78624e6d0fe32}{name}}\ <<\ \textcolor{stringliteral}{"{}\ is:\ "{}}\ <<\ s.\mbox{\hyperlink{struct_score_a8ce48c0cba7d5e029f705780be31b260}{datetime}}\ <<\ std::endl;}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \ \ \ \ \}}
+\DoxyCodeLine{00097\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_webserver_host_a062e98b2bd7333ff8e30aba5cec4775c}{save\_webserver\_state}}()\ \{}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_webserver_host_a3ae0f04609833cc218b05b86298491e0}{load\_webserver\_state}}()\ \{}
+\DoxyCodeLine{00104\ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \}}
+\DoxyCodeLine{00106\ \};}
+
+\end{DoxyCode}

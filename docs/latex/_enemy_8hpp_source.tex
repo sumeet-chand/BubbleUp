@@ -1,0 +1,27 @@
+\doxysection{Enemy.\+hpp}
+\hypertarget{_enemy_8hpp_source}{}\label{_enemy_8hpp_source}\index{headers/entities/Enemy.hpp@{headers/entities/Enemy.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Subclass\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../Entity.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_enemy}{Enemy}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_enemy_a4fbd45f751cf9cf566706453a4a78b25}{Enemy}}(\textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_a5bfe4d0d27f9da8a73f3021c884a077f}{handle\_player\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_ab20df94a6a35137246bd29b98be7dc9b}{handle\_item\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_enemy_acb6eae4d026c550d61b68ff127d04bf0}{handle\_enemy\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00051\ \};}
+
+\end{DoxyCode}

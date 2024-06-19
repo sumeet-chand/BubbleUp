@@ -1,0 +1,143 @@
+\doxysection{FFmpeg\+Video\+Player Class Reference}
+\hypertarget{class_f_fmpeg_video_player}{}\label{class_f_fmpeg_video_player}\index{FFmpegVideoPlayer@{FFmpegVideoPlayer}}
+
+
+Declaration file for using FFmpeg in your SDL program to play a video from any format.  
+
+
+
+
+{\ttfamily \#include $<$FFmpeg\+Video\+Player.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_f_fmpeg_video_player_ae8543119fe857f1e38996542f2326d5f}\label{class_f_fmpeg_video_player_ae8543119fe857f1e38996542f2326d5f} 
+{\bfseries FFmpeg\+Video\+Player} (const char \texorpdfstring{$\ast$}{*}video\+File, const char \texorpdfstring{$\ast$}{*}music\+File, SDL\+\_\+\+Window \texorpdfstring{$\ast$}{*}window, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em default \doxylink{class_f_fmpeg_video_player}{FFmpeg\+Video\+Player} constructor \end{DoxyCompactList}\item 
+\Hypertarget{class_f_fmpeg_video_player_a3fbc755471d0b1013656330e75e15ce9}\label{class_f_fmpeg_video_player_a3fbc755471d0b1013656330e75e15ce9} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+FFmpeg\+Video\+Player} ()
+\begin{DoxyCompactList}\small\item\em default \doxylink{class_f_fmpeg_video_player}{FFmpeg\+Video\+Player} deconstructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691}{play\+Audio}} ()
+\begin{DoxyCompactList}\small\item\em play audio\+File \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_f_fmpeg_video_player_af2c678c88a09d5b5bbbddb38d57ab2ff}{play\+Video}} ()
+\begin{DoxyCompactList}\small\item\em play the video and call the audio at the same time \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Declaration file for using FFmpeg in your SDL program to play a video from any format. 
+
+Declarations\+: ./headers/\+FFmpeg\+Video\+Player.hpp Definitions\+: ./src/\+FFmpeg\+Video\+Player.cpp
+
+REQUIREMENTS
+
+FFMPEG is the worlds largest open source multimedia framework for video playback and codec methods. FFMPEG requires building if you require include, libs and .dll\textquotesingle{}s to utilise in a C/\+C++ program.
+
+Currently this code is requiring manual user intervention to split audio track from video using any tool e.\+g. a free online converter\+: \href{https://biteable.com/tools/extract-audio-from-video/}{\texttt{ https\+://biteable.\+com/tools/extract-\/audio-\/from-\/video/}} then add it in the constructor to play during the video. Ideally it should be read from audio channel.
+
+WINDOWS BUILD GUIDE
+
+FFMPEG has no CMAKE to date for building on windows with "{}cmake -\/\+G "{}Min\+GW Makefiles"{} .."{}. This requires building ffmpeg using a Linux CLI or MSYS2 if on Windows.
+
+
+\begin{DoxyEnumerate}
+\item Download ffmpeg source code to new directory "{}c \+: \textbackslash{} ffmpeg"{} from here\+: \href{https://ffmpeg.org/download.html}{\texttt{ https\+://ffmpeg.\+org/download.\+html}}
+\item (Optional Windows) Install MSYS2 from guide here\+: \href{https://www.msys2.org/}{\texttt{ https\+://www.\+msys2.\+org/}}
+\item Run below commands (If using Windows run commands from MSYS2 Mingw64) note\+: running \textquotesingle{}make\textquotesingle{} may take some time \texorpdfstring{$\sim$}{\string~}60 mins 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{cd\ c\ :\ \(\backslash\)\ ffmpeg}
+\DoxyCodeLine{./configure\ \ -\/-\/prefix=c:/ffmpeg\ -\/-\/enable-\/shared\ -\/-\/enable-\/gpl\ -\/-\/disable-\/programs}
+\DoxyCodeLine{make}
+\DoxyCodeLine{make\ install}
+
+\end{DoxyCode}
+
+\item Use the below include, lib and linkers paths for your IDE, or CLI "{}args"{}\+: \mbox{[} "{}-\/fdiagnostics-\/color=always"{}, "{}-\/\+IC \+:/ffmpeg/include"{}, "{}-\/g"{}, "{}\$\{file\}"{}, "{}-\/o"{}, "{}\$\{file\+Dirname\}/\$\{file\+Basename\+No\+Extension\}.\+exe"{}, "{}-\/\+LC \+:/ffmpeg/lib"{}, "{}-\/lavformat"{}, "{}-\/lavcodec"{}, "{}-\/lavutil"{}, "{}-\/lswscale"{}, "{}-\/lswresample"{} \mbox{]}, Last step. Copy the dll files below from the C, ffmpeg, bin directory to your projects directory besides your executable avcodec-\/61.\+dll, avformat-\/61.\+dll, avutil-\/59.\+dll, swresample-\/5.\+dll
+\end{DoxyEnumerate}
+
+LINUX BUILD GUIDE
+
+Run the bellow commands in sequence to get the headers and libs installed in default linux location /opt/homebrew/include and /lib
+
+
+\begin{DoxyEnumerate}
+\item sudo apt-\/get install build-\/essential libmp3lame-\/dev libopus-\/dev libvpx-\/dev libx264-\/dev libx265-\/dev libfdk-\/aac-\/dev
+\item git clone \href{https://git.ffmpeg.org/ffmpeg.git}{\texttt{ https\+://git.\+ffmpeg.\+org/ffmpeg.\+git}}
+\item cd ffmpeg
+\item ./configure --prefix=/usr/local --enable-\/gpl --enable-\/nonfree --enable-\/libmp3lame --enable-\/libopus --enable-\/libvpx --enable-\/libx264 --enable-\/libx265 --enable-\/libfdk-\/aac
+\item make -\/j\$(nproc)
+\item sudo make install
+\item Link with the below 7a. Headers directory /opt/homebrew/include 7b. Libray directory /opt/homebrew/lib 7c. libraries "{}-\/lavformat"{}, "{}-\/lavcodec"{}, "{}-\/lavutil"{}, "{}-\/lswscale"{}, "{}-\/lswresample"{}
+\end{DoxyEnumerate}
+
+MACOS BUILD GUIDE
+\begin{DoxyEnumerate}
+\item run the below; brew install ffmpeg
+\item Link against the required libs "{}-\/lavformat"{}, // FFmpeg libraries "{}-\/lavcodec"{}, // FFmpeg libraries "{}-\/lavutil"{}, // FFmpeg libraries "{}-\/lswscale"{}, // FFmpeg libraries
+\end{DoxyEnumerate}
+
+TROUBLESHOOTING
+
+NoteL Optional only if you get errors when compiling with this old C style ffmpeg headers with modern c++ libraries like boost you may have conflicts compiling with stl being different in the ffmpeg folder. In that case you may need to delete the offending folders keeping only the necessary include/lib folders as well as the .dll\textquotesingle{}s e.\+g; for this folder\+: "{}\+C \+:\textbackslash{} ffmpeg"{} the only necessary files inside to compile are below, you can delete the rest.
+\begin{DoxyItemize}
+\item bin
+\item compat
+\item ffbuild
+\item fftools
+\item include
+\item lib
+\item libavcodec
+\item libavdevice
+\item libavfilter
+\item libavformat
+\item libavutil
+\item libpostproc
+\item libswresample
+\item libswscale
+
+EXAMPLE
+\begin{DoxyEnumerate}
+\item Include this class in desired program include \texorpdfstring{$<$}{<}\doxylink{_f_fmpeg_video_player_8hpp_source}{FFmpeg\+Video\+Player.\+hpp}\texorpdfstring{$>$}{>}
+\item Instantiate the class into an object ensuring a valid window/renderer is passed
+\end{DoxyEnumerate}
+
+\doxylink{class_f_fmpeg_video_player}{FFmpeg\+Video\+Player} video\+Player("{}sample.\+mp4"{}, window, renderer);
+\begin{DoxyEnumerate}
+\item Play the video. It will block the stack until it ends like any standard function.
+\end{DoxyEnumerate}
+
+video\+Player.\+play\+Video(); 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691}\label{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691} 
+\index{FFmpegVideoPlayer@{FFmpegVideoPlayer}!playAudio@{playAudio}}
+\index{playAudio@{playAudio}!FFmpegVideoPlayer@{FFmpegVideoPlayer}}
+\doxysubsubsection{\texorpdfstring{playAudio()}{playAudio()}}
+{\footnotesize\ttfamily void FFmpeg\+Video\+Player\+::play\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+play audio\+File 
+
+The audio playback pipeline is below
+
+Original file -\/\texorpdfstring{$>$}{>} split into video\+File/music\+File -\/\texorpdfstring{$>$}{>} music\+File -\/\texorpdfstring{$>$}{>} initialise SDL\+\_\+\+Mixer -\/\texorpdfstring{$>$}{>} Mix\+\_\+\+Play\+Music -\/\texorpdfstring{$>$}{>} \doxylink{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691}{play\+Audio()} -\/\texorpdfstring{$>$}{>} \doxylink{class_f_fmpeg_video_player_af2c678c88a09d5b5bbbddb38d57ab2ff}{play\+Video()} \{\doxylink{class_f_fmpeg_video_player_a75a69389b294c24c25289c482bd71691}{play\+Audio()}\} \Hypertarget{class_f_fmpeg_video_player_af2c678c88a09d5b5bbbddb38d57ab2ff}\label{class_f_fmpeg_video_player_af2c678c88a09d5b5bbbddb38d57ab2ff} 
+\index{FFmpegVideoPlayer@{FFmpegVideoPlayer}!playVideo@{playVideo}}
+\index{playVideo@{playVideo}!FFmpegVideoPlayer@{FFmpegVideoPlayer}}
+\doxysubsubsection{\texorpdfstring{playVideo()}{playVideo()}}
+{\footnotesize\ttfamily void FFmpeg\+Video\+Player\+::play\+Video (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+play the video and call the audio at the same time 
+
+The video playback pipeline is below
+
+Original file -\/\texorpdfstring{$>$}{>} split into video\+File/music\+File -\/\texorpdfstring{$>$}{>} video\+File -\/\texorpdfstring{$>$}{>} video\+Stream -\/\texorpdfstring{$>$}{>} while (packet -\/\texorpdfstring{$>$}{>} frame -\/\texorpdfstring{$>$}{>} texture -\/\texorpdfstring{$>$}{>} renderer)
+
+Their is an input event loop because it\textquotesingle{}s important to allow moving/resizing/closing the window while the video is playing if you havn\textquotesingle{}t initialised the event loop outside of this function yet. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/FFmpeg\+Video\+Player.\+hpp\end{DoxyCompactItemize}

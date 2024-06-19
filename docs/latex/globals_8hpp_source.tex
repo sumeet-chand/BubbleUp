@@ -1,0 +1,389 @@
+\doxysection{globals.\+hpp}
+\hypertarget{globals_8hpp_source}{}\label{globals_8hpp_source}\index{headers/globals.hpp@{headers/globals.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Project:\ BubbleUP}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ Purpose:\ Declaration\ file}}
+\DoxyCodeLine{00007\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{}}
+\DoxyCodeLine{00010\ \textcolor{comment}{\ \ \ \ DESCRIPTION}}
+\DoxyCodeLine{00011\ \textcolor{comment}{}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ Declaration\ file\ of\ all\ global\ variables.\ Created\ to\ prevent\ polluting\ namespace\ with\ conflicting}}
+\DoxyCodeLine{00013\ \textcolor{comment}{\ \ \ \ variables.\ This\ way\ the\ variables\ are\ controlled\ by\ including\ this\ header\ only\ in\ required\ files}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ Declarations:\ ./globals.hpp}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ Definitions:\ ./src/globals.cpp}}
+\DoxyCodeLine{00017\ \textcolor{comment}{}}
+\DoxyCodeLine{00018\ \textcolor{comment}{}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ EXAMPLE}}
+\DoxyCodeLine{00020\ \textcolor{comment}{}}
+\DoxyCodeLine{00021\ \textcolor{comment}{\ \ \ \ 1.\ Include\ in\ files\ that\ need\ to\ access\ global\ variables\ e.g;}}
+\DoxyCodeLine{00022\ \textcolor{comment}{\ \ \ \ \#include\ <globals.hpp>}}
+\DoxyCodeLine{00023\ \textcolor{comment}{}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ <atomic>}\ \ \ \ \textcolor{comment}{//\ for\ making\ toggle\_countdown()\ startTimer\ thread\ safe}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ <map>}\ \ \ \ \ \ \ \textcolor{comment}{//\ For\ translations}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}buttons/ClickableButton.hpp"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}buttons/DropdownButton.hpp"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}buttons/InputButton.hpp"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}buttons/SliderButton.hpp"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}entities/Player.hpp"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}entities/Item.hpp"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}entities/Enemy.hpp"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}entities/Obstacle.hpp"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}UpdateApp.hpp"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}DebugLogging.hpp"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}WebserverClient.hpp"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}WebserverHost.hpp"{}}}
+\DoxyCodeLine{00046\ \textcolor{comment}{//\ Score.hpp\ is\ included\ from\ WebserverHost.hpp\ no\ need\ to\ include\ twice}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{comment}{//\ Standard\ SDL\ Library}}
+\DoxyCodeLine{00049\ \textcolor{keyword}{extern}\ SDL\_Window\ *window;}
+\DoxyCodeLine{00050\ \textcolor{keyword}{extern}\ SDL\_Renderer\ *renderer;}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{comment}{//\ Textures}}
+\DoxyCodeLine{00053\ \textcolor{keyword}{extern}\ SDL\_Texture\ *background1Texture;}
+\DoxyCodeLine{00054\ \textcolor{keyword}{extern}\ SDL\_Texture\ *heartTexture;}
+\DoxyCodeLine{00055\ \textcolor{keyword}{extern}\ SDL\_Texture\ *hearts2Texture;}
+\DoxyCodeLine{00056\ \textcolor{keyword}{extern}\ SDL\_Texture\ *hearts3Texture;}
+\DoxyCodeLine{00057\ \textcolor{keyword}{extern}\ SDL\_Texture\ *hearts4Texture;}
+\DoxyCodeLine{00058\ \textcolor{keyword}{extern}\ SDL\_Texture\ *hearts5Texture;}
+\DoxyCodeLine{00059\ \textcolor{keyword}{extern}\ SDL\_Texture\ *timerTexture;}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00061\ \textcolor{comment}{//\ SDL\_TTF}}
+\DoxyCodeLine{00062\ \textcolor{keyword}{extern}\ TTF\_Font\ *defaultFont;}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{keyword}{extern}\ TTF\_Font\ *font24;\ \ \ \ \ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{extern}\ TTF\_Font\ *font36;\ \ \ \ \ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00066\ \textcolor{keyword}{extern}\ TTF\_Font\ *font48;\ \ \ \ \ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00067\ \textcolor{keyword}{extern}\ TTF\_Font\ *fontBold24;\ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00068\ \textcolor{keyword}{extern}\ TTF\_Font\ *fontBold36;\ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{extern}\ TTF\_Font\ *fontBold48;\ \textcolor{comment}{//\ default\ font}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00071\ \textcolor{keyword}{extern}\ TTF\_Font\ *europeanfont24;\ \ \ \ \ \textcolor{comment}{//\ Supports\ all\ European\ languages}}
+\DoxyCodeLine{00072\ \textcolor{keyword}{extern}\ TTF\_Font\ *europeanfont36;\ \ \ \ \ \textcolor{comment}{//\ Supports\ all\ European\ languages}}
+\DoxyCodeLine{00073\ \textcolor{keyword}{extern}\ TTF\_Font\ *europeanfont48;\ \ \ \ \ \textcolor{comment}{//\ Supports\ all\ European\ languages}}
+\DoxyCodeLine{00074\ \textcolor{keyword}{extern}\ TTF\_Font\ *europeanBoldfont24;\ \textcolor{comment}{//\ Supports\ all\ European\ languages}}
+\DoxyCodeLine{00075\ \textcolor{keyword}{extern}\ TTF\_Font\ *europeanBoldfont36;\ \textcolor{comment}{//\ Supports\ all\ European\ languages}}
+\DoxyCodeLine{00076\ \textcolor{keyword}{extern}\ TTF\_Font\ *europeanBoldfont48;\ \textcolor{comment}{//\ Supports\ all\ European\ languages}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{extern}\ TTF\_Font\ *japanesefont24;}
+\DoxyCodeLine{00079\ \textcolor{keyword}{extern}\ TTF\_Font\ *japanesefont36;}
+\DoxyCodeLine{00080\ \textcolor{keyword}{extern}\ TTF\_Font\ *japanesefont48;}
+\DoxyCodeLine{00081\ \textcolor{keyword}{extern}\ TTF\_Font\ *japaneseBoldfont24;}
+\DoxyCodeLine{00082\ \textcolor{keyword}{extern}\ TTF\_Font\ *japaneseBoldfont36;}
+\DoxyCodeLine{00083\ \textcolor{keyword}{extern}\ TTF\_Font\ *japaneseBoldfont48;}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \textcolor{keyword}{extern}\ TTF\_Font\ *thaifont24;}
+\DoxyCodeLine{00086\ \textcolor{keyword}{extern}\ TTF\_Font\ *thaifont36;}
+\DoxyCodeLine{00087\ \textcolor{keyword}{extern}\ TTF\_Font\ *thaifont48;}
+\DoxyCodeLine{00088\ \textcolor{keyword}{extern}\ TTF\_Font\ *thaiBoldfont24;}
+\DoxyCodeLine{00089\ \textcolor{keyword}{extern}\ TTF\_Font\ *thaiBoldfont36;}
+\DoxyCodeLine{00090\ \textcolor{keyword}{extern}\ TTF\_Font\ *thaiBoldfont48;}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{keyword}{extern}\ TTF\_Font\ *devanagarifont24;}
+\DoxyCodeLine{00093\ \textcolor{keyword}{extern}\ TTF\_Font\ *devanagarifont36;}
+\DoxyCodeLine{00094\ \textcolor{keyword}{extern}\ TTF\_Font\ *devanagarifont48;}
+\DoxyCodeLine{00095\ \textcolor{keyword}{extern}\ TTF\_Font\ *devanagariBoldfont24;}
+\DoxyCodeLine{00096\ \textcolor{keyword}{extern}\ TTF\_Font\ *devanagariBoldfont36;}
+\DoxyCodeLine{00097\ \textcolor{keyword}{extern}\ TTF\_Font\ *devanagariBoldfont48;}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{extern}\ TTF\_Font\ *chinesefont24;}
+\DoxyCodeLine{00100\ \textcolor{keyword}{extern}\ TTF\_Font\ *chinesefont36;}
+\DoxyCodeLine{00101\ \textcolor{keyword}{extern}\ TTF\_Font\ *chinesefont48;}
+\DoxyCodeLine{00102\ \textcolor{keyword}{extern}\ TTF\_Font\ *chineseBoldfont24;}
+\DoxyCodeLine{00103\ \textcolor{keyword}{extern}\ TTF\_Font\ *chineseBoldfont36;}
+\DoxyCodeLine{00104\ \textcolor{keyword}{extern}\ TTF\_Font\ *chineseBoldfont48;}
+\DoxyCodeLine{00105\ }
+\DoxyCodeLine{00106\ \textcolor{keyword}{extern}\ TTF\_Font\ *arabicfont24;}
+\DoxyCodeLine{00107\ \textcolor{keyword}{extern}\ TTF\_Font\ *arabicfont36;}
+\DoxyCodeLine{00108\ \textcolor{keyword}{extern}\ TTF\_Font\ *arabicfont48;}
+\DoxyCodeLine{00109\ \textcolor{keyword}{extern}\ TTF\_Font\ *arabicBoldfont24;}
+\DoxyCodeLine{00110\ \textcolor{keyword}{extern}\ TTF\_Font\ *arabicBoldfont36;}
+\DoxyCodeLine{00111\ \textcolor{keyword}{extern}\ TTF\_Font\ *arabicBoldfont48;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keyword}{extern}\ TTF\_Font\ *geezfont24;}
+\DoxyCodeLine{00114\ \textcolor{keyword}{extern}\ TTF\_Font\ *geezfont36;}
+\DoxyCodeLine{00115\ \textcolor{keyword}{extern}\ TTF\_Font\ *geezfont48;}
+\DoxyCodeLine{00116\ \textcolor{keyword}{extern}\ TTF\_Font\ *geezBoldfont24;}
+\DoxyCodeLine{00117\ \textcolor{keyword}{extern}\ TTF\_Font\ *geezBoldfont36;}
+\DoxyCodeLine{00118\ \textcolor{keyword}{extern}\ TTF\_Font\ *geezBoldfont48;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \textcolor{comment}{//\ SDL\_Mixer}}
+\DoxyCodeLine{00121\ \textcolor{keyword}{extern}\ Mix\_Music\ *music;}
+\DoxyCodeLine{00122\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *treeSound;}
+\DoxyCodeLine{00123\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *waterSound;}
+\DoxyCodeLine{00124\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *barkSound;}
+\DoxyCodeLine{00125\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *heartSound;}
+\DoxyCodeLine{00126\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *moneySound;}
+\DoxyCodeLine{00127\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *drinkSound;}
+\DoxyCodeLine{00128\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *paperSound;}
+\DoxyCodeLine{00129\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *shootSound;}
+\DoxyCodeLine{00130\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *bumpSound;}
+\DoxyCodeLine{00131\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *popSound;}
+\DoxyCodeLine{00132\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *unlockSound;}
+\DoxyCodeLine{00133\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *lockSound;}
+\DoxyCodeLine{00134\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *winGameSound;}
+\DoxyCodeLine{00135\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *loseGameSound;}
+\DoxyCodeLine{00136\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *explosionSound;}
+\DoxyCodeLine{00137\ \textcolor{keyword}{extern}\ Mix\_Chunk\ *clothesSound;}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ quitEventLoop;}
+\DoxyCodeLine{00140\ \textcolor{keyword}{extern}\ std::string\ language;}
+\DoxyCodeLine{00141\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ boldFont;}
+\DoxyCodeLine{00142\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00143\ \textcolor{comment}{\ \ \ \ Common\ 16:9\ Resolutions}}
+\DoxyCodeLine{00144\ \textcolor{comment}{\ \ \ \ 1920\ x\ 1080\ (Full\ HD)}}
+\DoxyCodeLine{00145\ \textcolor{comment}{\ \ \ \ 1600\ x\ 900}}
+\DoxyCodeLine{00146\ \textcolor{comment}{\ \ \ \ 1366\ x\ 768}}
+\DoxyCodeLine{00147\ \textcolor{comment}{\ \ \ \ 1280\ x\ 720\ (HD)}}
+\DoxyCodeLine{00148\ \textcolor{comment}{\ \ \ \ 1024\ x\ 576}}
+\DoxyCodeLine{00149\ \textcolor{comment}{\ \ \ \ 960\ x\ 540}}
+\DoxyCodeLine{00150\ \textcolor{comment}{\ \ \ \ 854\ x\ 480}}
+\DoxyCodeLine{00151\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{extern}\ std::string\ softwareVersion;}
+\DoxyCodeLine{00153\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ GAME\_WORLD\_WIDTH;}
+\DoxyCodeLine{00154\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ GAME\_WORLD\_HEIGHT;}
+\DoxyCodeLine{00155\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH;}
+\DoxyCodeLine{00156\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT;}
+\DoxyCodeLine{00157\ \textcolor{keyword}{extern}\ std::string\ currentResolution;}
+\DoxyCodeLine{00158\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ acceleration;}
+\DoxyCodeLine{00159\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{float}\ deceleration;}
+\DoxyCodeLine{00160\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ xDragOffset;}
+\DoxyCodeLine{00161\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ yDragOffset;}
+\DoxyCodeLine{00162\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ mousePressed;}
+\DoxyCodeLine{00163\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ keyPressed;}
+\DoxyCodeLine{00164\ \textcolor{keyword}{extern}\ std::string\ buttonDirection;}
+\DoxyCodeLine{00165\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ soundVolume;}
+\DoxyCodeLine{00166\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ musicVolume;}
+\DoxyCodeLine{00167\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ lastScene;}
+\DoxyCodeLine{00168\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ scene;}
+\DoxyCodeLine{00169\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ scrollYpos;}
+\DoxyCodeLine{00170\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ scrollSpeed;}
+\DoxyCodeLine{00171\ \textcolor{keyword}{extern}\ std::atomic<bool>\ startTimer;}
+\DoxyCodeLine{00172\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ countdownSeconds;}
+\DoxyCodeLine{00173\ \textcolor{keyword}{extern}\ std::vector<int>\ unlockedAchievements;}
+\DoxyCodeLine{00174\ \textcolor{keyword}{extern}\ std::string\ saveFileName;}
+\DoxyCodeLine{00175\ \textcolor{keyword}{extern}\ std::string\ readmeFileName;}
+\DoxyCodeLine{00176\ \textcolor{keyword}{extern}\ std::string\ creditsFileName;}
+\DoxyCodeLine{00177\ \textcolor{keyword}{extern}\ std::string\ privacyPolicyFileName;}
+\DoxyCodeLine{00178\ \textcolor{keyword}{extern}\ std::string\ termsAndConditionsFileName;}
+\DoxyCodeLine{00179\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ highestScore;}
+\DoxyCodeLine{00180\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ gameStarted;}
+\DoxyCodeLine{00181\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ gameOver;}
+\DoxyCodeLine{00182\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ wonlevel;}
+\DoxyCodeLine{00183\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ wonGame;}
+\DoxyCodeLine{00184\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ musicPlaying;}
+\DoxyCodeLine{00185\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ vsyncEnabled;}
+\DoxyCodeLine{00186\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ displayOnScreenKeys;}
+\DoxyCodeLine{00187\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ displayFPS;}
+\DoxyCodeLine{00188\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ windowResized;}
+\DoxyCodeLine{00189\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ windowMinimized;}
+\DoxyCodeLine{00190\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ isMultiplayerGame;\ \textcolor{comment}{//\ flag\ for\ indicating\ game\ is\ multiplayer\ to\ POST\ gameplay\ to\ webserver\ host}}
+\DoxyCodeLine{00191\ }
+\DoxyCodeLine{00192\ \textcolor{comment}{//\ Game\ variables}}
+\DoxyCodeLine{00193\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene100setup;}
+\DoxyCodeLine{00194\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene101setup;}
+\DoxyCodeLine{00195\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene102setup;}
+\DoxyCodeLine{00196\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene102setup;}
+\DoxyCodeLine{00197\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene103setup;}
+\DoxyCodeLine{00198\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene104setup;}
+\DoxyCodeLine{00199\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene105setup;}
+\DoxyCodeLine{00200\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene106setup;}
+\DoxyCodeLine{00201\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene107setup;}
+\DoxyCodeLine{00202\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene108setup;}
+\DoxyCodeLine{00203\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene109setup;}
+\DoxyCodeLine{00204\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene110setup;}
+\DoxyCodeLine{00205\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{bool}\ scene111setup;}
+\DoxyCodeLine{00206\ }
+\DoxyCodeLine{00207\ \textcolor{comment}{//\ Translations}}
+\DoxyCodeLine{00208\ \textcolor{keyword}{extern}\ std::map<\ std::string,\ std::map<\ std::string,\ std::string>>\ languageTranslations;}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_player}{Player}}\ player1;}
+\DoxyCodeLine{00211\ }
+\DoxyCodeLine{00212\ \textcolor{keyword}{extern}\ std::vector<Entity\ *>\ entities;}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_base_button}{BaseButton}}\ *selectedButton;}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00216\ \textcolor{comment}{//\ Scene\ 1\ -\/\ Main\ Menu}}
+\DoxyCodeLine{00217\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1newGameButton;}
+\DoxyCodeLine{00218\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1settingsButton;}
+\DoxyCodeLine{00219\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1unlockablesButton;}
+\DoxyCodeLine{00220\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1scoreButton;}
+\DoxyCodeLine{00221\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1helpButton;}
+\DoxyCodeLine{00222\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1achievementsButton;}
+\DoxyCodeLine{00223\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1multiplayerButton;}
+\DoxyCodeLine{00224\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene1quitGameButton;}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00226\ \textcolor{comment}{//\ scene\ 2\ -\/\ Settings}}
+\DoxyCodeLine{00227\ \textcolor{comment}{//\ col\ 1}}
+\DoxyCodeLine{00228\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2ChangeFontButton;}
+\DoxyCodeLine{00229\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2ChangeLanguageButton;}
+\DoxyCodeLine{00230\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2changeKeymappingButton;}
+\DoxyCodeLine{00231\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2displayOnScreenKeysButton;}
+\DoxyCodeLine{00232\ \textcolor{comment}{//\ col\ 3}}
+\DoxyCodeLine{00233\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2fullscreenToggleButton;}
+\DoxyCodeLine{00234\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2toggleFPSButton;}
+\DoxyCodeLine{00235\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2enableVsyncButton;}
+\DoxyCodeLine{00236\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_dropdown_button}{DropdownButton}}\ scene2resolutionsDropdownButton;}
+\DoxyCodeLine{00237\ \textcolor{comment}{//\ col\ 5}}
+\DoxyCodeLine{00238\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2toggleSoundButton;}
+\DoxyCodeLine{00239\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2toggleMusicButton;}
+\DoxyCodeLine{00240\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_slider_button}{SliderButton}}\ scene2SFXSliderButton;}
+\DoxyCodeLine{00241\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_slider_button}{SliderButton}}\ scene2VolumeSliderButton;}
+\DoxyCodeLine{00242\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_slider_button}{SliderButton}}\ scene2scrollSpeedSliderButton;}
+\DoxyCodeLine{00243\ \textcolor{comment}{//\ col\ 8}}
+\DoxyCodeLine{00244\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2returnToTitleButton;}
+\DoxyCodeLine{00245\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2returnToGameButton;}
+\DoxyCodeLine{00246\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2saveSettingsButton;}
+\DoxyCodeLine{00247\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene2ResetToDefaultSettingsButton;}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{comment}{//\ scene\ 3\ -\/\ Unlockables}}
+\DoxyCodeLine{00250\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene3returnToTitleButton;}
+\DoxyCodeLine{00251\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene3creditsButton;}
+\DoxyCodeLine{00252\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene3sandboxButton;}
+\DoxyCodeLine{00253\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene3levelEditorButton;}
+\DoxyCodeLine{00254\ \textcolor{comment}{//\ scene\ 4\ -\/\ Scoreboard}}
+\DoxyCodeLine{00255\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene4submitNameButton;}
+\DoxyCodeLine{00256\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_input_button}{InputButton}}\ scene4inputPlayerNameButton;}
+\DoxyCodeLine{00257\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene4returnToTitleButton;}
+\DoxyCodeLine{00258\ \textcolor{comment}{//\ scene\ 5\ -\/\ Help}}
+\DoxyCodeLine{00259\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene5returnToTitleButton;}
+\DoxyCodeLine{00260\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene5backButton;}
+\DoxyCodeLine{00261\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene5forwardButton;}
+\DoxyCodeLine{00262\ \textcolor{comment}{//\ scene\ 6\ -\/\ Achievements}}
+\DoxyCodeLine{00263\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene6returnToTitleButton;}
+\DoxyCodeLine{00264\ \textcolor{comment}{//\ scene\ 7\ -\/\ Check\ for\ updates}}
+\DoxyCodeLine{00265\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene7returnToTitleButton;}
+\DoxyCodeLine{00266\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene7updateButton;}
+\DoxyCodeLine{00267\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene7cancelButton;}
+\DoxyCodeLine{00268\ \textcolor{comment}{//\ scene\ 8\ -\/\ Online\ login}}
+\DoxyCodeLine{00269\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene8returnToTitleButton;}
+\DoxyCodeLine{00270\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene8loginButton;}
+\DoxyCodeLine{00271\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene8registerButton;}
+\DoxyCodeLine{00272\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_input_button}{InputButton}}\ scene8inputemailButton;}
+\DoxyCodeLine{00273\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_input_button}{InputButton}}\ scene8inputpasswordButton;}
+\DoxyCodeLine{00274\ \textcolor{comment}{//\ scene\ 9\ -\/\ Create\ account}}
+\DoxyCodeLine{00275\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene9returnToTitleButton;}
+\DoxyCodeLine{00276\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene9submitButton;}
+\DoxyCodeLine{00277\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_input_button}{InputButton}}\ scene9inputusernameButton;}
+\DoxyCodeLine{00278\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_input_button}{InputButton}}\ scene9inputemailButton;}
+\DoxyCodeLine{00279\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_input_button}{InputButton}}\ scene9inputpasswordNameButton;}
+\DoxyCodeLine{00280\ \textcolor{comment}{//\ scene\ 10\ -\/\ Show\ policies}}
+\DoxyCodeLine{00281\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene10returnToTitleButton;}
+\DoxyCodeLine{00282\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene10acceptPrivacyPolicyButton;}
+\DoxyCodeLine{00283\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene10denyPrivacyPolicyButton;}
+\DoxyCodeLine{00284\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene10acceptTermsPolicyButton;}
+\DoxyCodeLine{00285\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene10denyTermsPolicyButton;}
+\DoxyCodeLine{00286\ \textcolor{comment}{//\ scene\ 11\ -\/\ Multiplayer\ Lobby}}
+\DoxyCodeLine{00287\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11returnToTitleButton;}
+\DoxyCodeLine{00288\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11createGameButton;}
+\DoxyCodeLine{00289\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11joinGameButton;}
+\DoxyCodeLine{00290\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11refreshGamesButton;}
+\DoxyCodeLine{00291\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11sendMessageButton;}
+\DoxyCodeLine{00292\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11addFriendButton;}
+\DoxyCodeLine{00293\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene11refreshFriendsButton;}
+\DoxyCodeLine{00294\ \textcolor{comment}{//\ scene\ 12\ -\/\ Keybindings}}
+\DoxyCodeLine{00295\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene12returnToTitleButton;}
+\DoxyCodeLine{00296\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene12acceptButton;}
+\DoxyCodeLine{00297\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene12resetButton;}
+\DoxyCodeLine{00298\ \textcolor{comment}{//\ scene\ 13\ -\/\ Create\ Game}}
+\DoxyCodeLine{00299\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene13cancelButton;}
+\DoxyCodeLine{00300\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene13createButton;}
+\DoxyCodeLine{00301\ \textcolor{comment}{//\ scene\ 14\ -\/\ Credits}}
+\DoxyCodeLine{00302\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene14returnToTitleButton;}
+\DoxyCodeLine{00303\ \textcolor{comment}{//\ scene\ 15\ -\/\ Credits}}
+\DoxyCodeLine{00304\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene15returnToTitleButton;}
+\DoxyCodeLine{00305\ \textcolor{comment}{//\ scene\ 16}}
+\DoxyCodeLine{00306\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene16returnToTitleButton;}
+\DoxyCodeLine{00307\ \textcolor{comment}{//\ scene\ 17}}
+\DoxyCodeLine{00308\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene17returnToTitleButton;}
+\DoxyCodeLine{00309\ \textcolor{comment}{//\ scene\ 18}}
+\DoxyCodeLine{00310\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene18returnToTitleButton;}
+\DoxyCodeLine{00311\ \textcolor{comment}{//\ scene\ 19}}
+\DoxyCodeLine{00312\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene19returnToTitleButton;}
+\DoxyCodeLine{00313\ \textcolor{comment}{//\ scene\ 20}}
+\DoxyCodeLine{00314\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene20returnToTitleButton;}
+\DoxyCodeLine{00315\ \textcolor{comment}{//\ scene\ 21}}
+\DoxyCodeLine{00316\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene21returnToTitleButton;}
+\DoxyCodeLine{00317\ \textcolor{comment}{//\ scene\ 22}}
+\DoxyCodeLine{00318\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene22returnToTitleButton;}
+\DoxyCodeLine{00319\ \textcolor{comment}{//\ scene\ 23}}
+\DoxyCodeLine{00320\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene23returnToTitleButton;}
+\DoxyCodeLine{00321\ \textcolor{comment}{//\ scene\ 24}}
+\DoxyCodeLine{00322\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene24returnToTitleButton;}
+\DoxyCodeLine{00323\ \textcolor{comment}{//\ scene\ 25}}
+\DoxyCodeLine{00324\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene25returnToTitleButton;}
+\DoxyCodeLine{00325\ \textcolor{comment}{//\ scene\ 26}}
+\DoxyCodeLine{00326\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene26returnToTitleButton;}
+\DoxyCodeLine{00327\ \textcolor{comment}{//\ scene\ 27}}
+\DoxyCodeLine{00328\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene27returnToTitleButton;}
+\DoxyCodeLine{00329\ \textcolor{comment}{//\ scene\ 28}}
+\DoxyCodeLine{00330\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene28returnToTitleButton;}
+\DoxyCodeLine{00331\ \textcolor{comment}{//\ scene\ 29}}
+\DoxyCodeLine{00332\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene29returnToTitleButton;}
+\DoxyCodeLine{00333\ \textcolor{comment}{//\ scene\ 30}}
+\DoxyCodeLine{00334\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene30returnToTitleButton;}
+\DoxyCodeLine{00335\ \textcolor{comment}{//\ scene\ 31}}
+\DoxyCodeLine{00336\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ scene31returnToTitleButton;}
+\DoxyCodeLine{00337\ \textcolor{comment}{//\ scene\ -\/\ any\ gameplay\ scene}}
+\DoxyCodeLine{00338\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ sceneGameplayMenuButton;}
+\DoxyCodeLine{00339\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ sceneGameplayUpButton;}
+\DoxyCodeLine{00340\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ sceneGameplayDownButton;}
+\DoxyCodeLine{00341\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ sceneGameplayLeftButton;}
+\DoxyCodeLine{00342\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ sceneGameplayRightButton;}
+\DoxyCodeLine{00343\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_clickable_button}{ClickableButton}}\ sceneGameplayUseButton;}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00345\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene1buttons;}
+\DoxyCodeLine{00346\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene2buttons;}
+\DoxyCodeLine{00347\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene3buttons;}
+\DoxyCodeLine{00348\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene4buttons;}
+\DoxyCodeLine{00349\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene5buttons;}
+\DoxyCodeLine{00350\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene6buttons;}
+\DoxyCodeLine{00351\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene7buttons;}
+\DoxyCodeLine{00352\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene8buttons;}
+\DoxyCodeLine{00353\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene9buttons;}
+\DoxyCodeLine{00354\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene10buttons;}
+\DoxyCodeLine{00355\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene11buttons;}
+\DoxyCodeLine{00356\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene12buttons;}
+\DoxyCodeLine{00357\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene13buttons;}
+\DoxyCodeLine{00358\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene14buttons;}
+\DoxyCodeLine{00359\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene15buttons;}
+\DoxyCodeLine{00360\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene16buttons;}
+\DoxyCodeLine{00361\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene17buttons;}
+\DoxyCodeLine{00362\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene18buttons;}
+\DoxyCodeLine{00363\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene19buttons;}
+\DoxyCodeLine{00364\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene20buttons;}
+\DoxyCodeLine{00365\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene21buttons;}
+\DoxyCodeLine{00366\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene22buttons;}
+\DoxyCodeLine{00367\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene23buttons;}
+\DoxyCodeLine{00368\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene24buttons;}
+\DoxyCodeLine{00369\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene25buttons;}
+\DoxyCodeLine{00370\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene26buttons;}
+\DoxyCodeLine{00371\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene27buttons;}
+\DoxyCodeLine{00372\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene28buttons;}
+\DoxyCodeLine{00373\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene29buttons;}
+\DoxyCodeLine{00374\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene30buttons;}
+\DoxyCodeLine{00375\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ scene31buttons;}
+\DoxyCodeLine{00376\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ allButtons;}
+\DoxyCodeLine{00377\ \textcolor{keyword}{extern}\ std::vector<BaseButton\ *>\ sceneGameplaybuttons;}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \textcolor{keyword}{extern}\ std::vector<Score>\ scores;}
+\DoxyCodeLine{00380\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_update_app}{UpdateApp}}\ updateApp;}
+\DoxyCodeLine{00381\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_debug_logging}{DebugLogging}}\ logger;}
+\DoxyCodeLine{00382\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_webserver_client}{WebserverClient}}\ webserverClientContext;}
+\DoxyCodeLine{00383\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{class_webserver_host}{WebserverHost}}\ webserverHostContext;}
+
+\end{DoxyCode}

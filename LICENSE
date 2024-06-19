@@ -1,0 +1,35 @@
+MIT License
+
+Copyright (c) 2023 Sumeet Singh
+
+Source Code License:
+The source code in this project is licensed under the MIT License.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+[MIT License terms]
+
+Graphical Assets License:
+The graphical assets in this project are licensed under the Creative Commons Attribution (CC-BY) License.
+Individual authors are attributed within the `CREDITS.md` file.
+
+Font License:
+The Noto Sans TTF fonts used in this project are subject to the SIL Open Font License (OFL). 
+The terms of the SIL Open Font License are found in the `OFL.txt` file located in the 
+specific language subdirectories under`./assets/fonts/` 
+
+Component Library Licenses:
+Note: This project includes components licensed under different terms:
+
+- Libzip: See `./src/libzip/LICENSE` for details.
+- zlib: See `./src/zlib/LICENSE` for details.
+- Curl: See `./src/curl/COPYING.txt` for details.
+- SDL2: See `./src/SDL2/COPYING.txt` for details.
+- SDL2 image: See `./src/SDL2_image/LICENSE.txt` for details.
+- SDL2 Mixer: See `./src/SDL2_Mixer/LICENSE.txt` for details.
+- SDL2 TTF: See `./src/SDL2_TTF/LICENSE.txt` for details.
+- ffmpeg: See `./src/ffmpeg/LICENSE` for details.

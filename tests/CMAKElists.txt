@@ -1,0 +1,115 @@
+cmake_minimum_required(VERSION 3.15)
+project(BubbleUP VERSION 0.2)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}")
+set(PROJECT_DIR "${CMAKE_CURRENT_SOURCE_DIR}/..")
+
+if(WIN32)
+# for windows if not static linking and using .dll files then link .dll.a libs
+    set(FFMPEG_INCLUDE_DIR "C:/Program Files/ffmpeg")
+    set(FFMPEG_LIBRARY "C:/Program Files/ffmpeg/lib")
+    set(FFMPEG_LIBRARIES 
+        "C:/Program Files/ffmpeg/lib/libavcodec.dll.a"
+        "C:/Program Files/ffmpeg/lib/libavformat.dll.a"
+        "C:/Program Files/ffmpeg/lib/libavutil.dll.a"
+        "C:/Program Files/ffmpeg/lib/libswscale.dll.a"
+    )
+
+    set(Boost_INCLUDE_DIR "C:/Program Files/boost")
+
+    set(CMAKE_PREFIX_PATH "C:/Program Files/curl")
+    set(CURL_INCLUDE_DIR "C:/Program Files/curl/include")
+    set(CURL_INCLUDE_DIRS "C:/Program Files/curl/include")
+    set(CURL_LIBRARY "C:/Program Files/curl/lib/libcurl.dll.a")
+
+    list(APPEND CMAKE_PREFIX_PATH "C:/Program Files/zlib")
+    list(APPEND CMAKE_PREFIX_PATH "C:/Program Files/libzip")
+    set(LIBZIP_DIR "C:/Program Files/libzip/build")
+    set(LIBZIP_INCLUDE_DIR "C:/Program Files/libzip/install/include")
+    set(LIBZIP_LIBRARY "C:/Program Files/libzip/install/lib/libzip.dll.a")
+
+    set(GTEST_INCLUDE_DIR "C:/Program Files/googletest/googletest/include")
+    set(GTEST_LIBRARY "C:/Program Files/googletest/build/lib/libgtest.a")
+    set(GTEST_MAIN_LIBRARY "C:/Program Files/googletest/build/lib//libgtest_main.a")
+
+    set(PLATFORM_LIBS 
+        ws2_32
+    )
+endif()
+
+if(APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fcolor-diagnostics -fansi-escape-codes -g -std=c++17 -stdlib=libc++ -I/opt/homebrew/Cellar/curl/8.7.1/include")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/opt/homebrew/lib -L/opt/homebrew/Cellar/curl/8.7.1/lib")
+    set(FFMPEG_LIBRARIES 
+        avformat
+        avcodec
+        avutil
+        swscale
+    )
+endif()
+
+if(UNIX AND NOT APPLE)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -std=c++17 -I/usr/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -L/usr/lib")
+    set(FFMPEG_LIBRARIES 
+        avformat
+        avcodec
+        avutil
+        swscale
+    )
+endif()
+
+find_package(Boost REQUIRED)
+find_package(SDL2 REQUIRED)
+find_package(SDL2_Image REQUIRED)
+find_package(SDL2_ttf REQUIRED)
+find_package(SDL2_mixer REQUIRED)
+find_package(CURL REQUIRED)
+find_package(ZLIB REQUIRED)
+find_package(LIBZIP REQUIRED)
+find_package(GTest REQUIRED)
+
+file(GLOB SOURCES
+    ${PROJECT_DIR}/src/*.cpp
+    ${PROJECT_DIR}/src/**/*.cpp
+    )
+
+add_executable(BubbleUP
+    ${CMAKE_SOURCE_DIR}/unit_tests.cpp
+    ${SOURCES}
+)
+
+include_directories(
+    ${PROJECT_DIR}/headers,
+    ${FFMPEG_INCLUDE_DIR}
+    ${CURL_INCLUDE_DIR}
+    ${LIBZIP_INCLUDE_DIR}
+    ${Boost_INCLUDE_DIR}
+    ${SDL2_INCLUDE_DIRS}
+)
+
+target_link_libraries(BubbleUP
+    ${PLATFORM_LIBS}
+    ${Boost_LIBRARIES}
+    SDL2::SDL2main
+    SDL2::SDL2
+    SDL2_image::SDL2_image
+    SDL2_ttf::SDL2_ttf
+    SDL2_mixer::SDL2_mixer
+    ${CURL_LIBRARIES}
+    ${ZLIB_LIBRARY}
+    ${LIBZIP_LIBRARY}
+    ${GTEST_LIBRARY}
+    ${GTEST_MAIN_LIBRARY}
+    ${FFMPEG_LIBRARIES}
+    zip # libzip library "-libzip"
+)
+
+# Search CMAKE variable for string "_____"
+get_cmake_property(_variableNames VARIABLES)
+foreach (_variableName ${_variableNames})
+    string(FIND "${_variableName}" "FOUND" _found)
+    if(_found GREATER -1)
+        message(STATUS "Variable: ${_variableName} = ${${_variableName}}")
+        endif()
+endforeach()

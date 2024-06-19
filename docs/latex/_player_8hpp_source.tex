@@ -1,0 +1,39 @@
+\doxysection{Player.\+hpp}
+\hypertarget{_player_8hpp_source}{}\label{_player_8hpp_source}\index{headers/entities/Player.hpp@{headers/entities/Player.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Subclass\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../Entity.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Item.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_player}{Player}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{00022\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordtype}{int}\ playerID\{\};\ }
+\DoxyCodeLine{00025\ \ \ \ \ SDL\_GameController\ *controller\{\};\ }
+\DoxyCodeLine{00026\ \ \ \ \ SDL\_JoystickID\ controllerID\{\};\ }
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{class_player_ae95345a853a1c4ac3af75741cf970e8a}{Player}}(\textcolor{keywordtype}{int}\ playerID,\ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00038\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_player_ad52a496c7baacb3665d0060ae442f49d}{get\_player\_id}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00043\ \ \ \ \ SDL\_GameController\ *\mbox{\hyperlink{class_player_a4a2982d23116cf8a4f54db33100369ea}{get\_controller}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a3b5f79f6c49cc7069eefed1fd292490c}{set\_controller}}(SDL\_GameController\ *ctrl);}
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_aa182dd8bdbf7da7ed0eea1f55fff6120}{rumble\_controller}}(\textcolor{keywordtype}{int}\ rumbleStrength);}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_abc39a65942f3c6e313dc3673cca9fc81}{set\_controller\_instance\_id}}(SDL\_JoystickID\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00075\ \ \ \ \ SDL\_JoystickID\ \mbox{\hyperlink{class_player_afbfa48ae1bc8709c8ba208e8bee95d13}{get\_controller\_instance\_id}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00076\ \ \ \ \ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a381dc813006af25d92cb9b9aa3058804}{handle\_player\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_player_a0473a04a5542d07ac3fb18358afbcec3}{handle\_item\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00091\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,173 @@
+\chapter{Bubble\+UP}
+\hypertarget{md__r_e_a_d_m_e}{}\label{md__r_e_a_d_m_e}\index{BubbleUP@{BubbleUP}}
+\label{md__r_e_a_d_m_e_autotoc_md3}%
+\Hypertarget{md__r_e_a_d_m_e_autotoc_md3}%
+ Version\+: 0.\+2 NOT READY FOR PLAYING
+
+
+\begin{DoxyItemize}
+\item Author\+: Sumeet Singh @ sumeet-\/singh.\+com
+\item Dated\+: 09/04/2024
+\item Minimum C++ Standard\+: C++17
+\item Description\+: Full documentation located here "{}./docs/html/mainpage.\+html"{}
+\item License\+: MIT License see "{}./\+LICENSE"{} file
+\end{DoxyItemize}
+
+
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{\texorpdfstring{DESCRIPTION}{DESCRIPTION}}\label{md__r_e_a_d_m_e_autotoc_md4}
+Bubble\+UP is a combined C++ 2D Game Engine with a built in feature-\/rich demonstration 2D game built ontop of the SDL Framework. It includes classes for constructing interactive Buttons and fields to create stunning GUI, Forms and HUD. Includes countless game entities and level editor to create unique stunning 2D games. Has built in scenes for achievements, leaderboards, multiplayer, and more. You can download and easily modify this open-\/source code to create your own game by following the instructions here.\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysubsection{\texorpdfstring{GUI}{GUI}}\label{md__r_e_a_d_m_e_autotoc_md5}
+Uses a \doxylink{class_base_button}{Base\+Button} class to encapsulate logic for different GUI button objects derived from SDL Framework for various GUI elements, e.\+g., volume sliders, input fields, clickable radios, checkboxes, and buttons. These are initialized within a vector to hold all the different buttons, enabling navigation through them with keyboard movement, highlighting, and building a GUI with buttons, rendering text/draws, and handles.\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{\texorpdfstring{GAME}{GAME}}\label{md__r_e_a_d_m_e_autotoc_md6}
+Has a Game Engine \doxylink{class_entity}{Entity} Base Class with four subclass entities\+: Players, Items, Enemies, and Obstacles (boundaries). Each has its own logic for movement and collision. A basic displacement camera is used to draw the location of entities. The existing game, "{}\+Bubble UP,"{} is a simple "{}reach the highest score"{} game by collecting valuable items while trying to avoid touching enemies, all while navigating obstacles blocking the way.\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{\texorpdfstring{LEADERBOARDS}{LEADERBOARDS}}\label{md__r_e_a_d_m_e_autotoc_md7}
+Has an \doxylink{class_update_app}{Update\+App} class for saving achievements, settings, and scoring statistics to file, with the ability to load them in memory to view in-\/game. Achievements can be accessible to push to any platform. Achievements can be shared online with other players and leaderboard statistics are also available for competitive play.\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{\texorpdfstring{MULTIPLAYER}{MULTIPLAYER}}\label{md__r_e_a_d_m_e_autotoc_md8}
+Uses \doxylink{class_webserver_client}{Webserver\+Client} and \doxylink{class_webserver_host}{Webserver\+Host} classes to create a game client and webserver multiplayer lobby functionality to create custom games, join others, make and add friends, and communicate and compete online.\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{\texorpdfstring{LEVEL EDITOR}{LEVEL EDITOR}}\label{md__r_e_a_d_m_e_autotoc_md9}
+Includes a highly customisable level editor for importing textures and creating unique custom game maps and exporting them as .wad files for sharing, modding, and playing custom games both in single and multiplayer.\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysubsection{\texorpdfstring{ACCESSIBILITY}{ACCESSIBILITY}}\label{md__r_e_a_d_m_e_autotoc_md10}
+The vast array of settings are present, including enabling vsync, resolution changes, volume control, different language support, as well as keybinding functionality.
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{\texorpdfstring{REQUIREMENTS}{REQUIREMENTS}}\label{md__r_e_a_d_m_e_autotoc_md11}
+
+\begin{DoxyItemize}
+\item OS\+:
+\begin{DoxyItemize}
+\item Windows 10, 11
+\item Mac\+OS 13 -\/ 14
+\item Ubuntu 22.\+04 -\/ 24.\+04
+\end{DoxyItemize}
+\item Processor\+: at least a Core i3 or AMD CPU equivalent
+\item RAM\+: 4 GB RAM
+\item Graphics\+: at least a HD compatible CPU/\+GPU
+\item Storage\+: 5 GB Free
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{\texorpdfstring{HOW TO PLAY}{HOW TO PLAY}}\label{md__r_e_a_d_m_e_autotoc_md12}
+
+\begin{DoxyEnumerate}
+\item No installation required. Simply download game folder from here \href{https://github.com/SumeetSinghJi/BubbleUp/archive/refs/heads/main.zip}{\texttt{ https\+://github.\+com/\+Sumeet\+Singh\+Ji/\+Bubble\+Up/archive/refs/heads/main.\+zip}} extract and run the relevant executable for your operating system (OS) below to play;
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item Windows\+: ./bin/windows/\+Bubble\+Up.exe
+\item Linux\+: ./bin/linux/\+Bubble\+Up
+\item Mac\+OS\+: ./bin/mac/\+Bubble\+Up
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md13}{}\doxysection{\texorpdfstring{ACCESSIBILITY -\/ LANGUAGES}{ACCESSIBILITY -\/ LANGUAGES}}\label{md__r_e_a_d_m_e_autotoc_md13}
+Full supported languages.
+\begin{DoxyEnumerate}
+\item ENGLISH (English)
+\item 日本語 (Japanese) Languages changed in game via Settings -\/ Language button.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md14}{}\doxysection{\texorpdfstring{ACCESSIBILITY -\/ CONTROLS \& INPUTS}{ACCESSIBILITY -\/ CONTROLS \& INPUTS}}\label{md__r_e_a_d_m_e_autotoc_md14}
+Full Controller supports\+: Mouse, Keyboard, Gamepad, Touch Keybindings changed in game via Settings -\/ Keybindings button.
+
+
+\begin{DoxyItemize}
+\item KEYBOARD \texorpdfstring{$\vert$}{|} GAMEPAD \texorpdfstring{$\vert$}{|} MOUSE/\+TOUCH \texorpdfstring{$\vert$}{|} ACTION
+\item 
+\item UP \texorpdfstring{$\vert$}{|} UP \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Move up
+\item 
+\item DOWN \texorpdfstring{$\vert$}{|} DOWN \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Move Down
+\item 
+\item LEFT \texorpdfstring{$\vert$}{|} LEFT \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Move Left
+\item 
+\item RIGHT \texorpdfstring{$\vert$}{|} RIGHT \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Move Right
+\item 
+\item ENTER \texorpdfstring{$\vert$}{|} A \texorpdfstring{$\vert$}{|} Left Click \texorpdfstring{$\vert$}{|} Accept/\+Use
+\item 
+\item ESC \texorpdfstring{$\vert$}{|} B \texorpdfstring{$\vert$}{|} Right Click \texorpdfstring{$\vert$}{|} Cancel/\+Return/\+Exit
+\item 
+\item \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Mousewheel \texorpdfstring{$\vert$}{|} Scroll Up/\+Down
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md15}{}\doxysection{\texorpdfstring{INTRODUCTION}{INTRODUCTION}}\label{md__r_e_a_d_m_e_autotoc_md15}
+"{}\+As the author, I always wanted to learn programming. Growing up in the 90s shareware gaming era, the internet  wasn\textquotesingle{}t as widespread, fast, affordable, or accessible during that time period. The lack of the Internet left  very few ways to enjoy video games. Electronic games were mainly accessed through the arcade, which was an  expensive hobby, handheld and home game consoles, which had little public documentation, leaving the only way  to judge a game\textquotesingle{}s fun to viewing the boxed art, leaving little room for errors in judgment and another  expensive endeavor.  \+Thankfully, operating systems at the time had free inbuilt games that became the subject of speculation and  fascination. However, the only way to enjoy the games at that age or time was limited to access on school  computers with limited libraries of installed games, and with supervision, leaving approval of games played up  to the ever-\/dominant and watchful eyes of the teachers\textquotesingle{} moral approval.  \+This left the only way to enjoy games repeatedly without any costly endeavors were the utopian abundance of  demonstration games known as demos, which were free, limited in gameplay and/or ownership rights, samples of  computer games.  \+The easiest method of obtaining them was from digital storage media at the time known as, floppy disks shortened  to floppies and CD-\/\+ROMs shortened to CDs bundled as free promotional samples with technology magazines that  were often purchased from news agencies.  \+The low cost of the barrier, ease, often non-\/existent standards to program and develop computer games meant that  many game developers published their works often through the aforementioned media, and the time period was  colloquially and fondly referred to as the Shareware era. Shareware is any commercial software that is  distributed free, encouraging owners to donate or pay for the complete licensed and often unlocked version. \+Shareware games could be copied for free on other media and spread to families and friends, bringing the  cost barrier to electronic gaming down to accessible levels.  \+Floppies and CDs would be inserted and the drive accessed on the computer, where you could browse the game\textquotesingle{}s  contents known as folders in Windows. Games folders would contain many files such as images, videos, music known  as assets used by the game, as well as the executables, the software to run and play the game. The lack of  knowledge on video games and digital media at the time meant that browsing a game\textquotesingle{}s content on the computer could  lead to finding cheats about a game, viewing fascinating artwork, stories in game manuals, that could be copied  to the local computer and accessed anytime, leading to a revolution in video game ownership contrasted to  expensive arcade visits with coin slot machines and foreign expensive priced game consoles and cartridge games.  \+The process of acquiring a new game-\/filled floppy or CD with new mysterious experiences and browsing the contents  on a computer and adding them to my growing collection created lifelong positive memories. The acquisition of  new games and thus technology became my passion.  \+In memory of the Shareware developers that created media that brought joy to my life, I wanted to replicate the  process. Learning video game development was a step in the right direction. C++ was a programming language at the  time I remember in my school years; I could recall many advising it as the next best technology. Although C++ has been overtaken by newer programming languages, I wanted to replicate the nostalgic old filesystem browsing and opening of game readme\textquotesingle{}s, textures, map files and thus create a similar simple 90s-\/style shareware era game.  \+Thus, I hope this story and game evoke similar enjoyable moments for you. I encourage you, at least once in your  life, to pursue a nostalgic lifelong fascination you have, as it may bring closure to subconscious desires."{} \begin{DoxyVerb}                                  Sumeet Singh, 29th February 2024.
+\end{DoxyVerb}
+
+
+\DoxyHorRuler{0}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md16}{}\doxysection{\texorpdfstring{MODDING}{MODDING}}\label{md__r_e_a_d_m_e_autotoc_md16}
+To use Bubble\+UP (This Game Engine with inbuilt Game) to create a new game, follow the steps below.
+
+Game has no included story, only default textures with open-\/source licensing and top down platform physics coding per default.
+
+Game uses standard SDL Game Development practice of starting, running and exiting SDL. Within running sdl function you have while the game hasn\textquotesingle{}t quit calls for handles() updates() and draws for relevant scenes. Each game scene e.\+g. scene == 31 calls its own one time setup that toggles a scene setup global variable bool. You can put your level setup here. e.\+g. setup\+\_\+scene\+\_\+31() \{// show tutorial, procedural generation, std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}Success\+: setup scene \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} scene \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; setup31scene bool = true\}
+
+IMPORTANT\+: When you update the game to the latest version remember to update global variable in globals.\+cpp software\+Version to different number to ensure the \doxylink{_update_app_8hpp_source}{Update\+App.\+hpp} instance can compare for game update functionality.
+
+
+\begin{DoxyEnumerate}
+\item Add assets to ./assets folder
+\item Declare all global variables in \doxylink{globals_8hpp_source}{globals.\+hpp}, and define in ./src/globals.cpp
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item in load\+\_\+textures(); add textures from ./assets/ filepath
+\item In handle(), update(), draw() where scene == 31, this is where game begins. can comment out the existing entity code, or reuse it for own project
+\item Update or create a function for the new scene for one time function call scene setup scene\+\_\+x\+\_\+setup() and create a global bool variable to track in update() as per existing convention
+\item Can create buttons from \doxylink{_base_button_8hpp_source}{Base\+Button.\+hpp} subclasses
+\item Can create entities from \doxylink{_entity_8hpp_source}{Entity.\+hpp} subclasses
+\item You can create any scene past the existing numbers to increase game engine/game options. You are not limited to a scene int naming convention and can choose to use names such as scene\+\_\+gameplay
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item Scene 1 = Main Menu
+\item Scene 2 = Settings
+\item Scene 3 = Unlockables
+\item Scene 4 = \doxylink{struct_score}{Score}
+\item Scene 5 = Help
+\item Scene 6 = Achievements
+\item Scene 7 = Check for updates
+\item Scene 8 = Online login
+\item Scene 9 = Create Account
+\item Scene 10 = Display policies
+\item Scene 11 = Multiplayer Lobby
+\item Scene 12 = Keybindings
+\item Scene 13 = Create Game
+\item Scene 14 = Credits
+\item Scene 15 = Level editor home
+\item Scene 16 = level editor modify Maps
+\item Scene 17 = level editor modify Enemies
+\item Scene 18 = level editor modify Items
+\item Scene 19 = level editor modify Obstacles
+\item Scene 20 = level editor modify Players
+\item Scene 21 = level editor report
+\item Scene 22 = Mod store home
+\item Scene 23 = Mod store cart
+\item Scene 24 = Mod store checkout
+\item Scene 25 = Mod load order
+\item Scene 26 = Soundtrack
+\item Scene 27 = \doxylink{class_player}{Player} select
+\item Scene 28 = Cutscene
+\item Scene 29 = \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+UNUSED\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+
+\item Scene 30 = \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+UNUSED\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+
+\item Scene 31 -\/ \+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+UNUSED\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+
+\item Scene 100 = Game Sandbox
+\item Scene 101 = Game Tutorial
+\item Scene 102 -\/ beyond = Game
+\end{DoxyItemize}
+\begin{DoxyEnumerate}
+\item The CMAKElists.\+txt file can be used to build an executable across different platforms.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md17}{}\doxysubsection{\texorpdfstring{COMPILING}{COMPILING}}\label{md__r_e_a_d_m_e_autotoc_md17}
+the included .vscode has build tasks for each OS with a relevant default compiler
+\begin{DoxyItemize}
+\item g++ -\/ Windows
+\item g++ -\/ Linux
+\item clang -\/ Mac\+OS
+\item cppcheck -\/ Windows the included c\+\_\+cpp\+\_\+properties has JSON for all OS The Included CMAKElists.\+txt can be used to build a executable across any OS platform
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md18}{}\doxysubsection{\texorpdfstring{REQUIREMENTS -\/ LIBRARIES}{REQUIREMENTS -\/ LIBRARIES}}\label{md__r_e_a_d_m_e_autotoc_md18}
+Required for game modding/development, Install to default file locations for build generation tools below to build from source code.
+
+
+\begin{DoxyItemize}
+\item boost\+::asio\+: for POST Account details, and multiplayer
+\item curl\+: for downloading game update
+\item ffmpeg\+: for video playback
+\item Google Test\+: for creating unit tests while not necessary, it\textquotesingle{}s good to include
+\item libzip\+: for unzipping game update
+\item SDL2\+: for Window, Event Loop, Input handling, Rendering
+\item SDL2\+\_\+image\+: for images
+\item SDL2\+\_\+mixer\+: for audio
+\item SDL2\+\_\+ttf\+: for rendering text to window
+\item zlib\+: required for building libzip package
+\end{DoxyItemize}
+
+Optional\+: The following are the source code build generation tools
+\begin{DoxyItemize}
+\item VSCode\+: the included .vscode tasks.\+json arguments are prefilled with default locations of libraries above
+\item CMAKE\+: the included CMAKELists.\+txt can be used to build the project
+\item Doxygen\+: the included doxyfile can be used to generate documentation 
+\end{DoxyItemize}

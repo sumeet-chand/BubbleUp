@@ -1,0 +1,69 @@
+\doxysection{Level\+Editor.\+hpp}
+\hypertarget{_level_editor_8hpp_source}{}\label{_level_editor_8hpp_source}\index{headers/LevelEditor.hpp@{headers/LevelEditor.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 29/04/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ declarations\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{}}
+\DoxyCodeLine{00008\ \textcolor{comment}{}}
+\DoxyCodeLine{00009\ \textcolor{comment}{\ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{00010\ \textcolor{comment}{}}
+\DoxyCodeLine{00011\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BubbleUp\ LEVEL\ EDITOR\ CLASS\ DECLARATIONS}}
+\DoxyCodeLine{00012\ \textcolor{comment}{\ \ \ \ \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}}
+\DoxyCodeLine{00013\ \textcolor{comment}{}}
+\DoxyCodeLine{00014\ \textcolor{comment}{}}
+\DoxyCodeLine{00015\ \textcolor{comment}{\ \ \ \ DESCRIPTION}}
+\DoxyCodeLine{00016\ \textcolor{comment}{}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ for\ creating\ custom\ game\ map\ files\ (.wad)\ for\ the\ BubbleUp\ game\ engine.}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ Includes\ EntityManager.hpp\ for\ placing\ entities\ to\ a\ map\ scene\ to\ export\ to\ a\ .wad\ file\ format}}
+\DoxyCodeLine{00019\ \textcolor{comment}{\ \ \ \ on\ game\ engine\ game\ startup,\ game\ will\ read\ the\ ./assets/xxx.wad\ files\ to\ load\ custom\ game\ map\ }}
+\DoxyCodeLine{00020\ \textcolor{comment}{\ \ \ \ scenes.}}
+\DoxyCodeLine{00021\ \textcolor{comment}{}}
+\DoxyCodeLine{00022\ \textcolor{comment}{}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ \ \ \ EXAMPLE}}
+\DoxyCodeLine{00024\ \textcolor{comment}{}}
+\DoxyCodeLine{00025\ \textcolor{comment}{\ \ \ \ 1.\ }}
+\DoxyCodeLine{00026\ \textcolor{comment}{}}
+\DoxyCodeLine{00027\ \textcolor{comment}{}}
+\DoxyCodeLine{00028\ \textcolor{comment}{}}
+\DoxyCodeLine{00029\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ import\_map(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00045\ \textcolor{keywordtype}{void}\ get\_map(\textcolor{keyword}{const}\ std::string\ \&directoryPath);}
+\DoxyCodeLine{00051\ \textcolor{keywordtype}{void}\ load\_map(\textcolor{keyword}{const}\ std::string\ \&fileName);}
+\DoxyCodeLine{00057\ \textcolor{keywordtype}{void}\ create\_map(\textcolor{keyword}{const}\ std::string\ \&fileName,\ \textcolor{keyword}{const}\ std::string\ \&mapSize);}
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ delete\_map(\textcolor{keyword}{const}\ std::string\ \&fileName);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00070\ \textcolor{keywordtype}{void}\ import\_entities(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{void}\ get\_entities(\textcolor{keyword}{const}\ std::string\ directoryPath);}
+\DoxyCodeLine{00082\ \textcolor{keywordtype}{void}\ load\_entity(\textcolor{keyword}{const}\ std::string\ \&fileName);}
+\DoxyCodeLine{00088\ \textcolor{keywordtype}{void}\ create\_entities();}
+\DoxyCodeLine{00094\ \textcolor{keywordtype}{void}\ delete\_entities(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00101\ \textcolor{keywordtype}{void}\ import\_sounds(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ get\_sounds(\textcolor{keyword}{const}\ std::string\ directoryPath);}
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ play\_sound(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ delete\_sounds(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00120\ }
+\DoxyCodeLine{00126\ \textcolor{keywordtype}{void}\ import\_music(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00132\ \textcolor{keywordtype}{void}\ get\_music(\textcolor{keyword}{const}\ std::string\ directoryPath);}
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ play\_music(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00144\ \textcolor{keywordtype}{void}\ delete\_music(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \textcolor{keywordtype}{void}\ import\_textures(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ get\_textures(\textcolor{keyword}{const}\ std::string\ directoryPath);}
+\DoxyCodeLine{00163\ \textcolor{keywordtype}{void}\ display\_texture(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00169\ \textcolor{keywordtype}{void}\ delete\_textures(\textcolor{keyword}{const}\ std::string\ fileName);}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00180\ \textcolor{keywordtype}{void}\ create\_point\_in\_rect\_trigger();}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00188\ \textcolor{keywordtype}{void}\ draw\_software\_GUI();}
+
+\end{DoxyCode}

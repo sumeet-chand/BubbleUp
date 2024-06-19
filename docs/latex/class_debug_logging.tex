@@ -1,0 +1,150 @@
+\doxysection{Debug\+Logging Class Reference}
+\hypertarget{class_debug_logging}{}\label{class_debug_logging}\index{DebugLogging@{DebugLogging}}
+
+
+debug logging solution class to output traditional cout debug logs to terminal, buffer and file depending on severity.  
+
+
+
+
+{\ttfamily \#include $<$Debug\+Logging.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_debug_logging_a16273375190df552087b7fb2ba093692}{Debug\+Logging}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_debug_logging}{Debug\+Logging} class constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_debug_logging_a0e62ee334fa5f91baa7a4e779f0d14d5}{\texorpdfstring{$\sim$}{\string~}\+Debug\+Logging}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_debug_logging}{Debug\+Logging} class Deconstructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_debug_logging_adbd6312c450ea0eeb5cc1d69eeaf616d}{log\+\_\+critical}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em log critical software messages to cout and file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_debug_logging_ae95a44e653b5557507c887639c5df6aa}{log\+\_\+non\+\_\+critical}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em log non critical software messages to cout and buffer \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_debug_logging_ac3ee7334607d2b2864733c746b08759f}{write\+\_\+log\+\_\+buffer\+\_\+to\+\_\+file}} ()
+\begin{DoxyCompactList}\small\item\em write log\+Buffer contents to file \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_debug_logging_af46a50a8b9b926c54c749dd10b7d32cc}{clear\+\_\+log\+\_\+file}} ()
+\begin{DoxyCompactList}\small\item\em clear game log file on software startup \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+debug logging solution class to output traditional cout debug logs to terminal, buffer and file depending on severity. 
+
+To enable a software to have a better logging solution then simply couting messages to terminal, or outputting all cout\textquotesingle{}s to a save file you can use this class to implement a complete logging solution.
+
+
+\begin{DoxyParams}{Parameters}
+{\em log\+File\+Name} & name of the file to send logs to \\
+\hline
+{\em log\+Bugger} & holds buffer of all non critical logs to print to file during quit\\
+\hline
+\end{DoxyParams}
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item Include this header include "{}\+Debug\+Logging.\+hpp"{}
+\item Create object instance \doxylink{class_debug_logging}{Debug\+Logging} logger("{}game\+\_\+log.\+txt"{});
+\item Clear and reset logs logger.\+clear\+\_\+log\+\_\+file();
+\item Add critical messages logger.\+log\+\_\+critical("{}\+Starting Software"{});
+\item Add non critical messages logger.\+log\+\_\+non\+\_\+critical("{}\+Hello world"{});
+\item Write to bugger logger.\+write\+\_\+log\+\_\+buffer\+\_\+to\+\_\+file(); 
+\end{DoxyEnumerate}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_debug_logging_a16273375190df552087b7fb2ba093692}\label{class_debug_logging_a16273375190df552087b7fb2ba093692} 
+\index{DebugLogging@{DebugLogging}!DebugLogging@{DebugLogging}}
+\index{DebugLogging@{DebugLogging}!DebugLogging@{DebugLogging}}
+\doxysubsubsection{\texorpdfstring{DebugLogging()}{DebugLogging()}}
+{\footnotesize\ttfamily Debug\+Logging\+::\+Debug\+Logging (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_debug_logging}{Debug\+Logging} class constructor. 
+
+\doxylink{class_debug_logging}{Debug\+Logging} class constructor \Hypertarget{class_debug_logging_a0e62ee334fa5f91baa7a4e779f0d14d5}\label{class_debug_logging_a0e62ee334fa5f91baa7a4e779f0d14d5} 
+\index{DebugLogging@{DebugLogging}!````~DebugLogging@{\texorpdfstring{$\sim$}{\string~}DebugLogging}}
+\index{````~DebugLogging@{\texorpdfstring{$\sim$}{\string~}DebugLogging}!DebugLogging@{DebugLogging}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DebugLogging()}{\string~DebugLogging()}}
+{\footnotesize\ttfamily Debug\+Logging\+::\texorpdfstring{$\sim$}{\string~}\+Debug\+Logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_debug_logging}{Debug\+Logging} class Deconstructor. 
+
+\doxylink{class_debug_logging}{Debug\+Logging} class Deconstructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_debug_logging_af46a50a8b9b926c54c749dd10b7d32cc}\label{class_debug_logging_af46a50a8b9b926c54c749dd10b7d32cc} 
+\index{DebugLogging@{DebugLogging}!clear\_log\_file@{clear\_log\_file}}
+\index{clear\_log\_file@{clear\_log\_file}!DebugLogging@{DebugLogging}}
+\doxysubsubsection{\texorpdfstring{clear\_log\_file()}{clear\_log\_file()}}
+{\footnotesize\ttfamily void Debug\+Logging\+::clear\+\_\+log\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+clear game log file on software startup 
+
+Clears all contents of game log on software startup to prevent file size increasing too large
+
+called just after main() entry point \Hypertarget{class_debug_logging_adbd6312c450ea0eeb5cc1d69eeaf616d}\label{class_debug_logging_adbd6312c450ea0eeb5cc1d69eeaf616d} 
+\index{DebugLogging@{DebugLogging}!log\_critical@{log\_critical}}
+\index{log\_critical@{log\_critical}!DebugLogging@{DebugLogging}}
+\doxysubsubsection{\texorpdfstring{log\_critical()}{log\_critical()}}
+{\footnotesize\ttfamily void Debug\+Logging\+::log\+\_\+critical (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+log critical software messages to cout and file 
+
+Accepts a message then writes it out with timestamp to file
+
+EXAMPLE
+
+log\+\_\+critical("{}\+Error\+: SDL Window creation failed"{});
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the string of text to cout and write to file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_debug_logging_ae95a44e653b5557507c887639c5df6aa}\label{class_debug_logging_ae95a44e653b5557507c887639c5df6aa} 
+\index{DebugLogging@{DebugLogging}!log\_non\_critical@{log\_non\_critical}}
+\index{log\_non\_critical@{log\_non\_critical}!DebugLogging@{DebugLogging}}
+\doxysubsubsection{\texorpdfstring{log\_non\_critical()}{log\_non\_critical()}}
+{\footnotesize\ttfamily void Debug\+Logging\+::log\+\_\+non\+\_\+critical (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+log non critical software messages to cout and buffer 
+
+Accespts a message then writes it out with timestamp to cout then buffer on game exit another function \doxylink{class_debug_logging_ac3ee7334607d2b2864733c746b08759f}{write\+\_\+log\+\_\+buffer\+\_\+to\+\_\+file()} will trigger buffer to write to log file
+
+EXAMPLE
+
+log\+\_\+non\+\_\+critical("{}\+You pressed\+: UP"{});
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & the string of text to cout and write to buffer/file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_debug_logging_ac3ee7334607d2b2864733c746b08759f}\label{class_debug_logging_ac3ee7334607d2b2864733c746b08759f} 
+\index{DebugLogging@{DebugLogging}!write\_log\_buffer\_to\_file@{write\_log\_buffer\_to\_file}}
+\index{write\_log\_buffer\_to\_file@{write\_log\_buffer\_to\_file}!DebugLogging@{DebugLogging}}
+\doxysubsubsection{\texorpdfstring{write\_log\_buffer\_to\_file()}{write\_log\_buffer\_to\_file()}}
+{\footnotesize\ttfamily void Debug\+Logging\+::write\+\_\+log\+\_\+buffer\+\_\+to\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+write log\+Buffer contents to file 
+
+Writes all log messages called by \doxylink{class_debug_logging_ae95a44e653b5557507c887639c5df6aa}{log\+\_\+non\+\_\+critical()} to file
+
+EXAMPLE
+
+\doxylink{class_debug_logging_ac3ee7334607d2b2864733c746b08759f}{write\+\_\+log\+\_\+buffer\+\_\+to\+\_\+file()}; 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Debug\+Logging.\+hpp\item 
+src/Debug\+Logging.\+cpp\end{DoxyCompactItemize}

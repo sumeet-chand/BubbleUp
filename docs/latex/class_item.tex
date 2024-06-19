@@ -1,0 +1,234 @@
+\doxysection{Item Class Reference}
+\hypertarget{class_item}{}\label{class_item}\index{Item@{Item}}
+
+
+Game \doxylink{_entity_8hpp_source}{Entity.\+hpp} subclass for in game Items.  
+
+
+
+
+{\ttfamily \#include $<$Item.\+hpp$>$}
+
+Inheritance diagram for Item\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_item}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_item_af405dcbdcd8f2fbf096114ca6e452b4a}\label{class_item_af405dcbdcd8f2fbf096114ca6e452b4a} 
+{\bfseries Item} (const std\+::string \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}}, int x, int y, int width, int height, int \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}}, std\+::string \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collision\+Sound\+String}}, const std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walking\+Textures}})
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_item_a82051989f2e066277dfd314bd27b390a}{handle\+\_\+player\+\_\+collision}} (std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities) override
+\begin{DoxyCompactList}\small\item\em handle item collission with player \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_item_a0dce2b9b56273011c893912c5ab90f55}{handle\+\_\+item\+\_\+collision}} (std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities) override
+\begin{DoxyCompactList}\small\item\em handle item collission with another item \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Entity} (const std\+::string \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}}, int x, int y, int width, int height, int \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}}, std\+::string \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collision\+Sound\+String}}, const std\+::vector$<$ std\+::string $>$ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walking\+Textures}})
+\begin{DoxyCompactList}\small\item\em \doxylink{class_entity}{Entity} class constructor. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Entity} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_entity}{Entity} class deconstructor. \end{DoxyCompactList}\item 
+void {\bfseries update\+\_\+animation} ()
+\begin{DoxyCompactList}\small\item\em for changingn entity animations calculate difference between last frame rate \end{DoxyCompactList}\item 
+void {\bfseries preload\+\_\+textures} ()
+\begin{DoxyCompactList}\small\item\em load \doxylink{class_entity}{Entity} animations into vector from constructor passed file path \end{DoxyCompactList}\item 
+void {\bfseries set\+\_\+animation\+\_\+texture} ()
+\begin{DoxyCompactList}\small\item\em set current animation texture from vector \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a4fdc0fbebdf874ee22ee6ca6a0ce5e35}{set\+\_\+renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em dynamically set renderer \end{DoxyCompactList}\item 
+void {\bfseries set\+\_\+sound} ()
+\begin{DoxyCompactList}\small\item\em load entity sound into private member variable passed from constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a92056fb47ee206712b367e1034f7f579}{render\+\_\+texture}} (const SDL\+\_\+\+Rect \&\mbox{\hyperlink{class_entity_a19a505be2f6ce88e2c38fb4b2df3ca84}{rect}})
+\begin{DoxyCompactList}\small\item\em render current texture set from \doxylink{class_entity_ac27c6ccb1a86f3018ca17f7fb8e200c0}{set\+\_\+animation\+\_\+texture()} in draw loop \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_entity_ae389858598ccbd2e5a31c75b40f6c87c}{get\+\_\+entity\+\_\+name}} () const
+\begin{DoxyCompactList}\small\item\em return entity name \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_abff2e19b135a9ae291f27c78b3e65849}{get\+\_\+health}} () const
+\begin{DoxyCompactList}\small\item\em return entity health to use with \doxylink{class_entity_a341d857672dfa5b16b8f3f3687b0dd93}{set\+\_\+health()} to increase or decrease health \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a341d857672dfa5b16b8f3f3687b0dd93}{set\+\_\+health}} (int h)
+\begin{DoxyCompactList}\small\item\em set entity health to use with \doxylink{class_entity_abff2e19b135a9ae291f27c78b3e65849}{get\+\_\+health()} to increase or decrease health \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+\_\+inventory} () const
+\begin{DoxyCompactList}\small\item\em draw items in inventory \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a9c1275f9e71d3744fdc0247e151d398d}{add\+\_\+item}} (\mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em add item to entities inventory \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a74ffe8885cb51d50df709c87fc0074c8}{use\+\_\+item}} (\mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em use the item in inventory \end{DoxyCompactList}\item 
+virtual void {\bfseries item\+\_\+effect} ()
+\begin{DoxyCompactList}\small\item\em subclass item effect to be overwritten by each private member subclass \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a7d2944113bf60550902a0df4731e8fd0}{remove\+\_\+inventory\+\_\+item}} (\mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*}item)
+\begin{DoxyCompactList}\small\item\em remove an item from an entities inventory \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+\_\+notes} () const
+\begin{DoxyCompactList}\small\item\em draw note in notes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a690950806b94a7fc75413ecddc1a428f}{add\+\_\+note}} (\mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*}note)
+\begin{DoxyCompactList}\small\item\em add note to entities notes \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a7bcaa10f7b5a941de26bbd987bfcc9c8}{use\+\_\+note}} (\mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*}note)
+\begin{DoxyCompactList}\small\item\em use the note in notes \end{DoxyCompactList}\item 
+virtual void {\bfseries note\+\_\+effect} ()
+\begin{DoxyCompactList}\small\item\em subclass note effect to be overwritten by each private member subclass \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a28bce7c3a2875b693e994ee9ff4f6c2f}{remove\+\_\+notes\+\_\+note}} (\mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*}note)
+\begin{DoxyCompactList}\small\item\em remove an note from an entities notes \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{class_skill}{Skill}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_entity_a78dc3bde580a0da5dfe847c9bec445f7}{get\+\_\+skills}} () const
+\begin{DoxyCompactList}\small\item\em get skills in skills \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a74003f782abcac684e15e29351c67ae5}{add\+\_\+skill}} (\mbox{\hyperlink{class_skill}{Skill}} \texorpdfstring{$\ast$}{*}skill)
+\begin{DoxyCompactList}\small\item\em add skill to entities skills \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a0e345b2c4062010e1b7e4aedfd619af1}{use\+\_\+skill}} (\mbox{\hyperlink{class_skill}{Skill}} \texorpdfstring{$\ast$}{*}skill)
+\begin{DoxyCompactList}\small\item\em use the skill in skills \end{DoxyCompactList}\item 
+virtual void {\bfseries skill\+\_\+effect} ()
+\begin{DoxyCompactList}\small\item\em subclass skill effect to be overwritten by each private member subclass \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_acdbb5a1de678b35d5d349ef3f1aecd2d}{remove\+\_\+skills\+\_\+skill}} (\mbox{\hyperlink{class_skill}{Skill}} \texorpdfstring{$\ast$}{*}skill)
+\begin{DoxyCompactList}\small\item\em remove an skill from an entities skills \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{class_entity_ad4bf0dbc9eb99d87e06f672055087fe0}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em get entity rect position and dimensions \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_a8e74ea9b7acc4c2ba7f2ce4dc726d46e}{get\+\_\+z\+\_\+pos}} () const
+\begin{DoxyCompactList}\small\item\em get entity Z position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_afd2f4a57f9b61cf7fb5e56e2324c6660}{set\+\_\+rect}} (int x, int y, int width, int height)
+\begin{DoxyCompactList}\small\item\em set entity rect position and dimensions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a4b65279e5f3867b6490d221dab31cd70}{set\+\_\+rect\+\_\+x\+\_\+pos}} (int x)
+\begin{DoxyCompactList}\small\item\em set entities x-\/pos e.\+g, for camera displacement or velocity calculations \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a282b31e15e2a44dc29d7e1d9d669be1f}{set\+\_\+rect\+\_\+y\+\_\+pos}} (int y)
+\begin{DoxyCompactList}\small\item\em set entities y-\/pos e.\+g, for camera displacement or velocity calculations \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a8e81571042089b4e2854ae5fd301f8b2}{set\+\_\+z\+\_\+pos}} (int z)
+\begin{DoxyCompactList}\small\item\em set entities z-\/pos e.\+g, for jumping \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a6823b9263d25e27bda704e1bfbe846a6}{get\+\_\+x\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em get entities x-\/pos direction movement \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_a47f1254b32b756b88762832684e2d010}{get\+\_\+y\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em get entities y-\/pos direction movement \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_ae9b347d9ae7731fe61ba5d5ad2447a95}{get\+\_\+z\+Velocity}} () const
+\begin{DoxyCompactList}\small\item\em get entities z-\/pos direction movement \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_entity_ac9e1f4a2d311f539ba5fb1aa70544739}{get\+\_\+acceleration}} () const
+\begin{DoxyCompactList}\small\item\em get acelleration for movement handle modifying velocity each entity has their own unique acceleration, to control their own speeds with modifiers e.\+g. using an boots item object increases acceleration due to running faster effect \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a0d4b8f36db7b9adc336f66458c5bc570}{set\+\_\+acceleration}} (float a)
+\begin{DoxyCompactList}\small\item\em set acelleration for movement handle modifying velocity each entity has their own unique acceleration, to control their own speeds with modifiers e.\+g. using an boots item object increases acceleration due to running faster effect \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_ae5a7b37bc1c60a1e03bb01b5aba01268}{set\+\_\+velocity}} (float x\+Vel, float y\+Vel)
+\begin{DoxyCompactList}\small\item\em set entities x-\/pos and y-\/pos velocity for direction movement \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_entity_a7d7f888fc0f49a2b70ccb3757de7ec3e}{get\+\_\+score}} () const
+\begin{DoxyCompactList}\small\item\em get entities score/xp/money \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_entity_a114475953b84ebae88b34f07ddad93a2}{set\+\_\+score}} (int s)
+\begin{DoxyCompactList}\small\item\em set entities score/xp/money \end{DoxyCompactList}\item 
+void {\bfseries update\+\_\+position\+\_\+from\+\_\+velocity} ()
+\begin{DoxyCompactList}\small\item\em move entity based on either player handle() or entity-\/\texorpdfstring{$>$}{>}\doxylink{class_entity_a4e2436c7079a2577a560a7c2c51b0d26}{move\+\_\+entity()} random/path movement \end{DoxyCompactList}\item 
+void {\bfseries update\+\_\+deceleration} (float deceleration)
+\begin{DoxyCompactList}\small\item\em apply decelerating physics logic to entity when they stop moving \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a4e2436c7079a2577a560a7c2c51b0d26}{move\+\_\+entity}} (float \mbox{\hyperlink{class_entity_a677aa4645f0eac72384a1bb1474261d5}{acceleration}})
+\begin{DoxyCompactList}\small\item\em move entity based on either player handle() or entity-\/\texorpdfstring{$>$}{>}\doxylink{class_entity_a4e2436c7079a2577a560a7c2c51b0d26}{move\+\_\+entity()} random/path movement \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_a01cc650103cbd41c27b4b7e45ad2cc80}{handle\+\_\+enemy\+\_\+collision}} (std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities)
+\begin{DoxyCompactList}\small\item\em entities collission logic with a player e.\+g. they attack it, ad get pushed back \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_entity_ab2f5ee60a63b6090f1d5ea0fb75e6c5d}{handle\+\_\+obstacle\+\_\+collision}} (std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities)
+\begin{DoxyCompactList}\small\item\em entities collission logic with a player e.\+g. they get pushed back \end{DoxyCompactList}\item 
+void {\bfseries collisions\+\_\+prevent\+\_\+leaving\+\_\+game\+\_\+world\+\_\+bounds} (int GAME\+\_\+\+WORLD\+\_\+\+WIDTH, int GAME\+\_\+\+WORLD\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em entities collission logic with world boundary e.\+g. they get pushed back \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_entity}{Entity}}}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_a2747dfdd9fa4fe743c8b80450bc99dbd}{renderer}} \{\}
+\item 
+const std\+::string \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}} \{\}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{class_entity_a19a505be2f6ce88e2c38fb4b2df3ca84}{rect}} \{\}
+\item 
+int \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}} \{\}
+\item 
+std\+::string \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collision\+Sound\+String}} \{\}
+\item 
+std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walking\+Textures}} \{\}
+\item 
+Mix\+\_\+\+Chunk \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_a830118844ae880f77c1b28570b66f3b1}{collision\+Sound}} \{\}
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_entity_a7e3a5bd3ee8f06d2641b183b4ea87933}{texture}} \{\}
+\item 
+float \mbox{\hyperlink{class_entity_a9cb8bcebca496e404da0ca4ac5ada2ba}{x\+Velocity}} \{\}
+\item 
+float \mbox{\hyperlink{class_entity_ae23ee1499214223a7335f5749cd39f02}{y\+Velocity}} \{\}
+\item 
+float \mbox{\hyperlink{class_entity_a4fdbb8022e0c9882eab7d69655be6898}{z\+Velocity}} \{\}
+\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{class_entity_aebbea300355eb869c392672d433c31d8}{last\+Acceleration\+Change}} \{\}
+\item 
+bool \mbox{\hyperlink{class_entity_a03a42a1214628fa8f42984f72f6b9c4d}{accelerateX}} \{\}
+\item 
+int \mbox{\hyperlink{class_entity_a85360ce9b10c3e58d6c76d2b4a9cc3c7}{score}} \{\}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_entity_a1e2a7b8ef51a3f23bbe2cc02d69471c0}{inventory}} \{\}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_skill}{Skill}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_entity_ab0ccf02a6461784164263788df4330e3}{skills}} \{\}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_item}{Item}} \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_entity_a97e9473912410f7ef2b1472d4d384a7f}{notes}} \{\}
+\item 
+bool \mbox{\hyperlink{class_entity_ad2cc13f1f53bf57a100658399ef5db9b}{has\+Collided}} \{\}
+\item 
+int \mbox{\hyperlink{class_entity_ada5871e300ad3651b23564ae7d4e8cff}{current\+Animation\+Frame}} \{\}
+\item 
+std\+::chrono\+::steady\+\_\+clock\+::time\+\_\+point \mbox{\hyperlink{class_entity_a55c8b8fffa2a683bf4bb65422aca9fd0}{last\+Frame\+Change}} \{\}
+\item 
+const int \mbox{\hyperlink{class_entity_ad7d598203f2bcd47100fe73040a8d9a2}{animation\+Delay}} = 200
+\item 
+std\+::string \mbox{\hyperlink{class_entity_ad848aebb257fc414ccb8b9340b09a6a7}{texture\+Path}} \{\}
+\item 
+std\+::unordered\+\_\+map$<$ std\+::string, SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_entity_a48cc41c4ee52f3786f78b9db7c5e82ed}{texture\+Map}} \{\}
+\item 
+int \mbox{\hyperlink{class_entity_af425aee7a164c229c7c83706b5cf082e}{z\+Pos}} \{\}
+\item 
+float \mbox{\hyperlink{class_entity_a677aa4645f0eac72384a1bb1474261d5}{acceleration}} = 0.\+5f
+\item 
+float \mbox{\hyperlink{class_entity_a0713ef5c84e6b8873150a34e5262db15}{Decceleration}} = 0.\+01f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Game \doxylink{_entity_8hpp_source}{Entity.\+hpp} subclass for in game Items. 
+
+Game \doxylink{class_entity}{Entity} subclass, \doxylink{class_item}{Item} base class for defining common features related to various \doxylink{class_item}{Item} elements in a game e.\+g, being picked up on player collission to add to inventory and destroying itself. read the \doxylink{_entity_8hpp_source}{Entity.\+hpp} comment block for more details 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_item_a0dce2b9b56273011c893912c5ab90f55}\label{class_item_a0dce2b9b56273011c893912c5ab90f55} 
+\index{Item@{Item}!handle\_item\_collision@{handle\_item\_collision}}
+\index{handle\_item\_collision@{handle\_item\_collision}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{handle\_item\_collision()}{handle\_item\_collision()}}
+{\footnotesize\ttfamily void Item\+::handle\+\_\+item\+\_\+collision (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+handle item collission with another item 
+
+e.\+g play noise?
+
+
+\begin{DoxyParams}{Parameters}
+{\em entities} & the vector of all entities in a scene e.\+g. items, enemies, players, obstalces \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_a6178fd72d222f3d090104eac781b5aa0}{Entity}}.
+
+\Hypertarget{class_item_a82051989f2e066277dfd314bd27b390a}\label{class_item_a82051989f2e066277dfd314bd27b390a} 
+\index{Item@{Item}!handle\_player\_collision@{handle\_player\_collision}}
+\index{handle\_player\_collision@{handle\_player\_collision}!Item@{Item}}
+\doxysubsubsection{\texorpdfstring{handle\_player\_collision()}{handle\_player\_collision()}}
+{\footnotesize\ttfamily void Item\+::handle\+\_\+player\+\_\+collision (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+handle item collission with player 
+
+e.\+g. play item specific noise e.\+g. money jingle, or paper crunch
+
+
+\begin{DoxyParams}{Parameters}
+{\em entities} & the vector of all entities in a scene e.\+g. items, enemies, players, obstalces \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_entity_aa34c6f97418020f30e17e4f83d766d09}{Entity}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/entities/Item.\+hpp\item 
+src/entities/Item.\+cpp\end{DoxyCompactItemize}

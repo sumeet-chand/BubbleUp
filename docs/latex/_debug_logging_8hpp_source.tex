@@ -1,0 +1,36 @@
+\doxysection{Debug\+Logging.\+hpp}
+\hypertarget{_debug_logging_8hpp_source}{}\label{_debug_logging_8hpp_source}\index{headers/DebugLogging.hpp@{headers/DebugLogging.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 18/04/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00047\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_debug_logging}{DebugLogging}}}
+\DoxyCodeLine{00048\ \{}
+\DoxyCodeLine{00049\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00050\ \ \ \ \ std::string\ logFileName\{\};\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::vector<std::string>\ logBuffer\{\};\ }
+\DoxyCodeLine{00053\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{class_debug_logging_a16273375190df552087b7fb2ba093692}{DebugLogging}}(\textcolor{keyword}{const}\ std::string\ \&fileName);}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_debug_logging_a0e62ee334fa5f91baa7a4e779f0d14d5}{\string~DebugLogging}}();}
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_debug_logging_adbd6312c450ea0eeb5cc1d69eeaf616d}{log\_critical}}(\textcolor{keyword}{const}\ std::string\ \&message);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_debug_logging_ae95a44e653b5557507c887639c5df6aa}{log\_non\_critical}}(\textcolor{keyword}{const}\ std::string\ \&message);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00103\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_debug_logging_ac3ee7334607d2b2864733c746b08759f}{write\_log\_buffer\_to\_file}}();}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_debug_logging_af46a50a8b9b926c54c749dd10b7d32cc}{clear\_log\_file}}();}
+\DoxyCodeLine{00115\ \};}
+
+\end{DoxyCode}

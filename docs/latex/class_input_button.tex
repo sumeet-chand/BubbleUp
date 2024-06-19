@@ -1,0 +1,205 @@
+\doxysection{Input\+Button Class Reference}
+\hypertarget{class_input_button}{}\label{class_input_button}\index{InputButton@{InputButton}}
+
+
+SDL input text field subclass of \doxylink{_base_button_8hpp_source}{Base\+Button.\+hpp} base class.  
+
+
+
+
+{\ttfamily \#include $<$Input\+Button.\+hpp$>$}
+
+Inheritance diagram for Input\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_input_button}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_input_button_a3e69b6147b6668040b657187088ff177}{Input\+Button}} (int x, int y, int width, int height, std\+::string \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{button\+Label}}, Uint8 r, Uint8 g, Uint8 b, Uint8 a, const std\+::string \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{button\+Texture\+Path}}, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{button\+Font}}, Uint8 red\+Text, Uint8 green\+Text, Uint8 blue\+Text, Uint8 alpha\+Text)
+\begin{DoxyCompactList}\small\item\em SDL input text field constructor. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_input_button_a6b931ca2d955d9ae63f18d96f90e404a}{get\+\_\+text}} () const
+\begin{DoxyCompactList}\small\item\em get input text fields text \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_button_a4be14352c967a2d4a33231e84ed6219f}{set\+\_\+text}} (const SDL\+\_\+\+Event \&event)
+\begin{DoxyCompactList}\small\item\em write text to button \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_button_ad725008d0a776ae401c7cb906351b0fb}{clear\+\_\+text}} ()
+\begin{DoxyCompactList}\small\item\em set button submitted status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_button_aacfe22c624532c556153882fa145c351}{remove\+\_\+last\+\_\+character}} ()
+\begin{DoxyCompactList}\small\item\em remove the last character in text input field \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_button_a552c99e691a369df32e3174d1f2ae2d1}{render\+\_\+cursor}} () const
+\begin{DoxyCompactList}\small\item\em render a vertical straight arrow text cursor in text input field rect \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_input_button_adf957cbeec84a84bc4a281ce01115d67}{render\+\_\+button\+\_\+rect}} () override
+\begin{DoxyCompactList}\small\item\em render button rect \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_base_button}{Base\+Button}}}
+\begin{DoxyCompactItemize}
+\item 
+{\bfseries Base\+Button} (int x, int y, int width, int height, std\+::string \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{button\+Label}}, Uint8 r, Uint8 g, Uint8 b, Uint8 a, const std\+::string \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{button\+Texture\+Path}}, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{button\+Font}}, Uint8 red\+Text, Uint8 green\+Text, Uint8 blue\+Text, Uint8 alpha\+Text)
+\begin{DoxyCompactList}\small\item\em this is an abstract (base) class not meant for constructing the subclasses that inherit from this are meant to be initialised into a vector of type \doxylink{class_base_button}{Base\+Button} in order to iterate through for various scenes GUI rendering/placement \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Base\+Button} ()
+\begin{DoxyCompactList}\small\item\em this is an abstract (base) class not meant for constructing the subclasses that inherit from this are meant to be initialised into a vector of type \doxylink{class_base_button}{Base\+Button} in order to iterate through for various scenes GUI rendering/placement \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a5684f4cc2cb78eb94eecf856f9071f4c}{set\+\_\+renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em dynamically set renderer \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_button_ac5205725453b83855a01a16cf236fc63}{is\+\_\+clicked}} (SDL\+\_\+\+Point \&point)
+\begin{DoxyCompactList}\small\item\em when an SDL mouse handle \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_button_ae49099d56367dbd43a7cb597ef79da83}{is\+\_\+selected}} () const
+\begin{DoxyCompactList}\small\item\em return button selected status \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_base_button_ae45a64e9b9ebcb82e485969320479f12}{get\+\_\+button\+\_\+label}} () const
+\begin{DoxyCompactList}\small\item\em get buttons label which is the text written on it can be replaced with set function for situations to display different text on click e.\+g. MUSIC ON \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} MUSIC OFF \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a657a4c875c4ea8471f2ed73b9191ac66}{set\+\_\+button\+\_\+label}} (std\+::string new\+Button\+Label)
+\begin{DoxyCompactList}\small\item\em set buttons label which is the text written on it can be replaced with set function for situations to display different text on click e.\+g. MUSIC ON \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} MUSIC OFF or when change language script \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em return button rect positions/dimensions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a2d648ba140336eca16c4fa239786d8c2}{set\+\_\+rect\+\_\+x\+\_\+pos}} (int x)
+\begin{DoxyCompactList}\small\item\em set button rect x position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a876f23b812796f234a29cec70c17ae6c}{set\+\_\+rect\+\_\+y\+\_\+pos}} (int y)
+\begin{DoxyCompactList}\small\item\em set button rect y position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a344eb254a7a923a71d8435226c07fd60}{set\+\_\+selected}} ()
+\begin{DoxyCompactList}\small\item\em deselecting current button and select this button \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_button_a85b6ac382634b0fb47f2ee4b4a24832a}{get\+\_\+clicked}} () const
+\begin{DoxyCompactList}\small\item\em get button clicked status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a8027d52f97ac481a6eb43a7fa66ca213}{set\+\_\+clicked}} (bool submitted)
+\begin{DoxyCompactList}\small\item\em set button clicked status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a6f2ec7723f09a071aace85c32c286006}{set\+\_\+button\+\_\+texture}} ()
+\begin{DoxyCompactList}\small\item\em set button button texture passed from constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81}{render\+\_\+button\+\_\+text}} (const std\+::string \&text, int x, int y, Uint8 red\+Text, Uint8 green\+Text, Uint8 blue\+Text, Uint8 alpha\+Text)
+\begin{DoxyCompactList}\small\item\em render button font text to window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a1a848413f7c091923e90cd57dbbf8436}{set\+\_\+font\+\_\+size}} (TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int size)
+\begin{DoxyCompactList}\small\item\em change button object font \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{class_base_button}{Base\+Button}}}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_base_button_a8fda95f827aa4b7a2297207f43b569b8}{find\+\_\+euclidean\+\_\+distance}} (int x1, int y1, int x2, int y2)
+\begin{DoxyCompactList}\small\item\em find eulidean distance \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_base_button_a482b5d438eac535ff6b3553c1f9ad44a}{find\+\_\+nearest\+\_\+button}} (std\+::vector$<$ \mbox{\hyperlink{class_base_button}{Base\+Button}} \texorpdfstring{$\ast$}{*} $>$ scene\+Vector, const std\+::string button\+Direction)
+\begin{DoxyCompactList}\small\item\em find nearest button \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_base_button}{Base\+Button}}}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{button\+Rect}} \{\}
+\item 
+std\+::string \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{button\+Label}} \{\}
+\item 
+SDL\+\_\+\+Color \mbox{\hyperlink{class_base_button_a467ef042660c4bc14f7e8142066fc00c}{button\+Color}} \{\}
+\item 
+const std\+::string \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{button\+Texture\+Path}} \{\}
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_a1d2d08e0f502141ceafc52e21903eec5}{button\+Texture}} \{\}
+\item 
+TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{button\+Font}} \{\}
+\item 
+SDL\+\_\+\+Color \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{button\+Text\+Color}} \{\}
+\item 
+int \mbox{\hyperlink{class_base_button_a1d2cca524e7677eb695a49db619138b7}{Base\+Button\+Rect\+Width}} \{\}
+\item 
+int \mbox{\hyperlink{class_base_button_a0e660e3fa187aa5641a96fdb96ba91cf}{Base\+Button\+Rect\+Height}} \{\}
+\item 
+bool \mbox{\hyperlink{class_base_button_a3681fa61df60befdc83c56bda2d0306e}{is\+Selected}} \{\}
+\item 
+bool \mbox{\hyperlink{class_base_button_a0b30db198f5440cddb0a735ef56e06c0}{is\+Clicked}} \{\}
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}} \{\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_base_button}{Base\+Button}}}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_base_button}{Base\+Button}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_a5357c8a0ab07f09a3773c4d0fd71d43f}{selected\+Button}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SDL input text field subclass of \doxylink{_base_button_8hpp_source}{Base\+Button.\+hpp} base class. 
+
+read the \doxylink{_base_button_8hpp_source}{Base\+Button.\+hpp} comment block for more details 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_input_button_a3e69b6147b6668040b657187088ff177}\label{class_input_button_a3e69b6147b6668040b657187088ff177} 
+\index{InputButton@{InputButton}!InputButton@{InputButton}}
+\index{InputButton@{InputButton}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{InputButton()}{InputButton()}}
+{\footnotesize\ttfamily Input\+Button\+::\+Input\+Button (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{std\+::string}]{button\+Label,  }\item[{Uint8}]{r,  }\item[{Uint8}]{g,  }\item[{Uint8}]{b,  }\item[{Uint8}]{a,  }\item[{const std\+::string}]{button\+Texture\+Path,  }\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{button\+Font,  }\item[{Uint8}]{red\+Text,  }\item[{Uint8}]{green\+Text,  }\item[{Uint8}]{blue\+Text,  }\item[{Uint8}]{alpha\+Text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+SDL input text field constructor. 
+
+Has 2 unique member variables for the text entered into the rect, and a bool to track if the text was submitted. You can use this object along with a \doxylink{class_clickable_button}{Clickable\+Button} object to have a submit button that triggers this buttons .set\+\_\+clicked(true);
+
+Use an SDL handle to send text input to this button if selected you can have an additional submit \doxylink{class_clickable_button}{Clickable\+Button} object that when clicked you can set this button to set\+\_\+clicked(true) then send the text somewher e.\+g. a JSON string to a webserver
+
+EXAMPLE else if (event.\+type == SDL\+\_\+\+TEXTINPUT) \{ // Need to use SDL\+\_\+\+TEXTINPUT for live interactive type and render at same time for (\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}button \+: all\+Buttons) \{ if (button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_ae49099d56367dbd43a7cb597ef79da83}{is\+\_\+selected()}) \{ if (\doxylink{class_input_button}{Input\+Button} \texorpdfstring{$\ast$}{*}x = dynamic\+\_\+cast$<$\+Input\+Button \texorpdfstring{$\ast$}{*}$>$(button)) \{ x-\/\texorpdfstring{$>$}{>}set\+\_\+text(event); \} \} \} break; \} 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_input_button_ad725008d0a776ae401c7cb906351b0fb}\label{class_input_button_ad725008d0a776ae401c7cb906351b0fb} 
+\index{InputButton@{InputButton}!clear\_text@{clear\_text}}
+\index{clear\_text@{clear\_text}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{clear\_text()}{clear\_text()}}
+{\footnotesize\ttfamily void Input\+Button\+::clear\+\_\+text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set button submitted status 
+
+After submitting text to reset all a buttons variables you can call these functions scene4input\+Player\+Name\+Button.\+clear\+\_\+text(); scene4input\+Player\+Name\+Button.\+set\+\_\+clicked(false); \Hypertarget{class_input_button_a6b931ca2d955d9ae63f18d96f90e404a}\label{class_input_button_a6b931ca2d955d9ae63f18d96f90e404a} 
+\index{InputButton@{InputButton}!get\_text@{get\_text}}
+\index{get\_text@{get\_text}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{get\_text()}{get\_text()}}
+{\footnotesize\ttfamily std\+::string Input\+Button\+::get\+\_\+text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get input text fields text 
+
+e.\+g. You can enter a player name and on submit button, send this buttons input\+Text to an scoreboard \Hypertarget{class_input_button_aacfe22c624532c556153882fa145c351}\label{class_input_button_aacfe22c624532c556153882fa145c351} 
+\index{InputButton@{InputButton}!remove\_last\_character@{remove\_last\_character}}
+\index{remove\_last\_character@{remove\_last\_character}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{remove\_last\_character()}{remove\_last\_character()}}
+{\footnotesize\ttfamily void Input\+Button\+::remove\+\_\+last\+\_\+character (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+remove the last character in text input field 
+
+use a handle to listen to BACKSPACE key press then delete last character in text input field
+
+EXAMPLE case SDLK\+\_\+\+BACKSPACE\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: BACKSPACE"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; if (scene4input\+Player\+Name\+Button.\+is\+\_\+selected()) \{ scene4input\+Player\+Name\+Button.\+remove\+\_\+last\+\_\+character(); \} \Hypertarget{class_input_button_adf957cbeec84a84bc4a281ce01115d67}\label{class_input_button_adf957cbeec84a84bc4a281ce01115d67} 
+\index{InputButton@{InputButton}!render\_button\_rect@{render\_button\_rect}}
+\index{render\_button\_rect@{render\_button\_rect}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{render\_button\_rect()}{render\_button\_rect()}}
+{\footnotesize\ttfamily void Input\+Button\+::render\+\_\+button\+\_\+rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+render button rect 
+
+Will render button with unique addition of \doxylink{class_input_button_a552c99e691a369df32e3174d1f2ae2d1}{render\+\_\+cursor()} 
+
+Reimplemented from \mbox{\hyperlink{class_base_button_a9e8bc234fe0908b0b8adb1b4046fa435}{Base\+Button}}.
+
+\Hypertarget{class_input_button_a552c99e691a369df32e3174d1f2ae2d1}\label{class_input_button_a552c99e691a369df32e3174d1f2ae2d1} 
+\index{InputButton@{InputButton}!render\_cursor@{render\_cursor}}
+\index{render\_cursor@{render\_cursor}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{render\_cursor()}{render\_cursor()}}
+{\footnotesize\ttfamily void Input\+Button\+::render\+\_\+cursor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+render a vertical straight arrow text cursor in text input field rect 
+
+render a vertical straight arrow text cursor in text input field rect called in render\+\_\+button\+\_\+rect \Hypertarget{class_input_button_a4be14352c967a2d4a33231e84ed6219f}\label{class_input_button_a4be14352c967a2d4a33231e84ed6219f} 
+\index{InputButton@{InputButton}!set\_text@{set\_text}}
+\index{set\_text@{set\_text}!InputButton@{InputButton}}
+\doxysubsubsection{\texorpdfstring{set\_text()}{set\_text()}}
+{\footnotesize\ttfamily void Input\+Button\+::set\+\_\+text (\begin{DoxyParamCaption}\item[{const SDL\+\_\+\+Event \&}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+write text to button 
+
+Use an SDL handle to send text input to this button if selected 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/buttons/Input\+Button.\+hpp\end{DoxyCompactItemize}

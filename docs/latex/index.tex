@@ -1,0 +1,369 @@
+\chapter{Bubble\+UP}
+\hypertarget{index}{}\label{index}\index{BubbleUP@{BubbleUP}}
+\label{index_md_mainpage}%
+\Hypertarget{index_md_mainpage}%
+ 
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\#\ BubbleUP}
+\DoxyCodeLine{}
+\DoxyCodeLine{Version:\ 0.2\ NOT\ READY\ FOR\ PLAYING}
+\DoxyCodeLine{}
+\DoxyCodeLine{*\ Author:\ Sumeet\ Singh\ @\ sumeet-\/singh.com}
+\DoxyCodeLine{*\ Dated:\ 09/04/2024}
+\DoxyCodeLine{*\ Minimum\ C++\ Standard:\ C++17}
+\DoxyCodeLine{*\ Description:\ Full\ documentation\ located\ here\ "{}./docs/html/mainpage.html"{}}
+\DoxyCodeLine{*\ License:\ MIT\ License\ see\ "{}./LICENSE"{}\ file}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{![Promotional\ Screenshot\ 1](assets/graphics/promotional/screenshot\_1.png)}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{![Promotional\ Screenshot\ 2](assets/graphics/promotional/screenshot\_2.png)}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ DESCRIPTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{BubbleUP\ is\ a\ combined\ C++\ 2D\ Game\ Engine\ with\ a\ built\ in\ feature-\/rich\ demonstration\ 2D\ game\ built\ }
+\DoxyCodeLine{ontop\ of\ the\ SDL\ Framework.\ It\ includes\ classes\ for\ constructing\ interactive\ Buttons\ and\ fields\ to\ }
+\DoxyCodeLine{create\ stunning\ GUI,\ Forms\ and\ HUD.\ Includes\ countless\ game\ entities\ and\ level\ editor\ to\ create\ unique\ }
+\DoxyCodeLine{stunning\ 2D\ games.\ Has\ built\ in\ scenes\ for\ achievements,\ leaderboards,\ multiplayer,\ and\ more.\ You\ can\ }
+\DoxyCodeLine{download\ and\ easily\ modify\ this\ open-\/source\ code\ to\ create\ your\ own\ game\ by\ following\ the\ }
+\DoxyCodeLine{instructions\ here.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ GUI}
+\DoxyCodeLine{}
+\DoxyCodeLine{Uses\ a\ BaseButton\ class\ to\ encapsulate\ logic\ for\ different\ GUI\ button\ objects\ derived\ from\ SDL\ }
+\DoxyCodeLine{Framework\ for\ various\ GUI\ elements,\ e.g.,\ volume\ sliders,\ input\ fields,\ clickable\ radios,\ checkboxes,}
+\DoxyCodeLine{\ and\ buttons.\ These\ are\ initialized\ within\ a\ vector\ to\ hold\ all\ the\ different\ buttons,\ enabling\ }
+\DoxyCodeLine{\ navigation\ through\ them\ with\ keyboard\ movement,\ highlighting,\ and\ building\ a\ GUI\ with\ buttons,\ }
+\DoxyCodeLine{\ rendering\ text/draws,\ and\ handles.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ GAME}
+\DoxyCodeLine{}
+\DoxyCodeLine{Has\ a\ Game\ Engine\ Entity\ Base\ Class\ with\ four\ subclass\ entities:\ Players,\ Items,\ Enemies,\ and\ }
+\DoxyCodeLine{Obstacles\ (boundaries).\ Each\ has\ its\ own\ logic\ for\ movement\ and\ collision.\ A\ basic\ displacement\ }
+\DoxyCodeLine{camera\ is\ used\ to\ draw\ the\ location\ of\ entities.\ The\ existing\ game,\ "{}Bubble\ UP,"{}\ is\ a\ simple\ }
+\DoxyCodeLine{"{}reach\ the\ highest\ score"{}\ game\ by\ collecting\ valuable\ items\ while\ trying\ to\ avoid\ touching\ }
+\DoxyCodeLine{enemies,\ all\ while\ navigating\ obstacles\ blocking\ the\ way.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ LEADERBOARDS}
+\DoxyCodeLine{}
+\DoxyCodeLine{Has\ an\ UpdateApp\ class\ for\ saving\ achievements,\ settings,\ and\ scoring\ statistics\ to\ file,\ with\ }
+\DoxyCodeLine{the\ ability\ to\ load\ them\ in\ memory\ to\ view\ in-\/game.\ Achievements\ can\ be\ accessible\ to\ push\ to\ }
+\DoxyCodeLine{any\ platform.\ Achievements\ can\ be\ shared\ online\ with\ other\ players\ and\ leaderboard\ statistics\ }
+\DoxyCodeLine{are\ also\ available\ for\ competitive\ play.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ MULTIPLAYER}
+\DoxyCodeLine{}
+\DoxyCodeLine{Uses\ WebserverClient\ and\ WebserverHost\ classes\ to\ create\ a\ game\ client\ and\ webserver\ multiplayer\ }
+\DoxyCodeLine{lobby\ functionality\ to\ create\ custom\ games,\ join\ others,\ make\ and\ add\ friends,\ and\ communicate\ }
+\DoxyCodeLine{and\ compete\ online.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ LEVEL\ EDITOR}
+\DoxyCodeLine{}
+\DoxyCodeLine{Includes\ a\ highly\ customisable\ level\ editor\ for\ importing\ textures\ and\ creating\ unique\ custom\ }
+\DoxyCodeLine{game\ maps\ and\ exporting\ them\ as\ .wad\ files\ for\ sharing,\ modding,\ and\ playing\ custom\ games\ both\ }
+\DoxyCodeLine{in\ single\ and\ multiplayer.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ ACCESSIBILITY}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ vast\ array\ of\ settings\ are\ present,\ including\ enabling\ vsync,\ resolution\ changes,\ volume\ }
+\DoxyCodeLine{control,\ different\ language\ support,\ as\ well\ as\ keybinding\ functionality.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ REQUIREMENTS}
+\DoxyCodeLine{}
+\DoxyCodeLine{*\ OS:\ }
+\DoxyCodeLine{\ \ \ \ *\ Windows\ 10,\ 11}
+\DoxyCodeLine{\ \ \ \ *\ MacOS\ 13\ -\/\ 14}
+\DoxyCodeLine{\ \ \ \ *\ Ubuntu\ 22.04\ -\/\ 24.04}
+\DoxyCodeLine{*\ Processor:\ at\ least\ a\ Core\ i3\ or\ AMD\ CPU\ equivalent}
+\DoxyCodeLine{*\ RAM:\ 4\ GB\ RAM}
+\DoxyCodeLine{*\ Graphics:\ at\ least\ a\ HD\ compatible\ CPU/GPU}
+\DoxyCodeLine{*\ Storage:\ 5\ GB\ Free}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ HOW\ TO\ PLAY}
+\DoxyCodeLine{}
+\DoxyCodeLine{1.\ No\ installation\ required.\ Simply\ download\ game\ folder\ from\ here}
+\DoxyCodeLine{https://github.com/SumeetSinghJi/BubbleUp/archive/refs/heads/main.zip}
+\DoxyCodeLine{extract\ and\ run\ the\ relevant\ executable\ for\ your\ operating\ system\ (OS)\ below\ to\ play;}
+\DoxyCodeLine{*\ Windows:\ ./bin/windows/BubbleUp.exe}
+\DoxyCodeLine{*\ Linux:\ ./bin/linux/BubbleUp}
+\DoxyCodeLine{*\ MacOS:\ ./bin/mac/BubbleUp}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ ACCESSIBILITY\ -\/\ LANGUAGES}
+\DoxyCodeLine{}
+\DoxyCodeLine{Full\ supported\ languages.}
+\DoxyCodeLine{1.\ ENGLISH\ (English)}
+\DoxyCodeLine{2.\ 日本語\ (Japanese)}
+\DoxyCodeLine{Languages\ changed\ in\ game\ via\ Settings\ -\/\ Language\ button.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ ACCESSIBILITY\ -\/\ CONTROLS\ \&\ INPUTS}
+\DoxyCodeLine{}
+\DoxyCodeLine{Full\ Controller\ supports:\ Mouse,\ Keyboard,\ Gamepad,\ Touch}
+\DoxyCodeLine{Keybindings\ changed\ in\ game\ via\ Settings\ -\/\ Keybindings\ button.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{*\ KEYBOARD\ \ |\ GAMEPAD\ \ |\ MOUSE/TOUCH\ \ |\ ACTION}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ UP\ \ \ \ \ \ \ \ |\ UP\ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ Move\ up}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ DOWN\ \ \ \ \ \ |\ DOWN\ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ Move\ Down}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ LEFT\ \ \ \ \ \ |\ LEFT\ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ Move\ Left}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ RIGHT\ \ \ \ \ |\ RIGHT\ \ \ \ |\ \ \ \ \ \ \ \ \ \ \ \ \ \ |\ \ Move\ Right}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ ENTER\ \ \ \ \ |\ A\ \ \ \ \ \ \ \ |\ Left\ Click\ \ \ |\ \ Accept/Use}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ ESC\ \ \ \ \ \ \ |\ B\ \ \ \ \ \ \ \ |\ Right\ Click\ \ |\ \ Cancel/Return/Exit}
+\DoxyCodeLine{*\ }
+\DoxyCodeLine{*\ \ \ \ \ \ \ \ \ \ \ |\ \ \ \ \ \ \ \ \ \ |\ Mousewheel\ \ \ |\ \ Scroll\ Up/Down}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ INTRODUCTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{"{}As\ the\ author,\ I\ always\ wanted\ to\ learn\ programming.\ Growing\ up\ in\ the\ 90s\ shareware\ gaming\ era,\ the\ internet\ }
+\DoxyCodeLine{wasn't\ as\ widespread,\ fast,\ affordable,\ or\ accessible\ during\ that\ time\ period.\ The\ lack\ of\ the\ Internet\ left\ }
+\DoxyCodeLine{very\ few\ ways\ to\ enjoy\ video\ games.\ Electronic\ games\ were\ mainly\ accessed\ through\ the\ arcade,\ which\ was\ an\ }
+\DoxyCodeLine{expensive\ hobby,\ handheld\ and\ home\ game\ consoles,\ which\ had\ little\ public\ documentation,\ leaving\ the\ only\ way\ }
+\DoxyCodeLine{to\ judge\ a\ game's\ fun\ to\ viewing\ the\ boxed\ art,\ leaving\ little\ room\ for\ errors\ in\ judgment\ and\ another\ }
+\DoxyCodeLine{expensive\ endeavor.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Thankfully,\ operating\ systems\ at\ the\ time\ had\ free\ inbuilt\ games\ that\ became\ the\ subject\ of\ speculation\ and\ }
+\DoxyCodeLine{fascination.\ However,\ the\ only\ way\ to\ enjoy\ the\ games\ at\ that\ age\ or\ time\ was\ limited\ to\ access\ on\ school\ }
+\DoxyCodeLine{computers\ with\ limited\ libraries\ of\ installed\ games,\ and\ with\ supervision,\ leaving\ approval\ of\ games\ played\ up\ }
+\DoxyCodeLine{to\ the\ ever-\/dominant\ and\ watchful\ eyes\ of\ the\ teachers'\ moral\ approval.}
+\DoxyCodeLine{}
+\DoxyCodeLine{This\ left\ the\ only\ way\ to\ enjoy\ games\ repeatedly\ without\ any\ costly\ endeavors\ were\ the\ utopian\ abundance\ of\ }
+\DoxyCodeLine{demonstration\ games\ known\ as\ demos,\ which\ were\ free,\ limited\ in\ gameplay\ and/or\ ownership\ rights,\ samples\ of\ }
+\DoxyCodeLine{computer\ games.\ }
+\DoxyCodeLine{The\ easiest\ method\ of\ obtaining\ them\ was\ from\ digital\ storage\ media\ at\ the\ time\ known\ as,\ floppy\ disks\ shortened\ }
+\DoxyCodeLine{to\ floppies\ and\ CD-\/ROMs\ shortened\ to\ CDs\ bundled\ as\ free\ promotional\ samples\ with\ technology\ magazines\ that\ }
+\DoxyCodeLine{were\ often\ purchased\ from\ news\ agencies.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ low\ cost\ of\ the\ barrier,\ ease,\ often\ non-\/existent\ standards\ to\ program\ and\ develop\ computer\ games\ meant\ that\ }
+\DoxyCodeLine{many\ game\ developers\ published\ their\ works\ often\ through\ the\ aforementioned\ media,\ and\ the\ time\ period\ was\ }
+\DoxyCodeLine{colloquially\ and\ fondly\ referred\ to\ as\ the\ Shareware\ era.\ Shareware\ is\ any\ commercial\ software\ that\ is\ }
+\DoxyCodeLine{distributed\ free,\ encouraging\ owners\ to\ donate\ or\ pay\ for\ the\ complete\ licensed\ and\ often\ unlocked\ version.}
+\DoxyCodeLine{Shareware\ games\ could\ be\ copied\ for\ free\ on\ other\ media\ and\ spread\ to\ families\ and\ friends,\ bringing\ the\ }
+\DoxyCodeLine{cost\ barrier\ to\ electronic\ gaming\ down\ to\ accessible\ levels.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Floppies\ and\ CDs\ would\ be\ inserted\ and\ the\ drive\ accessed\ on\ the\ computer,\ where\ you\ could\ browse\ the\ game's\ }
+\DoxyCodeLine{contents\ known\ as\ folders\ in\ Windows.\ Games\ folders\ would\ contain\ many\ files\ such\ as\ images,\ videos,\ music\ known\ }
+\DoxyCodeLine{as\ assets\ used\ by\ the\ game,\ as\ well\ as\ the\ executables,\ the\ software\ to\ run\ and\ play\ the\ game.\ The\ lack\ of\ }
+\DoxyCodeLine{knowledge\ on\ video\ games\ and\ digital\ media\ at\ the\ time\ meant\ that\ browsing\ a\ game's\ content\ on\ the\ computer\ could\ }
+\DoxyCodeLine{lead\ to\ finding\ cheats\ about\ a\ game,\ viewing\ fascinating\ artwork,\ stories\ in\ game\ manuals,\ that\ could\ be\ copied\ }
+\DoxyCodeLine{to\ the\ local\ computer\ and\ accessed\ anytime,\ leading\ to\ a\ revolution\ in\ video\ game\ ownership\ contrasted\ to\ }
+\DoxyCodeLine{expensive\ arcade\ visits\ with\ coin\ slot\ machines\ and\ foreign\ expensive\ priced\ game\ consoles\ and\ cartridge\ games.}
+\DoxyCodeLine{}
+\DoxyCodeLine{The\ process\ of\ acquiring\ a\ new\ game-\/filled\ floppy\ or\ CD\ with\ new\ mysterious\ experiences\ and\ browsing\ the\ contents\ }
+\DoxyCodeLine{on\ a\ computer\ and\ adding\ them\ to\ my\ growing\ collection\ created\ lifelong\ positive\ memories.\ The\ acquisition\ of\ }
+\DoxyCodeLine{new\ games\ and\ thus\ technology\ became\ my\ passion.}
+\DoxyCodeLine{}
+\DoxyCodeLine{In\ memory\ of\ the\ Shareware\ developers\ that\ created\ media\ that\ brought\ joy\ to\ my\ life,\ I\ wanted\ to\ replicate\ the\ }
+\DoxyCodeLine{process.\ Learning\ video\ game\ development\ was\ a\ step\ in\ the\ right\ direction.\ C++\ was\ a\ programming\ language\ at\ the\ }
+\DoxyCodeLine{time\ I\ remember\ in\ my\ school\ years;\ I\ could\ recall\ many\ advising\ it\ as\ the\ next\ best\ technology.\ Although\ C++}
+\DoxyCodeLine{has\ been\ overtaken\ by\ newer\ programming\ languages,\ I\ wanted\ to\ replicate\ the\ nostalgic\ old\ filesystem\ browsing\ and}
+\DoxyCodeLine{opening\ of\ game\ readme's,\ textures,\ map\ files\ and\ thus\ create\ a\ similar\ simple\ 90s-\/style\ shareware\ era\ game.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Thus,\ I\ hope\ this\ story\ and\ game\ evoke\ similar\ enjoyable\ moments\ for\ you.\ I\ encourage\ you,\ at\ least\ once\ in\ your\ }
+\DoxyCodeLine{life,\ to\ pursue\ a\ nostalgic\ lifelong\ fascination\ you\ have,\ as\ it\ may\ bring\ closure\ to\ subconscious\ desires."{}}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Sumeet\ Singh,\ 29th\ February\ 2024.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ MODDING}
+\DoxyCodeLine{}
+\DoxyCodeLine{To\ use\ BubbleUP\ (This\ Game\ Engine\ with\ inbuilt\ Game)\ to\ create\ a\ new\ game,\ follow\ the\ steps\ below.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Game\ has\ no\ included\ story,\ only\ default\ textures\ with\ open-\/source\ licensing\ and\ top\ down\ }
+\DoxyCodeLine{platform\ physics\ coding\ per\ default.}
+\DoxyCodeLine{}
+\DoxyCodeLine{Game\ uses\ standard\ SDL\ Game\ Development\ practice\ of\ starting,\ running\ and\ exiting\ SDL.}
+\DoxyCodeLine{Within\ running\ sdl\ function\ you\ have\ while\ the\ game\ hasn't\ quit\ calls\ for\ handles()}
+\DoxyCodeLine{updates()\ and\ draws\ for\ relevant\ scenes.\ Each\ game\ scene\ e.g.\ scene\ ==\ 31\ calls\ its\ own\ one\ time}
+\DoxyCodeLine{setup\ that\ toggles\ a\ scene\ setup\ global\ variable\ bool.\ You\ can\ put\ your\ level\ setup\ here.}
+\DoxyCodeLine{e.g.\ setup\_scene\_31()\ \{//\ show\ tutorial,\ procedural\ generation,\ }
+\DoxyCodeLine{std::cout\ <<\ "{}Success:\ setup\ scene\ <<\ scene\ <<\ std::endl;\ \ setup31scene\ bool\ =\ true\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{IMPORTANT:\ When\ you\ update\ the\ game\ to\ the\ latest\ version\ remember\ to\ update\ global\ variable\ in\ }
+\DoxyCodeLine{globals.cpp\ softwareVersion\ to\ different\ number\ to\ ensure\ the\ UpdateApp.hpp\ instance\ can\ compare\ for\ }
+\DoxyCodeLine{game\ update\ functionality.}
+\DoxyCodeLine{}
+\DoxyCodeLine{1.\ Add\ assets\ to\ ./assets\ folder}
+\DoxyCodeLine{2.\ Declare\ all\ global\ variables\ in\ globals.hpp,\ and\ define\ in\ ./src/globals.cpp}
+\DoxyCodeLine{2.\ in\ load\_textures();\ add\ textures\ from\ ./assets/\ filepath}
+\DoxyCodeLine{3.\ In\ handle(),\ update(),\ draw()\ where\ scene\ ==\ 31,\ this\ is\ where\ game\ begins.}
+\DoxyCodeLine{can\ comment\ out\ the\ existing\ entity\ code,\ or\ reuse\ it\ for\ own\ project}
+\DoxyCodeLine{4.\ Update\ or\ create\ a\ function\ for\ the\ new\ scene\ for\ one\ time\ function\ call\ scene\ setup\ scene\_x\_setup()\ }
+\DoxyCodeLine{and\ create\ a\ global\ bool\ variable\ to\ track\ in\ update()\ as\ per\ existing\ convention\ }
+\DoxyCodeLine{5.\ Can\ create\ buttons\ from\ BaseButton.hpp\ subclasses}
+\DoxyCodeLine{6.\ Can\ create\ entities\ from\ Entity.hpp\ subclasses}
+\DoxyCodeLine{7.\ You\ can\ create\ any\ scene\ past\ the\ existing\ numbers\ to\ increase\ game\ engine/game\ options.\ You\ are\ not}
+\DoxyCodeLine{limited\ to\ a\ scene\ int\ naming\ convention\ and\ can\ choose\ to\ use\ names\ such\ as\ scene\_gameplay}
+\DoxyCodeLine{*\ Scene\ 1\ =\ Main\ Menu}
+\DoxyCodeLine{*\ Scene\ 2\ =\ Settings}
+\DoxyCodeLine{*\ Scene\ 3\ =\ Unlockables}
+\DoxyCodeLine{*\ Scene\ 4\ =\ Score}
+\DoxyCodeLine{*\ Scene\ 5\ =\ Help}
+\DoxyCodeLine{*\ Scene\ 6\ =\ Achievements}
+\DoxyCodeLine{*\ Scene\ 7\ =\ Check\ for\ updates}
+\DoxyCodeLine{*\ Scene\ 8\ =\ Online\ login}
+\DoxyCodeLine{*\ Scene\ 9\ =\ Create\ Account}
+\DoxyCodeLine{*\ Scene\ 10\ =\ Display\ policies}
+\DoxyCodeLine{*\ Scene\ 11\ =\ Multiplayer\ Lobby}
+\DoxyCodeLine{*\ Scene\ 12\ =\ Keybindings}
+\DoxyCodeLine{*\ Scene\ 13\ =\ Create\ Game}
+\DoxyCodeLine{*\ Scene\ 14\ =\ Credits}
+\DoxyCodeLine{*\ Scene\ 15\ =\ Level\ editor\ home}
+\DoxyCodeLine{*\ Scene\ 16\ =\ level\ editor\ modify\ Maps}
+\DoxyCodeLine{*\ Scene\ 17\ =\ level\ editor\ modify\ Enemies}
+\DoxyCodeLine{*\ Scene\ 18\ =\ level\ editor\ modify\ Items}
+\DoxyCodeLine{*\ Scene\ 19\ =\ level\ editor\ modify\ Obstacles}
+\DoxyCodeLine{*\ Scene\ 20\ =\ level\ editor\ modify\ Players}
+\DoxyCodeLine{*\ Scene\ 21\ =\ level\ editor\ report}
+\DoxyCodeLine{*\ Scene\ 22\ =\ Mod\ store\ home}
+\DoxyCodeLine{*\ Scene\ 23\ =\ Mod\ store\ cart}
+\DoxyCodeLine{*\ Scene\ 24\ =\ Mod\ store\ checkout}
+\DoxyCodeLine{*\ Scene\ 25\ =\ Mod\ load\ order}
+\DoxyCodeLine{*\ Scene\ 26\ =\ Soundtrack}
+\DoxyCodeLine{*\ Scene\ 27\ =\ Player\ select}
+\DoxyCodeLine{*\ Scene\ 28\ =\ Cutscene}
+\DoxyCodeLine{*\ Scene\ 29\ =\ \_\_\_\_\_UNUSED\_\_\_\_\_}
+\DoxyCodeLine{*\ Scene\ 30\ =\ \_\_\_\_\_UNUSED\_\_\_\_\_}
+\DoxyCodeLine{*\ Scene\ 31\ -\/\ \_\_\_\_\_UNUSED\_\_\_\_\_}
+\DoxyCodeLine{*\ Scene\ 100\ =\ Game\ Sandbox}
+\DoxyCodeLine{*\ Scene\ 101\ =\ Game\ Tutorial}
+\DoxyCodeLine{*\ Scene\ 102\ -\/\ beyond\ =\ Game}
+\DoxyCodeLine{7.\ The\ CMAKElists.txt\ file\ can\ be\ used\ to\ build\ an\ executable\ across\ different\ platforms.}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ COMPILING}
+\DoxyCodeLine{}
+\DoxyCodeLine{the\ included\ .vscode\ has\ build\ tasks\ for\ each\ OS\ with\ a\ relevant\ default\ compiler}
+\DoxyCodeLine{*\ g++\ -\/\ Windows}
+\DoxyCodeLine{*\ g++\ -\/\ Linux}
+\DoxyCodeLine{*\ clang\ -\/\ MacOS}
+\DoxyCodeLine{*\ cppcheck\ -\/\ Windows}
+\DoxyCodeLine{the\ included\ c\_cpp\_properties\ has\ JSON\ for\ all\ OS}
+\DoxyCodeLine{The\ Included\ CMAKElists.txt\ can\ be\ used\ to\ build\ a\ executable\ across\ any\ OS\ platform}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ REQUIREMENTS\ -\/\ LIBRARIES}
+\DoxyCodeLine{}
+\DoxyCodeLine{Required\ for\ game\ modding/development,\ Install\ to\ default\ file\ locations\ for}
+\DoxyCodeLine{build\ generation\ tools\ below\ to\ build\ from\ source\ code.}
+\DoxyCodeLine{}
+\DoxyCodeLine{*\ boost::asio:\ for\ POST\ Account\ details,\ and\ multiplayer}
+\DoxyCodeLine{*\ curl:\ for\ downloading\ game\ update}
+\DoxyCodeLine{*\ ffmpeg:\ for\ video\ playback}
+\DoxyCodeLine{*\ Google\ Test:\ for\ creating\ unit\ tests\ while\ not\ necessary,\ it's\ good\ to\ include}
+\DoxyCodeLine{*\ libzip:\ for\ unzipping\ game\ update}
+\DoxyCodeLine{*\ SDL2:\ for\ Window,\ Event\ Loop,\ Input\ handling,\ Rendering}
+\DoxyCodeLine{*\ SDL2\_image:\ for\ images}
+\DoxyCodeLine{*\ SDL2\_mixer:\ for\ audio}
+\DoxyCodeLine{*\ SDL2\_ttf:\ for\ rendering\ text\ to\ window}
+\DoxyCodeLine{*\ zlib:\ required\ for\ building\ libzip\ package}
+\DoxyCodeLine{}
+\DoxyCodeLine{Optional:\ The\ following\ are\ the\ source\ code\ build\ generation\ tools}
+\DoxyCodeLine{*\ VSCode:\ the\ included\ .vscode\ tasks.json\ arguments\ are\ prefilled\ with\ default\ locations\ of\ }
+\DoxyCodeLine{libraries\ above}
+\DoxyCodeLine{*\ CMAKE:\ the\ included\ CMAKELists.txt\ can\ be\ used\ to\ build\ the\ project}
+\DoxyCodeLine{*\ Doxygen:\ the\ included\ doxyfile\ can\ be\ used\ to\ generate\ documentation}
+
+\end{DoxyCodeInclude}
+\hypertarget{index_autotoc_md20}{}\doxysubsubsection{\texorpdfstring{Credits}{Credits}}\label{index_autotoc_md20}
+
+\begin{DoxyCodeInclude}{0}
+\DoxyCodeLine{\#\#\ CREDITS\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Game\ developer\ -\/\ Sumeet\ Singh}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ICONS}
+\DoxyCodeLine{\ \ \ \ droplet.png/ico\ by\ Trinh\ Ho\ from\ icon-\/icons.com/icon/droplet-\/water/96708}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SPRITES\ TILESET}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ Sprite\ tilesets\ and\ entity\ textures\ taken\ from\ www.kenney.nl\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SETTINGS\ BUTTONS\ TEXTURES}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ achievement-\/button.png\ by\ MD\ BADSHA\ MEAH\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ back-\/button.png\ by\ Google\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ book-\/button.png\ by\ ChrisL21\ (Chris)\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ target-\/button.png\ by\ AomAm\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ computer-\/button.png\ by\ Vexels\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ difficulty-\/button.png\ by\ Icons8\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Font-\/button.png\ by\ Ant\ design\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ forward-\/button.png\ by\ Google\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ human-\/button.png\ by\ Bryn\ Taylor\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ internet-\/button.png\ by\ Treetog\ ArtWork\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Keyboard-\/button.png\ by\ Google\ Noto\ Emoji\ Objects\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ language-\/button.png\ by\ Google\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ load-\/button.png\ by\ Nick\ Frost\ and\ Greg\ Lapin\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ magnififer-\/in-\/button.png\ by\ Ayub\ Irawan\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ magnififer-\/out-\/button.png\ by\ Ayub\ Irawan\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ newgame-\/button.png\ by\ Royyan\ Wijaya\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ quit-\/button.png\ by\ Icomoon\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resolution-\/1300x768-\/button.png\ by\ Neuicons\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resolution-\/800x600-\/button.png\ by\ Neuicons\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ resolution-\/Full-\/Screen-\/button.png\ by\ Steve\ Schoger\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ restart-\/button.png\ by\ Radhika\ Paghdal\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return-\/button.png\ by\ Becris\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ save-\/button.png\ by\ Nick\ Frost\ and\ Greg\ Lapin\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sound-\/off-\/button.png\ by\ Kreasi\ Kanvas\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sound-\/on-\/button.png\ by\ Maria\ \&\ Guillem\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ star.png\ by\ Gianni\ Polito\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ swap-\/button.png\ by\ Webalys\ @\ icon-\/icons.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vsync-\/button.png\ by\ edwin\ PM\ @\ icon-\/icons.com}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ All\ button\ images\ with\ missing\ attributions\ @\ respective}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ authors\ @\ icon-\/icons.com,\ or\ FreePik.com}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PLATFORM\ SPECIFIC\ BUTTONS}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ computer\_mouse.png\ @\ monkeypen.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ game\_controller.png\ by\ user;\ nicefrog\ @\ opengameart.org}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ keyboard\_cartoon.png\ by\ juicy\_fish\ @\ Freepik.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ keyboard\_realistic.png\ by\ juicy\_fish\ @\ Freepik.com}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ onscreencontrols\ images\ and\ 2D\ bit\ textures\ taken\ from\ www.kenney.nl}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ BACKGROUNDS}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ Background\ Parallax\ images\ taken\ from\ opengameart.org/content/3-\/parallax-\/backgrounds}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ MUSIC}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ "{}Game\ Time\ -\/\ moodmode-\/studio"{}\ Music\ by\ moodmode-\/studio\ from\ pixabay.com}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SFX}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ Taken\ from\ various\ artists\ derived\ from\ filename\ from\ pixabay.com}
+
+\end{DoxyCodeInclude}
+ 

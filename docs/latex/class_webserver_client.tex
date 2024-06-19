@@ -1,0 +1,126 @@
+\doxysection{Webserver\+Client Class Reference}
+\hypertarget{class_webserver_client}{}\label{class_webserver_client}\index{WebserverClient@{WebserverClient}}
+
+
+Webserver Client class for game multiplayer.  
+
+
+
+
+{\ttfamily \#include $<$Webserver\+Client.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_webserver_client_af4702e3de99a389b5f57bec4ba9a0f5a}{Webserver\+Client}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_webserver_client}{Webserver\+Client} constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_client_a5c2d0cfddd87bcab612e92ecba7dd98c}\label{class_webserver_client_a5c2d0cfddd87bcab612e92ecba7dd98c} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Webserver\+Client} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_webserver_client}{Webserver\+Client} deconstructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_client_a3d2e15ff5e2dcc2fdb9866ee2d839cb6}\label{class_webserver_client_a3d2e15ff5e2dcc2fdb9866ee2d839cb6} 
+bool {\bfseries response\+\_\+success} () const
+\begin{DoxyCompactList}\small\item\em return response success bool triggered from this class functions e.\+g. create\+\_\+account succeeded \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_webserver_client_ab86c9a74b69c36e20bd7dcd499966c61}{login\+\_\+account}} (std\+::string username, std\+::string password)
+\begin{DoxyCompactList}\small\item\em complete POST and create await thread to read response \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_webserver_client_a09d7b2426e142089c1c874f0994c5e27}{create\+\_\+account}} (std\+::string username, std\+::string email, std\+::string password)
+\begin{DoxyCompactList}\small\item\em complete POST and create await thread to read response \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Webserver Client class for game multiplayer. 
+
+Websocket functions for
+\begin{DoxyEnumerate}
+\item POST create account/login details await response from game website e.\+g, www.\+agnisamooh.\+com
+\item GET/\+POST Multiplayer details e.\+g. available games, friends. You can create games, and join statefull games by quering the multiplayer game server e.\+g, AWS EC2 Ubuntu instance connects to the associated files Declarations\+: ./headers/\+Webserver\+Host.hpp -\/ Cloud Instance multiplayer server to pass game state Definitions\+: ./src/\+Webserver\+Host.cpp -\/ Cloud Instance multiplayer server to pass game state Declarations\+: ./headers/\+Webserver\+Client.hpp -\/ this file declarations Definitions\+: ./src/\+Webserver\+Client.cpp -\/ this file definitions
+\end{DoxyEnumerate}
+
+REQUIREMENTS
+
+Boost is a framework of individual volunteers contributing their own libraries to expand c++ as the stl is not good enough. e.\+g. C++23 still has no networking so some volunteers created their own libraries to fill the gap e.\+g, Boost.\+ASIO -\/ for low level networking Boost.\+Beast -\/ for high level websocket networking
+
+To build, include, ling and setup Boost and it\textquotesingle{}s following libraries e.\+g. Boost.\+ASIO follow the steps below. The example demonstration shows building a simple REGEX BOOST software. Once working simply swap out the lib with the boost.\+ASIO lib
+
+
+\begin{DoxyEnumerate}
+\item Download the latest version of Boost to program files\+: \href{https://www.boost.org/users/download/}{\texttt{ https\+://www.\+boost.\+org/users/download/}}
+\item cd "{}\+C \+:\textbackslash{}\+Program Files\textbackslash{}boost"{}
+\item . \textbackslash{} bootstrap.\+bat --with-\/python="{}\+C \+:\textbackslash{}\+Python\textbackslash{}python.\+exe"{} --with-\/toolset=mingw
+\item . \textbackslash{} b2 toolset=gcc
+\item search the contents of the below lib folder to find the exact library you need for your compiler. \doxylink{class_note}{Note} mt is the release version choose this if you\textquotesingle{}re unsure. And remove the "{}lib"{} and "{}.\+a"{} from the front and back of the lib when linking see the args for the example ls "{}\+C \+:/\+Program Files/boost/stage/lib"{} \begin{quote}
+libboost\+\_\+regex-\/mgw13-\/mt-\/x64-\/1\+\_\+85.\+a \end{quote}
+therefore use\+: "{}-\/lboost\+\_\+regex-\/mgw13-\/mt-\/x64-\/1\+\_\+85"{} For VScode tasks.\+json add the below args. \doxylink{class_note}{Note}\+: boost.\+asio uses\+: system e.\+g, libboost\+\_\+system-\/mgw13-\/mt-\/x64-\/1\+\_\+85.\+a "{}args"{}\+: \mbox{[} "{}-\/fdiagnostics-\/color=always"{}, "{}-\/\+I C\+:/\+Program Files/boost"{}, "{}-\/g"{}, "{}\$\{file\}"{}, "{}-\/o"{}, "{}\$\{file\+Dirname\}/\$\{file\+Basename\+No\+Extension\}.\+exe"{}, "{}-\/\+LC \+:/\+Program Files/boost/stage/lib"{}, "{}-\/lboost\+\_\+regex-\/mgw13-\/mt-\/x64-\/1\+\_\+85"{} \mbox{]},
+\item Include the required headers include \texorpdfstring{$<$}{<}boost/regex.\+hpp\texorpdfstring{$>$}{>}
+\item Build and Run sample code below to test it\textquotesingle{}s all working include \texorpdfstring{$<$}{<}boost/regex.\+hpp\texorpdfstring{$>$}{>} include \texorpdfstring{$<$}{<} iostream\texorpdfstring{$>$}{>} include \texorpdfstring{$<$}{<} string\texorpdfstring{$>$}{>} 
+\end{DoxyEnumerate}\hypertarget{class_webserver_client_autotoc_md0}{}\doxysubsection{\texorpdfstring{ifdef \+\_\+\+WIN32}{ifdef \+\_\+\+WIN32}}\label{class_webserver_client_autotoc_md0}
+include \texorpdfstring{$<$}{<}winsock2.\+h\texorpdfstring{$>$}{>} \hypertarget{class_webserver_client_autotoc_md1}{}\doxysubsection{\texorpdfstring{else}{else}}\label{class_webserver_client_autotoc_md1}
+include \texorpdfstring{$<$}{<}arpa/inet.\+h\texorpdfstring{$>$}{>} include \texorpdfstring{$<$}{<}netinet/in.\+h\texorpdfstring{$>$}{>} \hypertarget{class_webserver_client_autotoc_md2}{}\doxysubsection{\texorpdfstring{endif}{endif}}\label{class_webserver_client_autotoc_md2}
+int main() \{ // The string to search std\+::string text = "{}\+Hello, world! This is an example string."{};
+
+// The regular expression pattern boost\+::regex pattern("{}\textbackslash{}\textbackslash{}bexample\textbackslash{}\textbackslash{}b"{});
+
+// Search for the pattern in the text boost\+::smatch matches; if (boost\+::regex\+\_\+search(text, matches, pattern)) \{ std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+Found the word \textquotesingle{}example\textquotesingle{} at position "{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} matches.\+position() \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; \} else \{ std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+The word \textquotesingle{}example\textquotesingle{} was not found."{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; \}
+
+return 0; \}
+
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item Construct the class object 
+\end{DoxyEnumerate}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_webserver_client_af4702e3de99a389b5f57bec4ba9a0f5a}\label{class_webserver_client_af4702e3de99a389b5f57bec4ba9a0f5a} 
+\index{WebserverClient@{WebserverClient}!WebserverClient@{WebserverClient}}
+\index{WebserverClient@{WebserverClient}!WebserverClient@{WebserverClient}}
+\doxysubsubsection{\texorpdfstring{WebserverClient()}{WebserverClient()}}
+{\footnotesize\ttfamily Webserver\+Client\+::\+Webserver\+Client (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxylink{class_webserver_client}{Webserver\+Client} constructor. 
+
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item query (similar to curl) example.\+com website to get response
+\end{DoxyEnumerate}
+
+\doxylink{class_webserver_client}{Webserver\+Client} webserver\+Client("{}www.\+example.\+com"{}, "{}http"{}); 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_webserver_client_a09d7b2426e142089c1c874f0994c5e27}\label{class_webserver_client_a09d7b2426e142089c1c874f0994c5e27} 
+\index{WebserverClient@{WebserverClient}!create\_account@{create\_account}}
+\index{create\_account@{create\_account}!WebserverClient@{WebserverClient}}
+\doxysubsubsection{\texorpdfstring{create\_account()}{create\_account()}}
+{\footnotesize\ttfamily void Webserver\+Client\+::create\+\_\+account (\begin{DoxyParamCaption}\item[{std\+::string}]{username,  }\item[{std\+::string}]{email,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+complete POST and create await thread to read response 
+
+POST create account details. Thread is created to listen for response. Control is given back to program (asynchronous), when response recieved callback is triggered e.\+g. you will be notified account created successfull, then proceed to be able to login
+
+EXAMPLE
+
+webserver\+Client.\+create\+\_\+account(username, email, password); \Hypertarget{class_webserver_client_ab86c9a74b69c36e20bd7dcd499966c61}\label{class_webserver_client_ab86c9a74b69c36e20bd7dcd499966c61} 
+\index{WebserverClient@{WebserverClient}!login\_account@{login\_account}}
+\index{login\_account@{login\_account}!WebserverClient@{WebserverClient}}
+\doxysubsubsection{\texorpdfstring{login\_account()}{login\_account()}}
+{\footnotesize\ttfamily void Webserver\+Client\+::login\+\_\+account (\begin{DoxyParamCaption}\item[{std\+::string}]{username,  }\item[{std\+::string}]{password }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+complete POST and create await thread to read response 
+
+POST create account details. Thread is created to listen for response. Control is given back to program (asynchronous), when response recieved callback is triggered e.\+g. you will be notified account login successfull
+
+EXAMPLE
+
+webserver\+Client.\+login\+\_\+account(username, email, password); 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/Webserver\+Client.\+hpp\end{DoxyCompactItemize}

@@ -1,0 +1,171 @@
+\doxysection{Particle\+Generator Class Reference}
+\hypertarget{class_particle_generator}{}\label{class_particle_generator}\index{ParticleGenerator@{ParticleGenerator}}
+
+
+Particle graphic render effect.  
+
+
+
+
+{\ttfamily \#include $<$Particle\+Generator.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_particle_generator_af5369950fd533f0a70c4f82cf280b321}\label{class_particle_generator_af5369950fd533f0a70c4f82cf280b321} 
+{\bfseries Particle\+Generator} (int \mbox{\hyperlink{class_particle_generator_a5d926540aef78f19fb09374f8e3014f5}{x\+Pos}}, int \mbox{\hyperlink{class_particle_generator_a7697f02694c5919c5e780dd4f1e67508}{y\+Pos}}, std\+::string \mbox{\hyperlink{class_particle_generator_a41bd430e2e13a4c612cab8400d2a07b1}{animation}})
+\begin{DoxyCompactList}\small\item\em Particle default constructor. \end{DoxyCompactList}\item 
+\Hypertarget{class_particle_generator_a06795a358d828bdf30a5f5230d73f6ce}\label{class_particle_generator_a06795a358d828bdf30a5f5230d73f6ce} 
+void {\bfseries update} ()
+\begin{DoxyCompactList}\small\item\em Update particle position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_particle_generator_a9fe78e1de59a4ee351d59ff43c037888}{render\+\_\+particles}} (std\+::vector$<$ \mbox{\hyperlink{class_particle_generator}{Particle\+Generator}} $>$ \&particles, SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer)
+\begin{DoxyCompactList}\small\item\em render the particles \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_particle_generator_a2c334f99ac31e5bca498ae9f0d216764}{clear\+\_\+particles}} (std\+::vector$<$ \mbox{\hyperlink{class_particle_generator}{Particle\+Generator}} $>$ \&particles, int SCREEN\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em clear particles vector by removing if objects go out of camera view \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_particle_generator_a5d926540aef78f19fb09374f8e3014f5}{x\+Pos}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_a7697f02694c5919c5e780dd4f1e67508}{y\+Pos}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_af35305ee6086244cc749f7d74ebe5f9d}{vx}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_ac7c276f3bc8b060e9a5df1a2721b4aa9}{vy}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_a9af31b6c51715d6ad39e5c2db6557a7a}{r}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_a79db3c35dc4c12f6e21c19614d312c00}{g}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_a317be83f34a1090eb5e62b92690cacc0}{b}} \{\}
+\item 
+int \mbox{\hyperlink{class_particle_generator_a70c7f7df7f957a6315be9e00e2dc3339}{a}} \{\}
+\item 
+std\+::string \mbox{\hyperlink{class_particle_generator_a41bd430e2e13a4c612cab8400d2a07b1}{animation}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Particle graphic render effect. 
+
+You can use this in any software e.\+g, game to draw particle effects such as treading on water, lava from volcanoes, clouds, stars, or any image that you can represent with dots
+
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item Create a vector to hold all the particles std\+::vector$<$\+Particle$>$ particles\{\};
+\item In a event e.\+g. Mouse handle click pass a preconfigured animation in the 3rd parameter fireworks = random colours and transparency levels e.\+g. a firework water = Water effects e.\+g. water splashes fire = fire effects e.\+g. candle flame
+\end{DoxyEnumerate}
+
+int random = (rand() \% 50) + 5; for (int i = 0; i \texorpdfstring{$<$}{<} random; ++i) \{ particles.\+push\+\_\+back(Particle(mouseX, mouseY, "{}fire"{})); \}
+
+
+\begin{DoxyEnumerate}
+\item In your rendering e.\+g. draw() draw the particles vector Particle\+::render\+\_\+particles(particles, renderer);
+\item (Optional) Clear particles on exit depending on how you setup your camera/particles vector scope Particle\+::clear\+\_\+particles(particles, SCREEN\+\_\+\+HEIGHT); 
+\end{DoxyEnumerate}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_particle_generator_a2c334f99ac31e5bca498ae9f0d216764}\label{class_particle_generator_a2c334f99ac31e5bca498ae9f0d216764} 
+\index{ParticleGenerator@{ParticleGenerator}!clear\_particles@{clear\_particles}}
+\index{clear\_particles@{clear\_particles}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{clear\_particles()}{clear\_particles()}}
+{\footnotesize\ttfamily void Particle\+Generator\+::clear\+\_\+particles (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_particle_generator}{Particle\+Generator}} $>$ \&}]{particles,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+clear particles vector by removing if objects go out of camera view 
+
+Clearing particles vector prematurely in draw will prevent full animation so in order to clear the particles vector periodically and before final cleanup call this functino after \doxylink{class_particle_generator_a9fe78e1de59a4ee351d59ff43c037888}{render\+\_\+particles()} Only renders what you can visualise by deleting all the pixels that move out of the screens width
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & the global vector holding all particles \\
+\hline
+{\em SCREEN\+\_\+\+HEIGHT} & to be changed to camera view for rending only whats in scren \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_particle_generator_a9fe78e1de59a4ee351d59ff43c037888}\label{class_particle_generator_a9fe78e1de59a4ee351d59ff43c037888} 
+\index{ParticleGenerator@{ParticleGenerator}!render\_particles@{render\_particles}}
+\index{render\_particles@{render\_particles}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{render\_particles()}{render\_particles()}}
+{\footnotesize\ttfamily void Particle\+Generator\+::render\+\_\+particles (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_particle_generator}{Particle\+Generator}} $>$ \&}]{particles,  }\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+render the particles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em particles} & the particles vector \\
+\hline
+{\em renderer} & the reference to the renderer to draw on \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_particle_generator_a70c7f7df7f957a6315be9e00e2dc3339}\label{class_particle_generator_a70c7f7df7f957a6315be9e00e2dc3339} 
+\index{ParticleGenerator@{ParticleGenerator}!a@{a}}
+\index{a@{a}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{a}{a}}
+{\footnotesize\ttfamily int Particle\+Generator\+::a \{\}}
+
+Particle alpha transparency level 255 is solid 0 is transparent \Hypertarget{class_particle_generator_a41bd430e2e13a4c612cab8400d2a07b1}\label{class_particle_generator_a41bd430e2e13a4c612cab8400d2a07b1} 
+\index{ParticleGenerator@{ParticleGenerator}!animation@{animation}}
+\index{animation@{animation}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{animation}{animation}}
+{\footnotesize\ttfamily std\+::string Particle\+Generator\+::animation \{\}}
+
+preconfigured particle colours textures you want to draw e.\+g. random, water, fire \Hypertarget{class_particle_generator_a317be83f34a1090eb5e62b92690cacc0}\label{class_particle_generator_a317be83f34a1090eb5e62b92690cacc0} 
+\index{ParticleGenerator@{ParticleGenerator}!b@{b}}
+\index{b@{b}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{b}{b}}
+{\footnotesize\ttfamily int Particle\+Generator\+::b \{\}}
+
+Particle blue color \Hypertarget{class_particle_generator_a79db3c35dc4c12f6e21c19614d312c00}\label{class_particle_generator_a79db3c35dc4c12f6e21c19614d312c00} 
+\index{ParticleGenerator@{ParticleGenerator}!g@{g}}
+\index{g@{g}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily int Particle\+Generator\+::g \{\}}
+
+Particle green color \Hypertarget{class_particle_generator_a9af31b6c51715d6ad39e5c2db6557a7a}\label{class_particle_generator_a9af31b6c51715d6ad39e5c2db6557a7a} 
+\index{ParticleGenerator@{ParticleGenerator}!r@{r}}
+\index{r@{r}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily int Particle\+Generator\+::r \{\}}
+
+Particle red color \Hypertarget{class_particle_generator_af35305ee6086244cc749f7d74ebe5f9d}\label{class_particle_generator_af35305ee6086244cc749f7d74ebe5f9d} 
+\index{ParticleGenerator@{ParticleGenerator}!vx@{vx}}
+\index{vx@{vx}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{vx}{vx}}
+{\footnotesize\ttfamily int Particle\+Generator\+::vx \{\}}
+
+Velocity of particle \Hypertarget{class_particle_generator_ac7c276f3bc8b060e9a5df1a2721b4aa9}\label{class_particle_generator_ac7c276f3bc8b060e9a5df1a2721b4aa9} 
+\index{ParticleGenerator@{ParticleGenerator}!vy@{vy}}
+\index{vy@{vy}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{vy}{vy}}
+{\footnotesize\ttfamily int Particle\+Generator\+::vy \{\}}
+
+Velocity of particle \Hypertarget{class_particle_generator_a5d926540aef78f19fb09374f8e3014f5}\label{class_particle_generator_a5d926540aef78f19fb09374f8e3014f5} 
+\index{ParticleGenerator@{ParticleGenerator}!xPos@{xPos}}
+\index{xPos@{xPos}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{xPos}{xPos}}
+{\footnotesize\ttfamily int Particle\+Generator\+::x\+Pos \{\}}
+
+Particle x-\/axis position \Hypertarget{class_particle_generator_a7697f02694c5919c5e780dd4f1e67508}\label{class_particle_generator_a7697f02694c5919c5e780dd4f1e67508} 
+\index{ParticleGenerator@{ParticleGenerator}!yPos@{yPos}}
+\index{yPos@{yPos}!ParticleGenerator@{ParticleGenerator}}
+\doxysubsubsection{\texorpdfstring{yPos}{yPos}}
+{\footnotesize\ttfamily int Particle\+Generator\+::y\+Pos \{\}}
+
+Particle y-\/axis position 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Particle\+Generator.\+hpp\item 
+src/Particle\+Generator.\+cpp\end{DoxyCompactItemize}

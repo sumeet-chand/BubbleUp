@@ -1,0 +1,76 @@
+\doxysection{Entity\+Manager.\+hpp}
+\hypertarget{_entity_manager_8hpp_source}{}\label{_entity_manager_8hpp_source}\index{headers/EntityManager.hpp@{headers/EntityManager.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 28/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}entities/Player.hpp"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}entities/Item.hpp"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}entities/Enemy.hpp"{}}}
+\DoxyCodeLine{00019\ \textcolor{preprocessor}{\#include\ "{}entities/Obstacle.hpp"{}}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ "{}entities/Ammo.hpp"{}}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ "{}entities/Bird.hpp"{}}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ "{}entities/Bomb.hpp"{}}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#include\ "{}entities/Boots.hpp"{}}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#include\ "{}entities/Boss.hpp"{}}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#include\ "{}entities/Bot.hpp"{}}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#include\ "{}entities/Cactus.hpp"{}}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#include\ "{}entities/Door.hpp"{}}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#include\ "{}entities/Enemy.hpp"{}}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#include\ "{}entities/Fence.hpp"{}}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#include\ "{}entities/Fish.hpp"{}}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ "{}entities/Gem.hpp"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#include\ "{}entities/Heal.hpp"{}}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ "{}entities/Heart.hpp"{}}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#include\ "{}entities/House.hpp"{}}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ "{}entities/Item.hpp"{}}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#include\ "{}entities/Key.hpp"{}}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#include\ "{}entities/MeeleeWeapon1.hpp"{}}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#include\ "{}entities/MeeleeWeapon2.hpp"{}}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#include\ "{}entities/MeeleeWeapon3.hpp"{}}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#include\ "{}entities/Mountain.hpp"{}}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#include\ "{}entities/Mushroom.hpp"{}}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#include\ "{}entities/Note.hpp"{}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#include\ "{}entities/Obstacle.hpp"{}}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#include\ "{}entities/Player.hpp"{}}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#include\ "{}entities/RangedWeapon1.hpp"{}}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#include\ "{}entities/RangedWeapon2.hpp"{}}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#include\ "{}entities/RangedWeapon3.hpp"{}}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#include\ "{}entities/River.hpp"{}}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#include\ "{}entities/Robot.hpp"{}}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#include\ "{}entities/Tree.hpp"{}}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#include\ "{}entities/Vehicle.hpp"{}}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#include\ "{}entities/Villager.hpp"{}}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00078\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_entity_manager}{EntityManager}}}
+\DoxyCodeLine{00079\ \{}
+\DoxyCodeLine{00080\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00081\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00087\ \ \ \ \ \mbox{\hyperlink{class_entity_manager_a7555637657d090171be6ceee8451de0a}{EntityManager}}();}
+\DoxyCodeLine{00093\ \ \ \ \ \mbox{\hyperlink{class_entity_manager_a71a36c9fb8d579a1a1ec108e0fccf175}{\string~EntityManager}}();}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00100\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_manager_aae22a5935ab4fa8e4a491a53d1e6aea8}{create\_player\_entity}}(SDL\_Renderer\ *renderer,\ std::vector<Entity\ *>\ \&entities,\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_manager_a3ce1789d9c4a54dcbaf06b616562c784}{create\_item\_heart\_entity}}(SDL\_Renderer\ *renderer,\ std::vector<Entity\ *>\ \&entities,\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_manager_a5d0cbe36b1997262b0de99509b6cbfec}{create\_random\_item\_entity}}(SDL\_Renderer\ *renderer,\ std::vector<Entity\ *>\ \&entities,\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_manager_aeac932f67c3a87523dc68f5067c7fbb8}{create\_random\_enemy\_entity}}(SDL\_Renderer\ *renderer,\ std::vector<Entity\ *>\ \&entities,\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_manager_a5fdc09043e597cc044e85c7c63bbc7fd}{create\_random\_obstacle\_entity}}(SDL\_Renderer\ *renderer,\ std::vector<Entity\ *>\ \&entities,\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_entity_manager_a9557fc7855b60eef01a45109385d2bab}{random\_procedural\_generation}}(SDL\_Renderer\ *renderer,\ std::vector<Entity\ *>\ \&entities,\ \textcolor{keywordtype}{int}\ SCREEN\_WIDTH,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT,\ \textcolor{keywordtype}{int}\ itemsCount,\ \textcolor{keywordtype}{int}\ enemiesCount,\ \textcolor{keywordtype}{int}\ obstaclesCount);}
+\DoxyCodeLine{00145\ \};}
+
+\end{DoxyCode}

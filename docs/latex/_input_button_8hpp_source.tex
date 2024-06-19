@@ -1,0 +1,100 @@
+\doxysection{Input\+Button.\+hpp}
+\hypertarget{_input_button_8hpp_source}{}\label{_input_button_8hpp_source}\index{headers/buttons/InputButton.hpp@{headers/buttons/InputButton.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}BaseButton.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_input_button}{InputButton}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_base_button}{BaseButton}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ inputText\{\};\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00052\ \ \ \ \ \mbox{\hyperlink{class_input_button_a3e69b6147b6668040b657187088ff177}{InputButton}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ std::string\ \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}},\ Uint8\ r,\ Uint8\ g,\ Uint8\ b,\ Uint8\ a,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{buttonTexturePath}},\ TTF\_Font\ *\mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{buttonFont}},\ Uint8\ redText,\ Uint8\ greenText,\ Uint8\ blueText,\ Uint8\ alphaText)}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_base_button}{BaseButton}}(x,\ y,\ width,\ height,\ \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}},\ r,\ g,\ b,\ a,\ \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{buttonTexturePath}},\ \mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{buttonFont}},\ redText,\ greenText,\ blueText,\ alphaText)}
+\DoxyCodeLine{00055\ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Constructed:\ Text\ input\ button:\ "{}}\ <<\ \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}}\ <<\ std::endl;}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00064\ \ \ \ \ std::string\ \mbox{\hyperlink{class_input_button_a6b931ca2d955d9ae63f18d96f90e404a}{get\_text}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00065\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inputText;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_button_a4be14352c967a2d4a33231e84ed6219f}{set\_text}}(\textcolor{keyword}{const}\ SDL\_Event\ \&event)}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ inputText\ +=\ \textcolor{keyword}{event}.text.text;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ }
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_button_ad725008d0a776ae401c7cb906351b0fb}{clear\_text}}()}
+\DoxyCodeLine{00089\ \ \ \ \ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ inputText.clear();}
+\DoxyCodeLine{00091\ \ \ \ \ \}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00107\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_button_aacfe22c624532c556153882fa145c351}{remove\_last\_character}}()}
+\DoxyCodeLine{00108\ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!inputText.empty())}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ inputText.pop\_back();}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00121\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_button_a552c99e691a369df32e3174d1f2ae2d1}{render\_cursor}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00122\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ called\ in\ overridden\ render\_button\_rect()}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ x-\/coordinate\ of\ the\ cursor\ (left\ side\ of\ the\ text\ input\ field)}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cursorX\ =\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.x;}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ y-\/coordinate\ of\ the\ cursor\ (top\ of\ the\ text\ input\ field)}}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cursorY\ =\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.y;}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Calculate\ the\ height\ of\ the\ cursor\ line\ to\ match\ the\ height\ of\ the\ text\ input\ field}}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cursorHeight\ =\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.h;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ width\ of\ the\ cursor\ line}}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ cursorWidth\ =\ 5;\ \textcolor{comment}{//\ Adjust\ as\ needed}}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ the\ cursor\ rectangle\ with\ calculated\ dimensions}}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ SDL\_Rect\ cursorRect\ =\ \{cursorX,\ cursorY,\ cursorWidth,\ cursorHeight\};}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ color\ to\ black}}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ 0,\ 0,\ 0,\ 255);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Render\ the\ cursor\ line}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ SDL\_RenderFillRect(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ \&cursorRect);}
+\DoxyCodeLine{00144\ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_input_button_adf957cbeec84a84bc4a281ce01115d67}{render\_button\_rect}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00152\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_base_button_a3681fa61df60befdc83c56bda2d0306e}{isSelected}})}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ yellow\ border}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ 255,\ 255,\ 0,\ 255);\ \textcolor{comment}{//\ Yellow\ border}}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ borderRect\ =\ \{\mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.x\ -\/\ 2,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.y\ -\/\ 2,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.w\ +\ 4,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.h\ +\ 4\};}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderFillRect(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ \&borderRect);}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ Cursor\ within\ texture}}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_input_button_a552c99e691a369df32e3174d1f2ae2d1}{render\_cursor}}();}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ button}}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ \mbox{\hyperlink{class_base_button_a1d2d08e0f502141ceafc52e21903eec5}{buttonTexture}},\ \textcolor{keyword}{nullptr},\ \&\mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}});}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Render\ button\ text\ as\ you\ type}}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81}{render\_button\_text}}(inputText,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.x\ +\ 5,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.y\ +\ 5,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.r,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.g,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.b,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.a);}
+\DoxyCodeLine{00169\ \ \ \ \ \}}
+\DoxyCodeLine{00170\ \};}
+
+\end{DoxyCode}

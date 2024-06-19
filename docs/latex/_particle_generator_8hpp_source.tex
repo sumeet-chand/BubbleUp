@@ -1,0 +1,40 @@
+\doxysection{Particle\+Generator.\+hpp}
+\hypertarget{_particle_generator_8hpp_source}{}\label{_particle_generator_8hpp_source}\index{headers/ParticleGenerator.hpp@{headers/ParticleGenerator.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 18/04/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++17}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <SDL2/SDL.h>}}
+\DoxyCodeLine{00044\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_particle_generator}{ParticleGenerator}}}
+\DoxyCodeLine{00045\ \{}
+\DoxyCodeLine{00046\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a5d926540aef78f19fb09374f8e3014f5}{xPos}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a7697f02694c5919c5e780dd4f1e67508}{yPos}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_af35305ee6086244cc749f7d74ebe5f9d}{vx}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_ac7c276f3bc8b060e9a5df1a2721b4aa9}{vy}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a9af31b6c51715d6ad39e5c2db6557a7a}{r}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a79db3c35dc4c12f6e21c19614d312c00}{g}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a317be83f34a1090eb5e62b92690cacc0}{b}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a70c7f7df7f957a6315be9e00e2dc3339}{a}}\{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00055\ \ \ \ \ std::string\ \mbox{\hyperlink{class_particle_generator_a41bd430e2e13a4c612cab8400d2a07b1}{animation}}\{\};\ }
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{class_particle_generator_af5369950fd533f0a70c4f82cf280b321}{ParticleGenerator}}(\textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a5d926540aef78f19fb09374f8e3014f5}{xPos}},\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_particle_generator_a7697f02694c5919c5e780dd4f1e67508}{yPos}},\ std::string\ \mbox{\hyperlink{class_particle_generator_a41bd430e2e13a4c612cab8400d2a07b1}{animation}});}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_generator_a06795a358d828bdf30a5f5230d73f6ce}{update}}();}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00072\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_generator_a9fe78e1de59a4ee351d59ff43c037888}{render\_particles}}(std::vector<ParticleGenerator>\ \&particles,\ SDL\_Renderer\ *renderer);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_particle_generator_a2c334f99ac31e5bca498ae9f0d216764}{clear\_particles}}(std::vector<ParticleGenerator>\ \&particles,\ \textcolor{keywordtype}{int}\ SCREEN\_HEIGHT);}
+\DoxyCodeLine{00086\ \};}
+
+\end{DoxyCode}

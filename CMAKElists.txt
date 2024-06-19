@@ -1,0 +1,123 @@
+name: Build and test C++ SDL game
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_and_test_windows:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up MSYS2
+      uses: msys2/setup-msys2@v2
+      with:
+        update: true
+
+    - name: Install dependencies
+      run: |
+        pacman -S --noconfirm mingw-w64-x86_64-cmake mingw-w64-x86_64-make mingw-w64-x86_64-gcc \
+          mingw-w64-x86_64-SDL2 mingw-w64-x86_64-SDL2_image mingw-w64-x86_64-SDL2_mixer \
+          mingw-w64-x86_64-SDL2_ttf mingw-w64-x86_64-libzip mingw-w64-x86_64-zlib \
+          mingw-w64-x86_64-boost mingw-w64-x86_64-curl
+
+    - name: Cache FFmpeg build
+      uses: actions/cache@v2
+      with:
+        path: C:/ffmpeg
+        key: ${{ runner.os }}-ffmpeg-${{ hashFiles('ffmpeg/.git/HEAD') }}
+        restore-keys: |
+          ${{ runner.os }}-ffmpeg-
+
+    - name: Build FFmpeg
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        git clone https://git.ffmpeg.org/ffmpeg.git C:/ffmpeg
+        cd C:/ffmpeg
+        ./configure --prefix=C:/ffmpeg --enable-shared --enable-gpl --disable-programs
+        make -j$(nproc)
+        make install
+        cp -r C:/ffmpeg /usr/local/ffmpeg
+
+    - name: Build for Windows
+      run: |
+        mkdir build
+        cd build
+        cmake -G "MinGW Makefiles" -DFFMPEG_INCLUDE_DIR=C:/ffmpeg/include -DFFMPEG_LIB_DIR=C:/ffmpeg/lib ..
+        mingw32-make
+
+    - name: Copy FFmpeg DLLs
+      run: |
+        cp C:/ffmpeg/bin/avcodec-61.dll build/
+        cp C:/ffmpeg/bin/avformat-61.dll build/
+        cp C:/ffmpeg/bin/avutil-59.dll build/
+        cp C:/ffmpeg/bin/swresample-5.dll build/
+
+    - name: Copy dependencies DLLs
+      run: |
+        cp /mingw64/bin/libzip-5.dll build/
+        cp /mingw64/bin/zlib1.dll build/
+        cp /mingw64/bin/libcurl-4.dll build/
+        cp /mingw64/bin/SDL2.dll build/
+        cp /mingw64/bin/SDL2_image.dll build/
+        cp /mingw64/bin/SDL2_mixer.dll build/
+        cp /mingw64/bin/SDL2_ttf.dll build/
+
+  build_and_test_macos:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install dependencies
+      run: |
+        brew install cmake make gcc boost curl ffmpeg googletest libzip sdl2 sdl2_image sdl2_mixer sdl2_ttf zlib
+
+    - name: Build for macOS
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make
+
+  build_and_test_linux:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install build dependencies
+      run: |
+          sudo apt update
+          sudo apt install -y build-essential libmp3lame-dev libopus-dev libvpx-dev libx264-dev libx265-dev libfdk-aac-dev cmake make g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev zlib1g-dev
+
+    - name: Cache FFmpeg build
+      uses: actions/cache@v2
+      with:
+        path: /usr/local/ffmpeg
+        key: ${{ runner.os }}-ffmpeg-${{ hashFiles('ffmpeg/.git/HEAD') }}
+        restore-keys: |
+          ${{ runner.os }}-ffmpeg-
+
+    - name: Build FFmpeg
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        git clone https://git.ffmpeg.org/ffmpeg.git
+        cd ffmpeg
+        ./configure --prefix=/usr/local --enable-gpl --enable-nonfree --enable-libmp3lame --enable-libopus --enable-libvpx --enable-libx264 --enable-libx265 --enable-libfdk-aac
+        make -j$(nproc)
+        sudo make install
+        sudo cp -r /usr/local /usr/local/ffmpeg
+
+    - name: Build for Linux
+      run: |
+        mkdir build
+        cd build
+        cmake ..
+        make

@@ -1,0 +1,698 @@
+\doxysection{Base\+Button Class Reference}
+\hypertarget{class_base_button}{}\label{class_base_button}\index{BaseButton@{BaseButton}}
+
+
+A Base class for initialisating SDL button subclasses e.\+g. push buttons, sliders, text fields.  
+
+
+
+
+{\ttfamily \#include $<$Base\+Button.\+hpp$>$}
+
+Inheritance diagram for Base\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_base_button}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_base_button_a63c65e31f6c540991ac53cee51d4e7a2}\label{class_base_button_a63c65e31f6c540991ac53cee51d4e7a2} 
+{\bfseries Base\+Button} (int x, int y, int width, int height, std\+::string \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{button\+Label}}, Uint8 r, Uint8 g, Uint8 b, Uint8 a, const std\+::string \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{button\+Texture\+Path}}, TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{button\+Font}}, Uint8 red\+Text, Uint8 green\+Text, Uint8 blue\+Text, Uint8 alpha\+Text)
+\begin{DoxyCompactList}\small\item\em this is an abstract (base) class not meant for constructing the subclasses that inherit from this are meant to be initialised into a vector of type \doxylink{class_base_button}{Base\+Button} in order to iterate through for various scenes GUI rendering/placement \end{DoxyCompactList}\item 
+\Hypertarget{class_base_button_a248e963039991eb5b60866a18bef012e}\label{class_base_button_a248e963039991eb5b60866a18bef012e} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Base\+Button} ()
+\begin{DoxyCompactList}\small\item\em this is an abstract (base) class not meant for constructing the subclasses that inherit from this are meant to be initialised into a vector of type \doxylink{class_base_button}{Base\+Button} in order to iterate through for various scenes GUI rendering/placement \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a5684f4cc2cb78eb94eecf856f9071f4c}{set\+\_\+renderer}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}r)
+\begin{DoxyCompactList}\small\item\em dynamically set renderer \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_button_ac5205725453b83855a01a16cf236fc63}{is\+\_\+clicked}} (SDL\+\_\+\+Point \&point)
+\begin{DoxyCompactList}\small\item\em when an SDL mouse handle \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_button_ae49099d56367dbd43a7cb597ef79da83}{is\+\_\+selected}} () const
+\begin{DoxyCompactList}\small\item\em return button selected status \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_base_button_ae45a64e9b9ebcb82e485969320479f12}{get\+\_\+button\+\_\+label}} () const
+\begin{DoxyCompactList}\small\item\em get buttons label which is the text written on it can be replaced with set function for situations to display different text on click e.\+g. MUSIC ON \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} MUSIC OFF \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a657a4c875c4ea8471f2ed73b9191ac66}{set\+\_\+button\+\_\+label}} (std\+::string new\+Button\+Label)
+\begin{DoxyCompactList}\small\item\em set buttons label which is the text written on it can be replaced with set function for situations to display different text on click e.\+g. MUSIC ON \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} MUSIC OFF or when change language script \end{DoxyCompactList}\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect}} () const
+\begin{DoxyCompactList}\small\item\em return button rect positions/dimensions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a2d648ba140336eca16c4fa239786d8c2}{set\+\_\+rect\+\_\+x\+\_\+pos}} (int x)
+\begin{DoxyCompactList}\small\item\em set button rect x position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a876f23b812796f234a29cec70c17ae6c}{set\+\_\+rect\+\_\+y\+\_\+pos}} (int y)
+\begin{DoxyCompactList}\small\item\em set button rect y position \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a344eb254a7a923a71d8435226c07fd60}{set\+\_\+selected}} ()
+\begin{DoxyCompactList}\small\item\em deselecting current button and select this button \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_base_button_a85b6ac382634b0fb47f2ee4b4a24832a}{get\+\_\+clicked}} () const
+\begin{DoxyCompactList}\small\item\em get button clicked status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a8027d52f97ac481a6eb43a7fa66ca213}{set\+\_\+clicked}} (bool submitted)
+\begin{DoxyCompactList}\small\item\em set button clicked status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a6f2ec7723f09a071aace85c32c286006}{set\+\_\+button\+\_\+texture}} ()
+\begin{DoxyCompactList}\small\item\em set button button texture passed from constructor \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81}{render\+\_\+button\+\_\+text}} (const std\+::string \&text, int x, int y, Uint8 red\+Text, Uint8 green\+Text, Uint8 blue\+Text, Uint8 alpha\+Text)
+\begin{DoxyCompactList}\small\item\em render button font text to window \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_base_button_a9e8bc234fe0908b0b8adb1b4046fa435}{render\+\_\+button\+\_\+rect}} ()
+\begin{DoxyCompactList}\small\item\em render button to window \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_base_button_a1a848413f7c091923e90cd57dbbf8436}{set\+\_\+font\+\_\+size}} (TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font, int size)
+\begin{DoxyCompactList}\small\item\em change button object font \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{class_base_button_a8fda95f827aa4b7a2297207f43b569b8}{find\+\_\+euclidean\+\_\+distance}} (int x1, int y1, int x2, int y2)
+\begin{DoxyCompactList}\small\item\em find eulidean distance \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_base_button_a482b5d438eac535ff6b3553c1f9ad44a}{find\+\_\+nearest\+\_\+button}} (std\+::vector$<$ \mbox{\hyperlink{class_base_button}{Base\+Button}} \texorpdfstring{$\ast$}{*} $>$ scene\+Vector, const std\+::string button\+Direction)
+\begin{DoxyCompactList}\small\item\em find nearest button \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+SDL\+\_\+\+Rect \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{button\+Rect}} \{\}
+\item 
+std\+::string \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{button\+Label}} \{\}
+\item 
+SDL\+\_\+\+Color \mbox{\hyperlink{class_base_button_a467ef042660c4bc14f7e8142066fc00c}{button\+Color}} \{\}
+\item 
+const std\+::string \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{button\+Texture\+Path}} \{\}
+\item 
+SDL\+\_\+\+Texture \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_a1d2d08e0f502141ceafc52e21903eec5}{button\+Texture}} \{\}
+\item 
+TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{button\+Font}} \{\}
+\item 
+SDL\+\_\+\+Color \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{button\+Text\+Color}} \{\}
+\item 
+int \mbox{\hyperlink{class_base_button_a1d2cca524e7677eb695a49db619138b7}{Base\+Button\+Rect\+Width}} \{\}
+\item 
+int \mbox{\hyperlink{class_base_button_a0e660e3fa187aa5641a96fdb96ba91cf}{Base\+Button\+Rect\+Height}} \{\}
+\item 
+bool \mbox{\hyperlink{class_base_button_a3681fa61df60befdc83c56bda2d0306e}{is\+Selected}} \{\}
+\item 
+bool \mbox{\hyperlink{class_base_button_a0b30db198f5440cddb0a735ef56e06c0}{is\+Clicked}} \{\}
+\item 
+SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}} \{\}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_base_button}{Base\+Button}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_base_button_a5357c8a0ab07f09a3773c4d0fd71d43f}{selected\+Button}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A Base class for initialisating SDL button subclasses e.\+g. push buttons, sliders, text fields. 
+
+\DoxyHorRuler{0}
+ \begin{DoxyVerb}                                SDL BUTTON BASE CLASS
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+
+
+DESCRIPTION\+:
+
+The C++ language SDL Framework code below can be implemented in any SDL derived project as a method to create button object instances of many variations such as radio buttons, volume slider buttons, Input text fields and submit buttons.
+
+The steps below outline the method to initialise, add to a vector, and handle the objects.
+
+Button navigation includes multiple variations from shortest path key direction algorithms to find nearest button using directional keyboard/gamepad movement to clicking and even dragging buttons.
+
+REQUIREMENTS
+
+The below libraries are required to instantiate the buttons
+\begin{DoxyItemize}
+\item SDL2
+\item SDL2\+\_\+ttf
+\item SDL2\+\_\+image
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+
+
+EXAMPLE\+:
+
+Optional\+: Use comment button placement image below to design layout
+
+\begin{DoxyVerb}0           1            2            3            4            5            6            7            8            9            10
+__________________________________________________________________________________________________________________________________ 0
+\end{DoxyVerb}
+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 1 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 2 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 3 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 4 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 5 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 6 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 7 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 8 \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|}\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\texorpdfstring{$\vert$}{|} 9 \tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{10}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-10}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ }\\\cline{1-10}
+\endhead
+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   &\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+\+\_\+   \\\cline{1-10}
+\end{longtabu}
+
+
+
+\begin{DoxyEnumerate}
+\item Include \doxylink{class_base_button}{Base\+Button} header. It includes all button subclasses.
+\end{DoxyEnumerate}
+
+include \texorpdfstring{$<$}{<}\doxylink{_base_button_8hpp_source}{Base\+Button.\+hpp}\texorpdfstring{$>$}{>}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Create global variables for tracking mouse/and key press and release (Optional for \doxylink{class_slider_button}{Slider\+Button}) as well as create global variables for x and y drag offset for mouse click and drag to change \doxylink{class_slider_button}{Slider\+Button} dot rect.
+\end{DoxyEnumerate}
+
+int x\+Drag\+Offset = 0; int y\+Drag\+Offset = 0; bool mouse\+Pressed = false; bool key\+Pressed = false; std\+::string button\+Direction = "{}"{};
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Initliase subclass button instances and load appropriate texture file paths
+
+\doxylink{class_clickable_button}{Clickable\+Button} scene2\+Return\+To\+Title\+Button\{ static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+7), // int X-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+2), // int Y-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+1), // Width static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+1), // Height "{}\+Return"{}, // Button label 144, 238, 144, 255, // Button color (RGBA) "{}assets/graphics/buttons/settings/restart-\/button.\+png"{}, // Button texture path default\+Font, // Button font 0, 0, 0, 1\}; // Text color (RGBA) \doxylink{class_input_button}{Input\+Button} scene4input\+Player\+Name\+Button\{ static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+5), // int X-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+4), // int Y-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+4), // Width static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+1), // Height "{}\+Input Player name"{}, // Button label 255, 255, 255, 255, // Button color (RGBA) "{}assets/graphics/boxes/button.\+png"{}, // Button texture path default\+Font, // Button font 0, 0, 0, 255,\}; // Text color (RGBA) \doxylink{class_slider_button}{Slider\+Button} scene2\+Volume\+Slider\+Button\{ static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+25), // int X-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+8), // int Y-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+5), // Width static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+1), // Height "{}\+Volume Slider"{}, // Button label 144, 238, 144, 255, // Button color (RGBA) "{}assets/graphics/boxes/\+Slider\+\_\+button\+\_\+2.\+png"{}, // Button texture path default\+Font, // Button font 0, 0, 0, 1, // Text color (RGBA) static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+4), // dot int X-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+8), // dot int Y-\/coordinate static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+05), // dot Width static\+\_\+cast$<$int$>$(SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+05), // dot Height "{}assets/graphics/boxes/\+Slider\+\_\+dot.\+png"{}\}; // dot Texture path
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Create vectors of different buttons
+\end{DoxyEnumerate}
+
+std\+::vector$<$\+Base\+Button \texorpdfstring{$\ast$}{*}$>$ scene2buttons; std\+::vector$<$\+Base\+Button \texorpdfstring{$\ast$}{*}$>$ all\+Buttons;
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Create a static pointer global variable to keep track of selected button
+\end{DoxyEnumerate}
+
+\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}\+Base\+Button\doxylink{class_base_button_a5357c8a0ab07f09a3773c4d0fd71d43f}{selected\+Button} = nullptr;
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item (Optional) For each scene/page, Create function to push back button subclass instances to \doxylink{class_base_button}{Base\+Button} vector and remember to call function
+\end{DoxyEnumerate}
+
+void load\+\_\+buttons\+\_\+to\+\_\+scene\+\_\+vectors() \{ scene2buttons.\+push\+\_\+back(\&scene4player\+Name\+Submit\+Button); scene2buttons.\+push\+\_\+back(\&scene4input\+Player\+Name\+Button); \}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Create function to push load all scene vectors into an all\+Buttons vector and remember to call function
+\end{DoxyEnumerate}
+
+void load\+\_\+buttons\+\_\+to\+\_\+all\+\_\+buttons\+\_\+vector() \{ all\+Buttons.\+insert(all\+Buttons.\+end(), scene2buttons.\+begin(), scene2buttons.\+end()); \}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Call a function once to set all button textures from the button constructor texture filepath and remember to call function
+\end{DoxyEnumerate}
+
+void initialise\+\_\+button\+\_\+textures() \{ for (\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}button \+: all\+Buttons) \{ button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a6f2ec7723f09a071aace85c32c286006}{set\+\_\+button\+\_\+texture()}; \} \}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item (Optional for \doxylink{class_slider_button}{Slider\+Button}) if you have a \doxylink{class_slider_button}{Slider\+Button} Instance to render slider button dot textures replace above step 6 code with below to to static cast search only those button types and render that dot texture also and remember to call function
+\end{DoxyEnumerate}
+
+void initialise\+\_\+button\+\_\+textures() \{ for (\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}button \+: all\+Buttons) \{ button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a6f2ec7723f09a071aace85c32c286006}{set\+\_\+button\+\_\+texture()}; if (\doxylink{class_slider_button}{Slider\+Button} \texorpdfstring{$\ast$}{*}x = dynamic\+\_\+cast$<$\+Slider\+Button \texorpdfstring{$\ast$}{*}$>$(button)) \{ x-\/\texorpdfstring{$>$}{>}set\+\_\+slider\+\_\+dot\+\_\+texture(); \} \} \}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Call a function once to set all button fonts from the button constructor
+\end{DoxyEnumerate}
+
+void initialise\+\_\+button\+\_\+fonts() \{ for (\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}button \+: all\+Buttons) \{ button-\/\texorpdfstring{$>$}{>}set\+\_\+font\+\_\+size(default\+Font, 24); \} \}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Create all relevant handles
+\end{DoxyEnumerate}
+
+void handle() \{ while (SDL\+\_\+\+Poll\+Event(\&event) != 0) \{ if (event.\+type == SDL\+\_\+\+QUIT) \{ std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+Game Quitting"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; quit\+Event\+Loop = true; \} else if (event.\+type == SDL\+\_\+\+KEYDOWN) \{ key\+Pressed = true; if (scene == 1) \{ handle\+\_\+keyboard\+\_\+scene\+\_\+1(event); \} \} else if (event.\+type == SDL\+\_\+\+KEYUP) \{ key\+Pressed = false; if (scene == 1) \{ handle\+\_\+keyboard\+\_\+scene\+\_\+1(event); \} \} else if (event.\+type == SDL\+\_\+\+MOUSEBUTTONDOWN \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} event.\+type == SDL\+\_\+\+FINGERDOWN) \{ mouse\+Pressed = true; int mouseX, mouseY; if (event.\+type == SDL\+\_\+\+MOUSEBUTTONDOWN) \{ SDL\+\_\+\+Get\+Mouse\+State(\&mouse\+X, \&mouse\+Y); \} else if (event.\+type == SDL\+\_\+\+FINGERDOWN) \{ mouseX = static\+\_\+cast$<$int$>$(event.\+tfinger.\+x \texorpdfstring{$\ast$}{*} SCREEN\+\_\+\+WIDTH); mouseY = static\+\_\+cast$<$int$>$(event.\+tfinger.\+y \texorpdfstring{$\ast$}{*} SCREEN\+\_\+\+HEIGHT); \} if (scene == 1) \{ handle\+\_\+mouse\+\_\+scene\+\_\+1(mouse\+X, mouse\+Y); \} \} else if (event.\+type == SDL\+\_\+\+MOUSEBUTTONUP) \{ mouse\+Pressed = false; \} else if (event.\+type == SDL\+\_\+\+CONTROLLERBUTTONDOWN) // for gamepad input \{ SDL\+\_\+\+Controller\+Button\+Event controller\+Button\+Event = event.\+cbutton; int button = controller\+Button\+Event.\+button; if (scene == 1) \{ handle\+\_\+gamepad\+\_\+scene\+\_\+1(button); \} \} \} \}
+
+\DoxyHorRuler{0}
+
+
+11a. Create Keyboard, Mouse/\+Touch, Gamepad relevant handles
+
+e.\+g. MOUSE/\+TOUCH HANDLES
+
+SDL\+\_\+\+Point mouse\+Position = \{mouseX, mouseY\}; if (scene2\+Return\+To\+Title\+Button.\+is\+\_\+clicked(mouse\+Position)) \{ scene = 1; \}
+
+\DoxyHorRuler{0}
+
+
+11b. e.\+g, KEYBOARD HANDLES, remember to call the static function to check button direction against the global variable Button\+Direction set locally button\+Direction = "{}\+UP"{}; Base\+Button\+::find\+\_\+nearest\+\_\+button(scene1buttons, button\+Direction);
+
+void handle\+\_\+keyboard\+\_\+scene\+\_\+1(\+SDL\+\_\+\+Event \&event) \{ if (key\+Pressed) \{ switch (event.\+key.\+keysym.\+sym) \{ case SDLK\+\_\+\+ESCAPE\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: ESC"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; quit\+Event\+Loop = true; break; case SDLK\+\_\+\+UP\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: UP"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; button\+Direction = "{}\+UP"{}; Base\+Button\+::find\+\_\+nearest\+\_\+button(scene1buttons, button\+Direction); break; case SDLK\+\_\+\+DOWN\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: DOWN"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; button\+Direction = "{}\+DOWN"{}; Base\+Button\+::find\+\_\+nearest\+\_\+button(scene1buttons, button\+Direction); break; case SDLK\+\_\+\+LEFT\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: LEFT"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; button\+Direction = "{}\+LEFT"{}; Base\+Button\+::find\+\_\+nearest\+\_\+button(scene1buttons, button\+Direction); break; case SDLK\+\_\+\+RIGHT\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: RIGHT"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; button\+Direction = "{}\+RIGHT"{}; Base\+Button\+::find\+\_\+nearest\+\_\+button(scene1buttons, button\+Direction); break; case SDLK\+\_\+\+RETURN\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: RETURN"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; if (scene1new\+Game\+Button.\+is\+\_\+selected()) \{ logic\+\_\+newgame(); scene = 3; \} else if (scene1settings\+Button.\+is\+\_\+selected()) \{ scene = 2; \} else if (scene1quit\+Game\+Button.\+is\+\_\+selected()) \{ quit\+Event\+Loop = true; \} default\+: break; \} \} \} \DoxyHorRuler{0}
+
+
+11c. e.\+g, GAMEPAD HANDLES
+
+case SDL\+\_\+\+CONTROLLER\+\_\+\+BUTTON\+\_\+A\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: RETURN"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; if (scene2\+Return\+To\+Title\+Button.\+is\+\_\+selected()) \{ scene = 1; \}
+
+\DoxyHorRuler{0}
+
+
+11d. (Optional -\/ for \doxylink{class_slider_button}{Slider\+Button}) Create keyboard case movements if desired to global variables for the slider option to increment or decrement.
+
+int sound\+Volume = 100;
+
+case SDLK\+\_\+\+UP\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: UP"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; if (scene2\+Volume\+Slider\+Button.\+is\+\_\+selected()) \{ sound\+Volume = std\+::min(100, sound\+Volume + 1); \} break; case SDLK\+\_\+\+DOWN\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: DOWN"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; if (scene2\+Volume\+Slider\+Button.\+is\+\_\+selected()) \{ sound\+Volume = std\+::max(0, sound\+Volume -\/ 1); \}
+
+In handle() add a new SDL\+\_\+\+MOUSEMOTION case that sees if button is selected and if so add a option to drag dot texture
+
+else if (event.\+type == SDL\+\_\+\+MOUSEMOTION) \{ if (mouse\+Pressed) \{ for (\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}button \+: all\+Buttons) \{ if (button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_ae49099d56367dbd43a7cb597ef79da83}{is\+\_\+selected()}) \{ if (\doxylink{class_slider_button}{Slider\+Button} \texorpdfstring{$\ast$}{*}b = dynamic\+\_\+cast$<$\+Slider\+Button \texorpdfstring{$\ast$}{*}$>$(button)) \{ int mouseX, mouseY; SDL\+\_\+\+Get\+Mouse\+State(\&mouse\+X, \&mouse\+Y); int x = mouseX -\/ x\+Drag\+Offset; b-\/\texorpdfstring{$>$}{>}set\+\_\+dot\+\_\+rect\+\_\+x\+\_\+pos(x); int y = mouseY -\/ y\+Drag\+Offset; b-\/\texorpdfstring{$>$}{>}set\+\_\+dot\+\_\+rect\+\_\+y\+\_\+pos(y);
+
+// Ensure texture stays within the bounds of the \doxylink{class_slider_button}{Slider\+Button} rectangle if (b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().x \texorpdfstring{$<$}{<} button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.x) \{ b-\/\texorpdfstring{$>$}{>}set\+\_\+dot\+\_\+rect\+\_\+x\+\_\+pos(button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.x); \} else if (b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().x + b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().w \texorpdfstring{$>$}{>} button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.x + button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.w) \{ int x = button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.x + button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.w -\/ b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().w; b-\/\texorpdfstring{$>$}{>}set\+\_\+dot\+\_\+rect\+\_\+x\+\_\+pos(x); \}
+
+if (b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().y \texorpdfstring{$<$}{<} button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.y) \{ b-\/\texorpdfstring{$>$}{>}set\+\_\+dot\+\_\+rect\+\_\+y\+\_\+pos(button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.y); \} else if (b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().y + b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().h \texorpdfstring{$>$}{>} button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.y + button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.h) \{ int y = button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.y + button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.h -\/ b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().h; b-\/\texorpdfstring{$>$}{>}set\+\_\+dot\+\_\+rect\+\_\+y\+\_\+pos(y); \}
+
+// Update sound\+Volume global variable // Calculate the position of the dot texture relative to the \doxylink{class_slider_button}{Slider\+Button} rectangle double relative\+Position = (b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().x -\/ button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.x) / (double)(button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}{get\+\_\+rect()}.w -\/ b-\/\texorpdfstring{$>$}{>}get\+\_\+dot\+\_\+rect().w); // Calculate the sound volume based on the relative position sound\+Volume = static\+\_\+cast$<$int$>$(relative\+Position \texorpdfstring{$\ast$}{*} 100); // Ensure that the sound volume is within the range of 0 to 100 sound\+Volume = std\+::max(0, std\+::min(100, sound\+Volume)); \} \} \} \} \}
+
+\DoxyHorRuler{0}
+
+
+11e. (Optional -\/ for \doxylink{class_input_button}{Input\+Button})
+
+In handle() add a new SDL\+\_\+\+TEXTINPUT case that sees if button is selected and if so add a option to live enter text to button
+
+else if (event.\+type == SDL\+\_\+\+TEXTINPUT) \{ // Need to use SDL\+\_\+\+TEXTINPUT for live interactive type and render at same time for (\doxylink{class_base_button}{Base\+Button} \texorpdfstring{$\ast$}{*}button \+: all\+Buttons) \{ if (button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_ae49099d56367dbd43a7cb597ef79da83}{is\+\_\+selected()}) \{ if (\doxylink{class_input_button}{Input\+Button} \texorpdfstring{$\ast$}{*}x = dynamic\+\_\+cast$<$\+Input\+Button \texorpdfstring{$\ast$}{*}$>$(button)) \{ x-\/\texorpdfstring{$>$}{>}set\+\_\+text(event); \} \} \} break; \}
+
+add new case in scene with input field for SDLK\+\_\+\+BACKSPACE to call remove\+\_\+last\+\_\+character() for deleting characters for interactive text session
+
+case SDLK\+\_\+\+BACKSPACE\+: std\+::cout \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} "{}\+You pressed\+: BACKSPACE"{} \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} std\+::endl; if (scene4input\+Player\+Name\+Button.\+is\+\_\+selected()) \{ scene4input\+Player\+Name\+Button.\+remove\+\_\+last\+\_\+character(); \} break; \DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Render the textures in your draw()
+\end{DoxyEnumerate}
+
+void draw\+\_\+scene\+\_\+3() \{ for (\doxylink{class_entity}{Entity} \texorpdfstring{$\ast$}{*}e \+: entities) \{ e-\/\texorpdfstring{$>$}{>}render\+\_\+texture(); \} \}
+
+\DoxyHorRuler{0}
+
+
+
+\begin{DoxyEnumerate}
+\item Remember to clear Vectors before ending program
+\end{DoxyEnumerate}
+
+scene1buttons.\+clear(); scene2buttons.\+clear(); all\+Buttons.\+clear();
+
+\DoxyHorRuler{0}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_base_button_a8fda95f827aa4b7a2297207f43b569b8}\label{class_base_button_a8fda95f827aa4b7a2297207f43b569b8} 
+\index{BaseButton@{BaseButton}!find\_euclidean\_distance@{find\_euclidean\_distance}}
+\index{find\_euclidean\_distance@{find\_euclidean\_distance}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{find\_euclidean\_distance()}{find\_euclidean\_distance()}}
+{\footnotesize\ttfamily static double Base\+Button\+::find\+\_\+euclidean\+\_\+distance (\begin{DoxyParamCaption}\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{x2,  }\item[{int}]{y2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+find eulidean distance 
+
+Find the difference between 2 points on an x, y graph also called the cardassian plane.
+
+Used in further functions such as measuring distance for shortest path between differnt buttons/\+GUI elements in a window to see which buttons closer to move towards that button
+
+
+\begin{DoxyParams}{Parameters}
+{\em x1} & button A x pos \\
+\hline
+{\em y1} & button A y bos \\
+\hline
+{\em x2} & button B x pos \\
+\hline
+{\em y2} & button B y pos \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a482b5d438eac535ff6b3553c1f9ad44a}\label{class_base_button_a482b5d438eac535ff6b3553c1f9ad44a} 
+\index{BaseButton@{BaseButton}!find\_nearest\_button@{find\_nearest\_button}}
+\index{find\_nearest\_button@{find\_nearest\_button}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{find\_nearest\_button()}{find\_nearest\_button()}}
+{\footnotesize\ttfamily static void Base\+Button\+::find\+\_\+nearest\+\_\+button (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{class_base_button}{Base\+Button}} \texorpdfstring{$\ast$}{*} $>$}]{scene\+Vector,  }\item[{const std\+::string}]{button\+Direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+find nearest button 
+
+uses \doxylink{class_base_button_a8fda95f827aa4b7a2297207f43b569b8}{find\+\_\+euclidean\+\_\+distance()} to measure Euclidean distance used in finding closest button to navigate to using directional navigation keys E.\+g. if you press up directional arrow key on a keyboard or gamepad all the buttons north in -\/y scale will be calculated to find the nearest button. then sets the closet button to is\+Selected = true
+
+
+\begin{DoxyParams}{Parameters}
+{\em scene\+Vector} & pass all the buttons in an vector in an window/scene to find the nearest \\
+\hline
+{\em button\+Direction} & pass the button direction to travel up, down, left, right to closest in x-\/, x+, y-\/, y+ \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_ae45a64e9b9ebcb82e485969320479f12}\label{class_base_button_ae45a64e9b9ebcb82e485969320479f12} 
+\index{BaseButton@{BaseButton}!get\_button\_label@{get\_button\_label}}
+\index{get\_button\_label@{get\_button\_label}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{get\_button\_label()}{get\_button\_label()}}
+{\footnotesize\ttfamily std\+::string Base\+Button\+::get\+\_\+button\+\_\+label (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get buttons label which is the text written on it can be replaced with set function for situations to display different text on click e.\+g. MUSIC ON \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} MUSIC OFF 
+
+\begin{DoxyReturn}{Returns}
+the button label 
+\end{DoxyReturn}
+\Hypertarget{class_base_button_a85b6ac382634b0fb47f2ee4b4a24832a}\label{class_base_button_a85b6ac382634b0fb47f2ee4b4a24832a} 
+\index{BaseButton@{BaseButton}!get\_clicked@{get\_clicked}}
+\index{get\_clicked@{get\_clicked}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{get\_clicked()}{get\_clicked()}}
+{\footnotesize\ttfamily bool Base\+Button\+::get\+\_\+clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get button clicked status 
+
+\begin{DoxyReturn}{Returns}
+if the button was clicked. Can be used further e.\+g. for SUBMIT button to send of \doxylink{class_input_button}{Input\+Button} text to JSON elsewhere 
+\end{DoxyReturn}
+\Hypertarget{class_base_button_a8a324edd721806a1b438fc2cfd589dd3}\label{class_base_button_a8a324edd721806a1b438fc2cfd589dd3} 
+\index{BaseButton@{BaseButton}!get\_rect@{get\_rect}}
+\index{get\_rect@{get\_rect}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{get\_rect()}{get\_rect()}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect Base\+Button\+::get\+\_\+rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return button rect positions/dimensions 
+
+return button rect positions/dimensions
+
+\begin{DoxyReturn}{Returns}
+private member variable button\+Rect for buttons SDL\+\_\+\+Rect positions/dimensions 
+\end{DoxyReturn}
+\Hypertarget{class_base_button_ac5205725453b83855a01a16cf236fc63}\label{class_base_button_ac5205725453b83855a01a16cf236fc63} 
+\index{BaseButton@{BaseButton}!is\_clicked@{is\_clicked}}
+\index{is\_clicked@{is\_clicked}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{is\_clicked()}{is\_clicked()}}
+{\footnotesize\ttfamily bool Base\+Button\+::is\+\_\+clicked (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Point \&}]{point }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+when an SDL mouse handle 
+
+SDL mouse state in mouse handle logic is passed to SDL\+\_\+\+Point mouse\+Position = \{mouseX, mouseY\}; which then on button click will set the button selected which adds highlights in the render\+\_\+button\+\_\+rect and selectes it for the base point for directional movement
+
+
+\begin{DoxyParams}{Parameters}
+{\em point} & accepts a SDL\+\_\+\+Point mouse\+Position = \{mouseX, mouseY\} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+if the point clicked matches the button will return true 
+\end{DoxyReturn}
+\Hypertarget{class_base_button_ae49099d56367dbd43a7cb597ef79da83}\label{class_base_button_ae49099d56367dbd43a7cb597ef79da83} 
+\index{BaseButton@{BaseButton}!is\_selected@{is\_selected}}
+\index{is\_selected@{is\_selected}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{is\_selected()}{is\_selected()}}
+{\footnotesize\ttfamily bool Base\+Button\+::is\+\_\+selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return button selected status 
+
+return button selected status
+
+\begin{DoxyReturn}{Returns}
+private member variable is\+Selected to signify button is selected 
+\end{DoxyReturn}
+\Hypertarget{class_base_button_a9e8bc234fe0908b0b8adb1b4046fa435}\label{class_base_button_a9e8bc234fe0908b0b8adb1b4046fa435} 
+\index{BaseButton@{BaseButton}!render\_button\_rect@{render\_button\_rect}}
+\index{render\_button\_rect@{render\_button\_rect}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{render\_button\_rect()}{render\_button\_rect()}}
+{\footnotesize\ttfamily virtual void Base\+Button\+::render\+\_\+button\+\_\+rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+render button to window 
+
+Depending on if the button has a passed texture to constructor, or if it\textquotesingle{}s selected will draw the button with the texture or the yellow selected border and also call \doxylink{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81}{render\+\_\+button\+\_\+text()} to draw text ontop of the button 
+
+Reimplemented in \mbox{\hyperlink{class_input_button_adf957cbeec84a84bc4a281ce01115d67}{Input\+Button}}, and \mbox{\hyperlink{class_slider_button_a2715cd284f3377dd675f8fcf05747d96}{Slider\+Button}}.
+
+\Hypertarget{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81}\label{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81} 
+\index{BaseButton@{BaseButton}!render\_button\_text@{render\_button\_text}}
+\index{render\_button\_text@{render\_button\_text}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{render\_button\_text()}{render\_button\_text()}}
+{\footnotesize\ttfamily void Base\+Button\+::render\+\_\+button\+\_\+text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{text,  }\item[{int}]{x,  }\item[{int}]{y,  }\item[{Uint8}]{red\+Text,  }\item[{Uint8}]{green\+Text,  }\item[{Uint8}]{blue\+Text,  }\item[{Uint8}]{alpha\+Text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+render button font text to window 
+
+Accepts a text string with styling parameters to write to window to show messages/label in GUI. Uses SDL framework and traditionally loaded with TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}load\+\_\+font() which returns a TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}font object
+
+EXAMPLE
+
+The below will draw a solid black "{}\+Hello World"{} message in the top left of window
+
+render\+\_\+text("{}\+Hello World"{}, (SCREEN\+\_\+\+WIDTH \texorpdfstring{$\ast$}{*} 0.\+35), (SCREEN\+\_\+\+HEIGHT \texorpdfstring{$\ast$}{*} 0.\+1), 0, 0, 0, 255, default\+Font);
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & message to render to the window \\
+\hline
+{\em x} & x coordinate to draw the text to window \\
+\hline
+{\em y} & y coordinate to draw the text to window \\
+\hline
+{\em red\+Text} & text rgb red value, use in conjunction with other rgb variable values \\
+\hline
+{\em green\+Text} & text rgb green value, use in conjunction with other rgb variable values \\
+\hline
+{\em blue\+Text} & text rgb blue value, use in conjunction with other rgb variable values \\
+\hline
+{\em alpha\+Text} & the transparency. alpha value 255 -\/ solid, value 1 = transparent, alpha value 0 breaks and becomes transparent again. Just use 1; \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a657a4c875c4ea8471f2ed73b9191ac66}\label{class_base_button_a657a4c875c4ea8471f2ed73b9191ac66} 
+\index{BaseButton@{BaseButton}!set\_button\_label@{set\_button\_label}}
+\index{set\_button\_label@{set\_button\_label}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_button\_label()}{set\_button\_label()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+button\+\_\+label (\begin{DoxyParamCaption}\item[{std\+::string}]{new\+Button\+Label }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set buttons label which is the text written on it can be replaced with set function for situations to display different text on click e.\+g. MUSIC ON \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|} MUSIC OFF or when change language script 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Button\+Label} & a new label for button \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a6f2ec7723f09a071aace85c32c286006}\label{class_base_button_a6f2ec7723f09a071aace85c32c286006} 
+\index{BaseButton@{BaseButton}!set\_button\_texture@{set\_button\_texture}}
+\index{set\_button\_texture@{set\_button\_texture}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_button\_texture()}{set\_button\_texture()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+button\+\_\+texture (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set button button texture passed from constructor 
+
+set button button texture passed from constructor called anytime against the object, or you can itterate through a vector of all for(button \+: all\+Buttons) to set button-\/\texorpdfstring{$>$}{>}\doxylink{class_base_button_a6f2ec7723f09a071aace85c32c286006}{set\+\_\+button\+\_\+texture()} \Hypertarget{class_base_button_a8027d52f97ac481a6eb43a7fa66ca213}\label{class_base_button_a8027d52f97ac481a6eb43a7fa66ca213} 
+\index{BaseButton@{BaseButton}!set\_clicked@{set\_clicked}}
+\index{set\_clicked@{set\_clicked}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_clicked()}{set\_clicked()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+clicked (\begin{DoxyParamCaption}\item[{bool}]{submitted }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set button clicked status 
+
+After submitting text to reset all buttons variables you can call these functions scene4input\+Player\+Name\+Button.\+clear\+\_\+text(); scene4input\+Player\+Name\+Button.\+set\+\_\+submitted(false); \Hypertarget{class_base_button_a1a848413f7c091923e90cd57dbbf8436}\label{class_base_button_a1a848413f7c091923e90cd57dbbf8436} 
+\index{BaseButton@{BaseButton}!set\_font\_size@{set\_font\_size}}
+\index{set\_font\_size@{set\_font\_size}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_font\_size()}{set\_font\_size()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+font\+\_\+size (\begin{DoxyParamCaption}\item[{TTF\+\_\+\+Font \texorpdfstring{$\ast$}{*}}]{font,  }\item[{int}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+change button object font 
+
+change button font size to a different font, you can pass the font and size to control it e.\+g. japanese36, 36
+
+
+\begin{DoxyParams}{Parameters}
+{\em font} & pass the button font e.\+g. japanese36 loaded from a TTF\+\_\+\+Font\texorpdfstring{$\ast$}{*} font \\
+\hline
+{\em size} & pass a font size matching the font \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a2d648ba140336eca16c4fa239786d8c2}\label{class_base_button_a2d648ba140336eca16c4fa239786d8c2} 
+\index{BaseButton@{BaseButton}!set\_rect\_x\_pos@{set\_rect\_x\_pos}}
+\index{set\_rect\_x\_pos@{set\_rect\_x\_pos}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_rect\_x\_pos()}{set\_rect\_x\_pos()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+rect\+\_\+x\+\_\+pos (\begin{DoxyParamCaption}\item[{int}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set button rect x position 
+
+set button rect x position
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & int value is converted to button rect x position \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a876f23b812796f234a29cec70c17ae6c}\label{class_base_button_a876f23b812796f234a29cec70c17ae6c} 
+\index{BaseButton@{BaseButton}!set\_rect\_y\_pos@{set\_rect\_y\_pos}}
+\index{set\_rect\_y\_pos@{set\_rect\_y\_pos}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_rect\_y\_pos()}{set\_rect\_y\_pos()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+rect\+\_\+y\+\_\+pos (\begin{DoxyParamCaption}\item[{int}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set button rect y position 
+
+set button rect y position
+
+
+\begin{DoxyParams}{Parameters}
+{\em y} & int value is converted to button rect y position \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a5684f4cc2cb78eb94eecf856f9071f4c}\label{class_base_button_a5684f4cc2cb78eb94eecf856f9071f4c} 
+\index{BaseButton@{BaseButton}!set\_renderer@{set\_renderer}}
+\index{set\_renderer@{set\_renderer}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_renderer()}{set\_renderer()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+renderer (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+dynamically set renderer 
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & pass a SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}r object for this entity to render on with render\+\_\+texture() \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_base_button_a344eb254a7a923a71d8435226c07fd60}\label{class_base_button_a344eb254a7a923a71d8435226c07fd60} 
+\index{BaseButton@{BaseButton}!set\_selected@{set\_selected}}
+\index{set\_selected@{set\_selected}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{set\_selected()}{set\_selected()}}
+{\footnotesize\ttfamily void Base\+Button\+::set\+\_\+selected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+deselecting current button and select this button 
+
+Used in handle input logic to select a new button and deselect the old button 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_base_button_a0e660e3fa187aa5641a96fdb96ba91cf}\label{class_base_button_a0e660e3fa187aa5641a96fdb96ba91cf} 
+\index{BaseButton@{BaseButton}!BaseButtonRectHeight@{BaseButtonRectHeight}}
+\index{BaseButtonRectHeight@{BaseButtonRectHeight}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{BaseButtonRectHeight}{BaseButtonRectHeight}}
+{\footnotesize\ttfamily int Base\+Button\+::\+Base\+Button\+Rect\+Height \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+value used to increase button dimensions on enlarging window resolution \Hypertarget{class_base_button_a1d2cca524e7677eb695a49db619138b7}\label{class_base_button_a1d2cca524e7677eb695a49db619138b7} 
+\index{BaseButton@{BaseButton}!BaseButtonRectWidth@{BaseButtonRectWidth}}
+\index{BaseButtonRectWidth@{BaseButtonRectWidth}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{BaseButtonRectWidth}{BaseButtonRectWidth}}
+{\footnotesize\ttfamily int Base\+Button\+::\+Base\+Button\+Rect\+Width \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+value used to increase button dimensions on enlarging window resolution \Hypertarget{class_base_button_a467ef042660c4bc14f7e8142066fc00c}\label{class_base_button_a467ef042660c4bc14f7e8142066fc00c} 
+\index{BaseButton@{BaseButton}!buttonColor@{buttonColor}}
+\index{buttonColor@{buttonColor}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonColor}{buttonColor}}
+{\footnotesize\ttfamily SDL\+\_\+\+Color Base\+Button\+::button\+Color \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+button color in RGBA \Hypertarget{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}\label{class_base_button_a2642e611aed0dd355688a1b5ad527c6e} 
+\index{BaseButton@{BaseButton}!buttonFont@{buttonFont}}
+\index{buttonFont@{buttonFont}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonFont}{buttonFont}}
+{\footnotesize\ttfamily TTF\+\_\+\+Font\texorpdfstring{$\ast$}{*} Base\+Button\+::button\+Font \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+button font for rendering button label text \Hypertarget{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}\label{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a} 
+\index{BaseButton@{BaseButton}!buttonLabel@{buttonLabel}}
+\index{buttonLabel@{buttonLabel}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonLabel}{buttonLabel}}
+{\footnotesize\ttfamily std\+::string Base\+Button\+::button\+Label \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+button label to display on rect e.\+g. NEW GAME \Hypertarget{class_base_button_a485ff45470190ada0db970bfcd8ba77a}\label{class_base_button_a485ff45470190ada0db970bfcd8ba77a} 
+\index{BaseButton@{BaseButton}!buttonRect@{buttonRect}}
+\index{buttonRect@{buttonRect}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonRect}{buttonRect}}
+{\footnotesize\ttfamily SDL\+\_\+\+Rect Base\+Button\+::button\+Rect \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Buttons 2D x pos, 2D y pos, width and height \Hypertarget{class_base_button_a656641f699490dd8766f8dbe30af69e1}\label{class_base_button_a656641f699490dd8766f8dbe30af69e1} 
+\index{BaseButton@{BaseButton}!buttonTextColor@{buttonTextColor}}
+\index{buttonTextColor@{buttonTextColor}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonTextColor}{buttonTextColor}}
+{\footnotesize\ttfamily SDL\+\_\+\+Color Base\+Button\+::button\+Text\+Color \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+button text color in RGBA \Hypertarget{class_base_button_a1d2d08e0f502141ceafc52e21903eec5}\label{class_base_button_a1d2d08e0f502141ceafc52e21903eec5} 
+\index{BaseButton@{BaseButton}!buttonTexture@{buttonTexture}}
+\index{buttonTexture@{buttonTexture}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonTexture}{buttonTexture}}
+{\footnotesize\ttfamily SDL\+\_\+\+Texture\texorpdfstring{$\ast$}{*} Base\+Button\+::button\+Texture \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+hold button texture set from path \Hypertarget{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}\label{class_base_button_aa889ffe601a3c758b0e78c8aa990a800} 
+\index{BaseButton@{BaseButton}!buttonTexturePath@{buttonTexturePath}}
+\index{buttonTexturePath@{buttonTexturePath}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{buttonTexturePath}{buttonTexturePath}}
+{\footnotesize\ttfamily const std\+::string Base\+Button\+::button\+Texture\+Path \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+button texture path \Hypertarget{class_base_button_a0b30db198f5440cddb0a735ef56e06c0}\label{class_base_button_a0b30db198f5440cddb0a735ef56e06c0} 
+\index{BaseButton@{BaseButton}!isClicked@{isClicked}}
+\index{isClicked@{isClicked}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{isClicked}{isClicked}}
+{\footnotesize\ttfamily bool Base\+Button\+::is\+Clicked \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+flag to indicate button was clicked e.\+g. for Push Button SUBMIT to trigger submitting \doxylink{class_input_button}{Input\+Button} text \Hypertarget{class_base_button_a3681fa61df60befdc83c56bda2d0306e}\label{class_base_button_a3681fa61df60befdc83c56bda2d0306e} 
+\index{BaseButton@{BaseButton}!isSelected@{isSelected}}
+\index{isSelected@{isSelected}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{isSelected}{isSelected}}
+{\footnotesize\ttfamily bool Base\+Button\+::is\+Selected \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+set button to is\+Selected for highlighting, pressing key inputs enter/A to traverse, and using as base navigation point \Hypertarget{class_base_button_aaae0058aab1f66259a272eba12e98612}\label{class_base_button_aaae0058aab1f66259a272eba12e98612} 
+\index{BaseButton@{BaseButton}!renderer@{renderer}}
+\index{renderer@{renderer}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{renderer}{renderer}}
+{\footnotesize\ttfamily SDL\+\_\+\+Renderer\texorpdfstring{$\ast$}{*} Base\+Button\+::renderer \{\}\hspace{0.3cm}{\ttfamily [protected]}}
+
+Dynamically set renderer anytime with \doxylink{class_base_button_a5684f4cc2cb78eb94eecf856f9071f4c}{set\+\_\+renderer()} for drawing button \Hypertarget{class_base_button_a5357c8a0ab07f09a3773c4d0fd71d43f}\label{class_base_button_a5357c8a0ab07f09a3773c4d0fd71d43f} 
+\index{BaseButton@{BaseButton}!selectedButton@{selectedButton}}
+\index{selectedButton@{selectedButton}!BaseButton@{BaseButton}}
+\doxysubsubsection{\texorpdfstring{selectedButton}{selectedButton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base_button}{Base\+Button}} \texorpdfstring{$\ast$}{*} Base\+Button\+::selected\+Button \{\}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+Static pointer for every \doxylink{class_base_button}{Base\+Button} and subclass objects to track which is selected 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/buttons/Base\+Button.\+hpp\item 
+src/globals.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,46 @@
+\doxysection{Item.\+hpp}
+\hypertarget{_item_8hpp_source}{}\label{_item_8hpp_source}\index{headers/entities/Item.hpp@{headers/entities/Item.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Subclass\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../Entity.hpp"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}Player.hpp"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}Enemy.hpp"{}}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_item}{Item}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_entity}{Entity}}}
+\DoxyCodeLine{00023\ \{}
+\DoxyCodeLine{00024\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_item_af405dcbdcd8f2fbf096114ca6e452b4a}{Item}}(\textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_item_a82051989f2e066277dfd314bd27b390a}{handle\_player\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_item_a0dce2b9b56273011c893912c5ab90f55}{handle\_item\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ \};}
+\DoxyCodeLine{00050\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_heart}{Heart}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_item}{Item}}}
+\DoxyCodeLine{00051\ \{}
+\DoxyCodeLine{00052\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \mbox{\hyperlink{class_heart_abeb28890beda2248bba4f905827c6c81}{Heart}}(\textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_heart_a5f86e8880b1c6fbc8141d2f50b290453}{handle\_player\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00059\ \};}
+\DoxyCodeLine{00064\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_boots}{Boots}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_item}{Item}}}
+\DoxyCodeLine{00065\ \{}
+\DoxyCodeLine{00066\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_boots_a92d03f881224ce658131c90f0c6ec2c5}{Boots}}(\textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00071\ \};}
+\DoxyCodeLine{00076\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_gem}{Gem}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_item}{Item}}}
+\DoxyCodeLine{00077\ \{}
+\DoxyCodeLine{00078\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00082\ \ \ \ \ \mbox{\hyperlink{class_gem_aab3f431bc44f2b1d1415bcc0514bff31}{Gem}}(\textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_entity_a9a7d9df9b47e597a6abd76235e0b726c}{name}},\ \textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_entity_ab5bf0c97620636e04b271601e2133884}{health}},\ std::string\ \mbox{\hyperlink{class_entity_aafc3dc3dce9a76787ad5caf4bcb7c95f}{collisionSoundString}},\ \textcolor{keyword}{const}\ std::vector<std::string>\ \&\mbox{\hyperlink{class_entity_a60a51d313f044cd8d786b96955ed76dc}{walkingTextures}});}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_gem_a9b22345e9cc7bea1a41dd29d622065cd}{handle\_player\_collision}}(std::vector<Entity\ *>\ \&entities)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00085\ \};}
+
+\end{DoxyCode}

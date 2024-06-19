@@ -1,0 +1,204 @@
+\doxysection{Save\+Load\+Data Class Reference}
+\hypertarget{class_save_load_data}{}\label{class_save_load_data}\index{SaveLoadData@{SaveLoadData}}
+
+
+class for adding custom file I/O functions to a program e.\+g, saving and loading game data  
+
+
+
+
+{\ttfamily \#include $<$Save\+Load\+Data.\+hpp$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_save_load_data_a43ee7f8c70c097f0e0eb9e938670a1df}{save\+\_\+settings}} (const std\+::string \&file\+Name, const std\+::string \&language)
+\begin{DoxyCompactList}\small\item\em save user set in program settings to file \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_save_load_data_ab07fb97d5faa99a47c5a1165b76e1fea}{load\+\_\+settings}} (const std\+::string \&file\+Name, std\+::string \&language, std\+::vector$<$ int $>$ \&unlocked\+Achievements)
+\begin{DoxyCompactList}\small\item\em load user set in program settings to file \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_save_load_data_a7d8d0a18451de6cf39418236bda4a492}{save\+\_\+file}} (const std\+::string \&file\+Name, const std\+::vector$<$ int $>$ \&unlocked\+Achievements)
+\begin{DoxyCompactList}\small\item\em save user program data to file \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_save_load_data_ac2384d36d8fd243808106e58c184ee7c}{load\+\_\+file}} (const std\+::string \&file\+Name, std\+::vector$<$ int $>$ \&unlocked\+Achievements)
+\begin{DoxyCompactList}\small\item\em load user program data from file \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{class_save_load_data_a2109f58aa00debe83fdfa8800194893f}{does\+\_\+file\+\_\+exist}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em check if file exists on host platform/os \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_save_load_data_a36492511d16043ee19cdfabfb1551750}{delete\+\_\+file}} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em delete a file on host platform/os \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+class for adding custom file I/O functions to a program e.\+g, saving and loading game data 
+
+\DoxyHorRuler{0}
+ \begin{DoxyVerb}                             SAVE LOAD DATA CLASS
+\end{DoxyVerb}
+ \DoxyHorRuler{0}
+
+
+DESCRIPTION
+
+Static Class with functions to check if any data file exists and load to memory. Will also save data to file.
+
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item To save settings call
+\end{DoxyEnumerate}
+
+Save\+Load\+Data\+::save\+\_\+settings(file\+Name, language);
+
+
+\begin{DoxyEnumerate}
+\item To load settings call
+\end{DoxyEnumerate}
+
+Save\+Load\+Data\+::load\+\_\+settings(file\+Name, language, unlocked\+Achievements);
+
+
+\begin{DoxyEnumerate}
+\item To save game call
+\end{DoxyEnumerate}
+
+Save\+Load\+Data\+::save\+\_\+file(file\+Name, language, unlocked\+Achievements);
+
+
+\begin{DoxyEnumerate}
+\item To load game call
+\end{DoxyEnumerate}
+
+Save\+Load\+Data\+::load\+\_\+file(file\+Name, language, unlocked\+Achievements);
+
+
+\begin{DoxyEnumerate}
+\item Check file exists
+\end{DoxyEnumerate}
+
+Save\+Load\+Data\+::load\+\_\+file(file\+Name, language, unlocked\+Achievements);
+
+
+\begin{DoxyEnumerate}
+\item Delete file
+\end{DoxyEnumerate}
+
+Save\+Load\+Data\+::load\+\_\+file(file\+Name); 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_save_load_data_a36492511d16043ee19cdfabfb1551750}\label{class_save_load_data_a36492511d16043ee19cdfabfb1551750} 
+\index{SaveLoadData@{SaveLoadData}!delete\_file@{delete\_file}}
+\index{delete\_file@{delete\_file}!SaveLoadData@{SaveLoadData}}
+\doxysubsubsection{\texorpdfstring{delete\_file()}{delete\_file()}}
+{\footnotesize\ttfamily void Save\+Load\+Data\+::delete\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+delete a file on host platform/os 
+
+delete a file on host platform/os
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to delete \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_load_data_a2109f58aa00debe83fdfa8800194893f}\label{class_save_load_data_a2109f58aa00debe83fdfa8800194893f} 
+\index{SaveLoadData@{SaveLoadData}!does\_file\_exist@{does\_file\_exist}}
+\index{does\_file\_exist@{does\_file\_exist}!SaveLoadData@{SaveLoadData}}
+\doxysubsubsection{\texorpdfstring{does\_file\_exist()}{does\_file\_exist()}}
+{\footnotesize\ttfamily bool Save\+Load\+Data\+::does\+\_\+file\+\_\+exist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+check if file exists on host platform/os 
+
+check if file exists on host platform/os
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to check exists \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_load_data_ac2384d36d8fd243808106e58c184ee7c}\label{class_save_load_data_ac2384d36d8fd243808106e58c184ee7c} 
+\index{SaveLoadData@{SaveLoadData}!load\_file@{load\_file}}
+\index{load\_file@{load\_file}!SaveLoadData@{SaveLoadData}}
+\doxysubsubsection{\texorpdfstring{load\_file()}{load\_file()}}
+{\footnotesize\ttfamily void Save\+Load\+Data\+::load\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{std\+::vector$<$ int $>$ \&}]{unlocked\+Achievements }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+load user program data from file 
+
+load user program data from file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to load into software memory \\
+\hline
+{\em unlocked\+Achievements} & custom global variable that can be modified \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_load_data_ab07fb97d5faa99a47c5a1165b76e1fea}\label{class_save_load_data_ab07fb97d5faa99a47c5a1165b76e1fea} 
+\index{SaveLoadData@{SaveLoadData}!load\_settings@{load\_settings}}
+\index{load\_settings@{load\_settings}!SaveLoadData@{SaveLoadData}}
+\doxysubsubsection{\texorpdfstring{load\_settings()}{load\_settings()}}
+{\footnotesize\ttfamily void Save\+Load\+Data\+::load\+\_\+settings (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{std\+::string \&}]{language,  }\item[{std\+::vector$<$ int $>$ \&}]{unlocked\+Achievements }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+load user set in program settings to file 
+
+load user set in program settings to file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to load into software memory \\
+\hline
+{\em language} & custom global variable that can be modified \\
+\hline
+{\em unlocked\+Achievements} & custom global variable that can be modified \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_load_data_a7d8d0a18451de6cf39418236bda4a492}\label{class_save_load_data_a7d8d0a18451de6cf39418236bda4a492} 
+\index{SaveLoadData@{SaveLoadData}!save\_file@{save\_file}}
+\index{save\_file@{save\_file}!SaveLoadData@{SaveLoadData}}
+\doxysubsubsection{\texorpdfstring{save\_file()}{save\_file()}}
+{\footnotesize\ttfamily void Save\+Load\+Data\+::save\+\_\+file (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{const std\+::vector$<$ int $>$ \&}]{unlocked\+Achievements }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+save user program data to file 
+
+save user program data to file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to write to \\
+\hline
+{\em unlocked\+Achievements} & custom global variable that can be modified \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_save_load_data_a43ee7f8c70c097f0e0eb9e938670a1df}\label{class_save_load_data_a43ee7f8c70c097f0e0eb9e938670a1df} 
+\index{SaveLoadData@{SaveLoadData}!save\_settings@{save\_settings}}
+\index{save\_settings@{save\_settings}!SaveLoadData@{SaveLoadData}}
+\doxysubsubsection{\texorpdfstring{save\_settings()}{save\_settings()}}
+{\footnotesize\ttfamily void Save\+Load\+Data\+::save\+\_\+settings (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name,  }\item[{const std\+::string \&}]{language }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+save user set in program settings to file 
+
+save user set in program settings to file
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of the file to write to \\
+\hline
+{\em language} & The language rendering of software on startup chosen from settings menu toggle to save to file \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Save\+Load\+Data.\+hpp\item 
+src/Save\+Load\+Data.\+cpp\end{DoxyCompactItemize}

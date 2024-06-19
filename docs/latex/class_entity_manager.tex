@@ -1,0 +1,155 @@
+\doxysection{Entity\+Manager Class Reference}
+\hypertarget{class_entity_manager}{}\label{class_entity_manager}\index{EntityManager@{EntityManager}}
+
+
+\doxylink{class_entity}{Entity} Manager manages the initialisation of entites from \doxylink{_entity_8hpp_source}{Entity.\+hpp}.  
+
+
+
+
+{\ttfamily \#include $<$Entity\+Manager.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_entity_manager_a7555637657d090171be6ceee8451de0a}{Entity\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_entity_manager}{Entity\+Manager} constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_entity_manager_a71a36c9fb8d579a1a1ec108e0fccf175}{\texorpdfstring{$\sim$}{\string~}\+Entity\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_entity_manager}{Entity\+Manager} Deconstructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_entity_manager_aae22a5935ab4fa8e4a491a53d1e6aea8}{create\+\_\+player\+\_\+entity}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities, int SCREEN\+\_\+\+WIDTH, int SCREEN\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em create a player entity \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_entity_manager_a3ce1789d9c4a54dcbaf06b616562c784}{create\+\_\+item\+\_\+heart\+\_\+entity}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities, int SCREEN\+\_\+\+WIDTH, int SCREEN\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em create a item heart entity \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_entity_manager_a5d0cbe36b1997262b0de99509b6cbfec}{create\+\_\+random\+\_\+item\+\_\+entity}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities, int SCREEN\+\_\+\+WIDTH, int SCREEN\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em Random creation logic for item entities. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_entity_manager_aeac932f67c3a87523dc68f5067c7fbb8}{create\+\_\+random\+\_\+enemy\+\_\+entity}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities, int SCREEN\+\_\+\+WIDTH, int SCREEN\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em Random creation logic for enemy entities. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_entity_manager_a5fdc09043e597cc044e85c7c63bbc7fd}{create\+\_\+random\+\_\+obstacle\+\_\+entity}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities, int SCREEN\+\_\+\+WIDTH, int SCREEN\+\_\+\+HEIGHT)
+\begin{DoxyCompactList}\small\item\em Random creation logic for obstacle entities. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{class_entity_manager_a9557fc7855b60eef01a45109385d2bab}{random\+\_\+procedural\+\_\+generation}} (SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}renderer, std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&entities, int SCREEN\+\_\+\+WIDTH, int SCREEN\+\_\+\+HEIGHT, int items\+Count, int enemies\+Count, int obstacles\+Count)
+\begin{DoxyCompactList}\small\item\em random procedurally generate non player entities \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_entity}{Entity} Manager manages the initialisation of entites from \doxylink{_entity_8hpp_source}{Entity.\+hpp}. 
+
+Utility class that works alongside any entity class to generate entities for your game/project. e.\+g. procedural generate entities for a level or use with a level editor button select to create custom maps with specific entities.
+
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item Include the libs header
+\end{DoxyEnumerate}
+
+include "{}../headers/\+Entity\+Manager.\+hpp"{}
+
+
+\begin{DoxyEnumerate}
+\item You can create new Entitites for your game by defining their characteristics here and adding it to \doxylink{_entity_8hpp_source}{Entity.\+hpp}
+\item Then to initialise them randomly in your scene call Entity\+Manager\+::random\+\_\+procedural\+\_\+generation(renderer, entities, SCREEN\+\_\+\+WIDTH, SCREEN\+\_\+\+HEIGHT, 10, 10, 10);
+\item Or to initialise inidividually just call the function to add whichever entity you want to add to window/level editor through handles() 
+\end{DoxyEnumerate}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_entity_manager_a7555637657d090171be6ceee8451de0a}\label{class_entity_manager_a7555637657d090171be6ceee8451de0a} 
+\index{EntityManager@{EntityManager}!EntityManager@{EntityManager}}
+\index{EntityManager@{EntityManager}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{EntityManager()}{EntityManager()}}
+{\footnotesize\ttfamily Entity\+Manager\+::\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_entity_manager}{Entity\+Manager} constructor. 
+
+\doxylink{class_entity_manager}{Entity\+Manager} constructor called during setups() or in level\+\_\+editor() to create custom maps \Hypertarget{class_entity_manager_a71a36c9fb8d579a1a1ec108e0fccf175}\label{class_entity_manager_a71a36c9fb8d579a1a1ec108e0fccf175} 
+\index{EntityManager@{EntityManager}!````~EntityManager@{\texorpdfstring{$\sim$}{\string~}EntityManager}}
+\index{````~EntityManager@{\texorpdfstring{$\sim$}{\string~}EntityManager}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}EntityManager()}{\string~EntityManager()}}
+{\footnotesize\ttfamily Entity\+Manager\+::\texorpdfstring{$\sim$}{\string~}\+Entity\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxylink{class_entity_manager}{Entity\+Manager} Deconstructor. 
+
+\doxylink{class_entity_manager}{Entity\+Manager} Deconstructor 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_entity_manager_a3ce1789d9c4a54dcbaf06b616562c784}\label{class_entity_manager_a3ce1789d9c4a54dcbaf06b616562c784} 
+\index{EntityManager@{EntityManager}!create\_item\_heart\_entity@{create\_item\_heart\_entity}}
+\index{create\_item\_heart\_entity@{create\_item\_heart\_entity}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{create\_item\_heart\_entity()}{create\_item\_heart\_entity()}}
+{\footnotesize\ttfamily void Entity\+Manager\+::create\+\_\+item\+\_\+heart\+\_\+entity (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities,  }\item[{int}]{SCREEN\+\_\+\+WIDTH,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+create a item heart entity 
+
+Generate a item heart object entity \Hypertarget{class_entity_manager_aae22a5935ab4fa8e4a491a53d1e6aea8}\label{class_entity_manager_aae22a5935ab4fa8e4a491a53d1e6aea8} 
+\index{EntityManager@{EntityManager}!create\_player\_entity@{create\_player\_entity}}
+\index{create\_player\_entity@{create\_player\_entity}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{create\_player\_entity()}{create\_player\_entity()}}
+{\footnotesize\ttfamily void Entity\+Manager\+::create\+\_\+player\+\_\+entity (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities,  }\item[{int}]{SCREEN\+\_\+\+WIDTH,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+create a player entity 
+
+Generate a player object entity \Hypertarget{class_entity_manager_aeac932f67c3a87523dc68f5067c7fbb8}\label{class_entity_manager_aeac932f67c3a87523dc68f5067c7fbb8} 
+\index{EntityManager@{EntityManager}!create\_random\_enemy\_entity@{create\_random\_enemy\_entity}}
+\index{create\_random\_enemy\_entity@{create\_random\_enemy\_entity}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{create\_random\_enemy\_entity()}{create\_random\_enemy\_entity()}}
+{\footnotesize\ttfamily void Entity\+Manager\+::create\+\_\+random\+\_\+enemy\+\_\+entity (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities,  }\item[{int}]{SCREEN\+\_\+\+WIDTH,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Random creation logic for enemy entities. 
+
+function for randomly generating enemy entities objects \Hypertarget{class_entity_manager_a5d0cbe36b1997262b0de99509b6cbfec}\label{class_entity_manager_a5d0cbe36b1997262b0de99509b6cbfec} 
+\index{EntityManager@{EntityManager}!create\_random\_item\_entity@{create\_random\_item\_entity}}
+\index{create\_random\_item\_entity@{create\_random\_item\_entity}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{create\_random\_item\_entity()}{create\_random\_item\_entity()}}
+{\footnotesize\ttfamily void Entity\+Manager\+::create\+\_\+random\+\_\+item\+\_\+entity (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities,  }\item[{int}]{SCREEN\+\_\+\+WIDTH,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Random creation logic for item entities. 
+
+function for randomly generating item entities objects \Hypertarget{class_entity_manager_a5fdc09043e597cc044e85c7c63bbc7fd}\label{class_entity_manager_a5fdc09043e597cc044e85c7c63bbc7fd} 
+\index{EntityManager@{EntityManager}!create\_random\_obstacle\_entity@{create\_random\_obstacle\_entity}}
+\index{create\_random\_obstacle\_entity@{create\_random\_obstacle\_entity}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{create\_random\_obstacle\_entity()}{create\_random\_obstacle\_entity()}}
+{\footnotesize\ttfamily void Entity\+Manager\+::create\+\_\+random\+\_\+obstacle\+\_\+entity (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities,  }\item[{int}]{SCREEN\+\_\+\+WIDTH,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Random creation logic for obstacle entities. 
+
+function for randomly generating obstacle entities objects \Hypertarget{class_entity_manager_a9557fc7855b60eef01a45109385d2bab}\label{class_entity_manager_a9557fc7855b60eef01a45109385d2bab} 
+\index{EntityManager@{EntityManager}!random\_procedural\_generation@{random\_procedural\_generation}}
+\index{random\_procedural\_generation@{random\_procedural\_generation}!EntityManager@{EntityManager}}
+\doxysubsubsection{\texorpdfstring{random\_procedural\_generation()}{random\_procedural\_generation()}}
+{\footnotesize\ttfamily void Entity\+Manager\+::random\+\_\+procedural\+\_\+generation (\begin{DoxyParamCaption}\item[{SDL\+\_\+\+Renderer \texorpdfstring{$\ast$}{*}}]{renderer,  }\item[{std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ \&}]{entities,  }\item[{int}]{SCREEN\+\_\+\+WIDTH,  }\item[{int}]{SCREEN\+\_\+\+HEIGHT,  }\item[{int}]{items\+Count,  }\item[{int}]{enemies\+Count,  }\item[{int}]{obstacles\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+random procedurally generate non player entities 
+
+calls functions for clearing all non player entities Then randomly creating entities with their function calls below \doxylink{class_entity_manager_a5d0cbe36b1997262b0de99509b6cbfec}{create\+\_\+random\+\_\+item\+\_\+entity()} \doxylink{class_entity_manager_aeac932f67c3a87523dc68f5067c7fbb8}{create\+\_\+random\+\_\+enemy\+\_\+entity()} \doxylink{class_entity_manager_a5fdc09043e597cc044e85c7c63bbc7fd}{create\+\_\+random\+\_\+obstacle\+\_\+entity()}
+
+EXAMPLE
+
+
+\begin{DoxyEnumerate}
+\item To generate 10 random items, enemies and obstacles to scene window
+\end{DoxyEnumerate}
+
+Entity\+Manager\+::random\+\_\+procedural\+\_\+generation(renderer, entities, SCREEN\+\_\+\+WIDTH, SCREEN\+\_\+\+HEIGHT, 10, 10, 10); 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+headers/Entity\+Manager.\+hpp\item 
+src/Entity\+Manager.\+cpp\end{DoxyCompactItemize}

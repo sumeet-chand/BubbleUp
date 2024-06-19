@@ -1,0 +1,62 @@
+\doxysection{Webserver\+Host Class Reference}
+\hypertarget{class_webserver_host}{}\label{class_webserver_host}\index{WebserverHost@{WebserverHost}}
+
+
+Webserver Host class for game multiplayer.  
+
+
+
+
+{\ttfamily \#include $<$Webserver\+Host.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_webserver_host_aa6beea74c6a7bd7dbc8240f7d0793dc3}{Webserver\+Host}} ()
+\begin{DoxyCompactList}\small\item\em struct for holding player gameplay statistics for scoreboards/leaderboards/\+Competitive play \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_host_aead9dbebd5be8eb55cc4f2978eed2b18}\label{class_webserver_host_aead9dbebd5be8eb55cc4f2978eed2b18} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Webserver\+Host} ()
+\begin{DoxyCompactList}\small\item\em Deonstructor for \doxylink{class_webserver_client}{Webserver\+Client}. \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_host_a3e7f9195ac0ef02a091a7eb45847ffc2}\label{class_webserver_host_a3e7f9195ac0ef02a091a7eb45847ffc2} 
+std\+::vector$<$ \mbox{\hyperlink{class_entity}{Entity}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries get\+\_\+webserver\+\_\+entities} () const
+\begin{DoxyCompactList}\small\item\em get state of all webserver entities \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_host_a4c40ee01857e06b4c46cb743b0702c68}\label{class_webserver_host_a4c40ee01857e06b4c46cb743b0702c68} 
+void {\bfseries webserver\+\_\+process\+\_\+single\+\_\+game\+\_\+player\+\_\+score} (const \mbox{\hyperlink{struct_score}{Score}} \&s)
+\begin{DoxyCompactList}\small\item\em receives a score struct of player gameplay statistic to update single game leaderboard with last result \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_host_a062e98b2bd7333ff8e30aba5cec4775c}\label{class_webserver_host_a062e98b2bd7333ff8e30aba5cec4775c} 
+void {\bfseries save\+\_\+webserver\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em save webserver state to file \end{DoxyCompactList}\item 
+\Hypertarget{class_webserver_host_a3ae0f04609833cc218b05b86298491e0}\label{class_webserver_host_a3ae0f04609833cc218b05b86298491e0} 
+void {\bfseries load\+\_\+webserver\+\_\+state} ()
+\begin{DoxyCompactList}\small\item\em load webserver state from file \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Webserver Host class for game multiplayer. 
+
+Class web socket functions to connect to a remote destination webserver to POST data (e.\+g. user data such as username, passwords, strings, or even game calls, JSON, etc.,) and recieve response. Allowing dynamic asynchronous communication between a Client and Web Server to send and recieve data.
+
+This standalone file is the webserver host side. It however is designed to respond to the client file Game\+Webserver\+Client.\+hpp bundled together.
+
+Used together the client executable can communicate with the webserver on it\textquotesingle{}s public port and IP interface to communicate.
+
+Declarations\+: ./headers/\+Webserver\+Host.hpp Definitions\+: ./src/\+Webserver\+Host.cpp 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_webserver_host_aa6beea74c6a7bd7dbc8240f7d0793dc3}\label{class_webserver_host_aa6beea74c6a7bd7dbc8240f7d0793dc3} 
+\index{WebserverHost@{WebserverHost}!WebserverHost@{WebserverHost}}
+\index{WebserverHost@{WebserverHost}!WebserverHost@{WebserverHost}}
+\doxysubsubsection{\texorpdfstring{WebserverHost()}{WebserverHost()}}
+{\footnotesize\ttfamily Webserver\+Host\+::\+Webserver\+Host (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+struct for holding player gameplay statistics for scoreboards/leaderboards/\+Competitive play 
+
+server keeps its own state of all entities to apply logic and pass on to all players clients
+
+Deconstructor for \doxylink{class_webserver_client}{Webserver\+Client}. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/Webserver\+Host.\+hpp\end{DoxyCompactItemize}

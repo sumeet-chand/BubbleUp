@@ -1,0 +1,78 @@
+\doxysection{Slider\+Button.\+hpp}
+\hypertarget{_slider_button_8hpp_source}{}\label{_slider_button_8hpp_source}\index{headers/buttons/SliderButton.hpp@{headers/buttons/SliderButton.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00002\ \textcolor{comment}{\ \ \ \ Author:\ Sumeet\ Singh}}
+\DoxyCodeLine{00003\ \textcolor{comment}{\ \ \ \ Dated:\ 14/02/2024}}
+\DoxyCodeLine{00004\ \textcolor{comment}{\ \ \ \ Minimum\ C++\ Standard:\ C++11}}
+\DoxyCodeLine{00005\ \textcolor{comment}{\ \ \ \ Purpose:\ Class\ Declaration\ file}}
+\DoxyCodeLine{00006\ \textcolor{comment}{\ \ \ \ License:\ MIT\ License}}
+\DoxyCodeLine{00007\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}BaseButton.hpp"{}}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_slider_button}{SliderButton}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_base_button}{BaseButton}}}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ SDL\_Rect\ sliderDotRect\{\};\ }
+\DoxyCodeLine{00022\ \ \ \ \ std::string\ sliderDotTexturePath\{\};\ }
+\DoxyCodeLine{00023\ \ \ \ \ SDL\_Texture\ *sliderDotTexture\{\};\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00033\ \ \ \ \ \mbox{\hyperlink{class_slider_button_a98b3e4db476c40dbd2f2ded3f0bbf5b1}{SliderButton}}(\textcolor{keywordtype}{int}\ x,\ \textcolor{keywordtype}{int}\ y,\ \textcolor{keywordtype}{int}\ width,\ \textcolor{keywordtype}{int}\ height,\ std::string\ \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}},\ Uint8\ r,\ Uint8\ g,\ Uint8\ b,\ Uint8\ a,}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{buttonTexturePath}},\ TTF\_Font\ *\mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{buttonFont}},\ Uint8\ redText,\ Uint8\ greenText,\ Uint8\ blueText,\ Uint8\ alphaText,}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dotX,\ \textcolor{keywordtype}{int}\ dotY,\ \textcolor{keywordtype}{int}\ dotWidth,\ \textcolor{keywordtype}{int}\ dotHeight,\ std::string\ sliderDotTexturePath)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_base_button}{BaseButton}}(x,\ y,\ width,\ height,\ \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}},\ r,\ g,\ b,\ a,\ \mbox{\hyperlink{class_base_button_aa889ffe601a3c758b0e78c8aa990a800}{buttonTexturePath}},\ \mbox{\hyperlink{class_base_button_a2642e611aed0dd355688a1b5ad527c6e}{buttonFont}},\ redText,\ greenText,\ blueText,\ alphaText),}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ sliderDotRect(\{dotX,\ dotY,\ dotWidth,\ dotHeight\}),\ sliderDotTexturePath(sliderDotTexturePath)}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Constructed:\ Slider\ button\ subclass:\ "{}}\ <<\ \mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}}\ <<\ std::endl;}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_slider_button_ae2340f9ba711548b1efd569b0531df0f}{set\_slider\_dot\_texture}}()}
+\DoxyCodeLine{00048\ \ \ \ \ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ sliderDotTexture\ =\ IMG\_LoadTexture(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ sliderDotTexturePath.c\_str());}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!sliderDotTexture)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Error:\ Failed\ to\ load\ button\ image:\ "{}}\ <<\ sliderDotTexturePath\ <<\ IMG\_GetError()\ <<\ std::endl;}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ \ \ \ \ \}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_slider_button_a2715cd284f3377dd675f8fcf05747d96}{render\_button\_rect}}()\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00063\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Overrides\ base\ class\ due\ to\ new\ line\ to\ draw\ dot}}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_base_button_a3681fa61df60befdc83c56bda2d0306e}{isSelected}})}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ -\/\ YELLOW\ border}}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_SetRenderDrawColor(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ 255,\ 255,\ 0,\ 255);\ \textcolor{comment}{//\ yellow}}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_Rect\ borderRect\ =\ \{\mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.x\ -\/\ 2,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.y\ -\/\ 2,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.w\ +\ 4,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.h\ +\ 4\};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ SDL\_RenderFillRect(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ \&borderRect);}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ Button}}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ \mbox{\hyperlink{class_base_button_a1d2d08e0f502141ceafc52e21903eec5}{buttonTexture}},\ \textcolor{keyword}{nullptr},\ \&\mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}});}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ Dot}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ SDL\_RenderCopy(\mbox{\hyperlink{class_base_button_aaae0058aab1f66259a272eba12e98612}{renderer}},\ sliderDotTexture,\ \textcolor{keyword}{nullptr},\ \&sliderDotRect);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Draw\ text}}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_base_button_a299d61c4c8c944bf918f7ae0a9a08f81}{render\_button\_text}}(\mbox{\hyperlink{class_base_button_a805eac5a691a78e3ab8db25d43c3c44a}{buttonLabel}},\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.x\ +\ 60,\ \mbox{\hyperlink{class_base_button_a485ff45470190ada0db970bfcd8ba77a}{buttonRect}}.y\ +\ 15,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.r,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.g,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.b,\ \mbox{\hyperlink{class_base_button_a656641f699490dd8766f8dbe30af69e1}{buttonTextColor}}.a);}
+\DoxyCodeLine{00080\ \ \ \ \ \}}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \ \ SDL\_Rect\ \mbox{\hyperlink{class_slider_button_a01193515f48308b74377317b1bcc4def}{get\_dot\_rect}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00087\ \textcolor{keyword}{\ \ \ \ }\{}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sliderDotRect;}
+\DoxyCodeLine{00089\ \ \ \ \ \}}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_slider_button_a1cdf3ce67e52597b6ad2152be73670e7}{set\_dot\_rect\_x\_pos}}(\textcolor{keywordtype}{int}\ x)}
+\DoxyCodeLine{00096\ \ \ \ \ \{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ sliderDotRect.x\ =\ x;}
+\DoxyCodeLine{00098\ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_slider_button_a9ddb732382ef68c50b10b3ba16eb1a33}{set\_dot\_rect\_y\_pos}}(\textcolor{keywordtype}{int}\ y)}
+\DoxyCodeLine{00105\ \ \ \ \ \{}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ sliderDotRect.y\ =\ y;}
+\DoxyCodeLine{00107\ \ \ \ \ \}}
+\DoxyCodeLine{00108\ \};}
+
+\end{DoxyCode}
