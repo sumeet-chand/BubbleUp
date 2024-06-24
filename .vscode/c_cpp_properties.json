@@ -1,0 +1,48 @@
+{
+    "configurations": [
+        { // Windows build
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/headers",
+                "C:/msys2/mingw64/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22621.0",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-gcc-x64"
+        },
+        { // Mac build
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/headers",
+                "/opt/homebrew/include"
+            ],
+            "defines": [],
+            "macFrameworkPath": [
+                "/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/System/Library/Frameworks" // MacOS inbuilt curl
+            ],
+            "compilerPath": "/opt/homebrew/opt/llvm/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "macos-clang-arm64"
+        },
+        { // Linux build
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/headers",
+                "/usr/include",
+                "/usr/include/x86_64-linux-gnu" // for curl (apt libcurl4-gnutls-dev)
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        }
+    ],
+    "version": 4
+}
