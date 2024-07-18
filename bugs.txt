@@ -1,0 +1,143 @@
+Error ID 1:
+Description: Github Actions CI/CD error with Windows
+Windows;
+Run g++ -fdiagnostics-color=always -ID:\a\BubbleUp\BubbleUp/headers -ID:/a/_temp/msys64/mingw64/include  `
+In file included from D:/a/_temp/msys64/mingw64/include/winerror.h:4739,
+                 from D:/a/_temp/msys64/mingw64/include/winbase.h:2817,
+                 from D:/a/_temp/msys64/mingw64/include/windows.h:70,
+                 from D:/a/_temp/msys64/mingw64/include/winsock2.h:23,
+                 from D:\a\BubbleUp\BubbleUp/headers/WebserverClient.hpp:17,
+                 from D:/a/BubbleUp/BubbleUp/headers/entities/Bot.hpp:14,
+                 from D:/a/BubbleUp/BubbleUp/headers/globals.hpp:41,
+                 from D:\a\BubbleUp\BubbleUp/tests/testcases.cpp:18:
+D:/a/_temp/msys64/mingw64/include/fltwinerror.h:12: warning: "FACILITY_USERMODE_FILTER_MANAGER" redefined
+   12 | #define FACILITY_USERMODE_FILTER_MANAGER 0x1f
+      | 
+D:/a/_temp/msys64/mingw64/include/winerror.h:38: note: this is the location of the previous definition
+   38 | #define FACILITY_USERMODE_FILTER_MANAGER 31
+      | 
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ext/string_conversions.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/basic_string.h:3960,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/string:53,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/locale_classes.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/ios_base.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ios:42,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ostream:38,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/iostream:39,
+                 from D:\a\BubbleUp\BubbleUp/tests/testcases.cpp:10:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:137:11: error: 'at_quick_exit' has not been declared in '::'
+  137 |   using ::at_quick_exit;
+      |           ^~~~~~~~~~~~~
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:160:11: error: 'quick_exit' has not been declared in '::'
+  160 |   using ::quick_exit;
+      |           ^~~~~~~~~~
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/chrono.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/chrono:39,
+                 from D:\a\BubbleUp\BubbleUp/tests/testcases.cpp:13:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ctime:80:11: error: 'timespec_get' has not been declared in '::'
+   80 |   using ::timespec_get;
+      |           ^~~~~~~~~~~~
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/chrono.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/chrono:39,
+                 from D:\a\BubbleUp\BubbleUp/src/DebugLogging.cpp:9:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ctime:80:11: error: 'timespec_get' has not been declared in '::'
+   80 |   using ::timespec_get;
+      |           ^~~~~~~~~~~~
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ext/string_conversions.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/basic_string.h:3960,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/string:53,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/locale_classes.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/ios_base.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ios:42,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/istream:38,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/fstream:38,
+                 from D:\a\BubbleUp\BubbleUp/src/DebugLogging.cpp:11:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:137:11: error: 'at_quick_exit' has not been declared in '::'
+  137 |   using ::at_quick_exit;
+      |           ^~~~~~~~~~~~~
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:160:11: error: 'quick_exit' has not been declared in '::'
+  160 |   using ::quick_exit;
+      |           ^~~~~~~~~~
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ext/string_conversions.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/basic_string.h:3960,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/string:53,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/locale_classes.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/ios_base.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ios:42,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ostream:38,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/iostream:39,
+                 from D:/a/BubbleUp/BubbleUp/headers/Entity.hpp:11,
+                 from D:\a\BubbleUp\BubbleUp/src/Entity.cpp:8:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:137:11: error: 'at_quick_exit' has not been declared in '::'
+  137 |   using ::at_quick_exit;
+      |           ^~~~~~~~~~~~~
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:160:11: error: 'quick_exit' has not been declared in '::'
+  160 |   using ::quick_exit;
+      |           ^~~~~~~~~~
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/chrono.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/chrono:39,
+                 from D:/a/BubbleUp/BubbleUp/headers/Entity.hpp:16:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ctime:80:11: error: 'timespec_get' has not been declared in '::'
+   80 |   using ::timespec_get;
+      |           ^~~~~~~~~~~~
+In file included from D:/a/_temp/msys64/mingw64/include/winerror.h:4739,
+                 from D:/a/_temp/msys64/mingw64/include/winbase.h:2817,
+                 from D:/a/_temp/msys64/mingw64/include/windows.h:70,
+                 from D:/a/_temp/msys64/mingw64/include/winsock2.h:23,
+                 from D:\a\BubbleUp\BubbleUp/headers/WebserverClient.hpp:17,
+                 from D:/a/BubbleUp/BubbleUp/headers/entities/Bot.hpp:14,
+                 from D:/a/BubbleUp/BubbleUp/headers/EntityManager.hpp:20,
+                 from D:\a\BubbleUp\BubbleUp/src/EntityManager.cpp:9:
+D:/a/_temp/msys64/mingw64/include/fltwinerror.h:12: warning: "FACILITY_USERMODE_FILTER_MANAGER" redefined
+   12 | #define FACILITY_USERMODE_FILTER_MANAGER 0x1f
+      | 
+D:/a/_temp/msys64/mingw64/include/winerror.h:38: note: this is the location of the previous definition
+   38 | #define FACILITY_USERMODE_FILTER_MANAGER 31
+      | 
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ext/string_conversions.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/basic_string.h:3960,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/string:53,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/locale_classes.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/ios_base.h:41,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ios:42,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ostream:38,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/iostream:39,
+                 from D:/a/BubbleUp/BubbleUp/headers/EntityManager.hpp:11:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:137:11: error: 'at_quick_exit' has not been declared in '::'
+  137 |   using ::at_quick_exit;
+      |           ^~~~~~~~~~~~~
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/cstdlib:160:11: error: 'quick_exit' has not been declared in '::'
+  160 |   using ::quick_exit;
+      |           ^~~~~~~~~~
+In file included from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/bits/chrono.h:40,
+                 from C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/chrono:39,
+                 from D:/a/BubbleUp/BubbleUp/headers/Entity.hpp:16,
+                 from D:/a/BubbleUp/BubbleUp/headers/entities/Player.hpp:12,
+                 from D:/a/BubbleUp/BubbleUp/headers/EntityManager.hpp:16:
+C:/mingw64/lib/gcc/x86_64-w64-mingw32/12.2.0/include/c++/ctime:80:11: error: 'timespec_get' has not been declared in '::'
+   80 |   using ::timespec_get;
+      |           ^~~~~~~~~~~~
+
+
+
+MacOS
+
+Error: Failed to open audio channel: CoreAudio error (AudioQueueStart): 268435460
+Error: Failed to play music: Audio device hasn't been opened
+12:07:01 01/07/24 [CRITICAL] Error: Failed to load music: Unrecognized audio format
+
+
+Linux
+
+Success: Constructed a UpdateApp instance
+Constructed: DebugLogging
+Constructed: WebserverClient
+Constructed: WebserverClient
+[==========] Running 2 tests from 1 test suite.
+[----------] Global test environment set-up.
+[----------] 2 tests from mainTest
+[ RUN      ] mainTest.adds_two_numbers_correctly
+12:00:45 01/07/24 [CRITICAL] Starting Software
+12:00:45 01/07/24 [CRITICAL] Error: Failed to initialise SDLNo available video device
+Destroyed: WebserverClient
+Deconstructed: WebserverClient
