@@ -327,7 +327,7 @@ ClickableButton scene1modStoreButton{
     0, 0, 0, 255};                          // Text color (RGBA)
 ClickableButton scene1quitGameButton{
     static_cast<int>(SCREEN_WIDTH * 0.35),  // int X-coordinate
-    static_cast<int>(SCREEN_HEIGHT * 0.10),  // int Y-coordinate
+    static_cast<int>(SCREEN_HEIGHT * 1),  // int Y-coordinate
     static_cast<int>(SCREEN_WIDTH * 0.28),  // Width
     static_cast<int>(SCREEN_HEIGHT * 0.08), // Height
     "Quit Game",                            // Button label

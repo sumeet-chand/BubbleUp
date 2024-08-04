@@ -37,7 +37,7 @@
                 "-lavutil",
                 "-lswscale",
                 "-lavfilter",
-                "-mwindows"
+                // "-mwindows"
             ],
             "options": {
                 "cwd": "${fileDirname}"
