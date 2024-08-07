@@ -14,14 +14,12 @@
 #include <iostream>
 #include <string>
 #ifdef _WIN32
-// #include <winsock2.h> already included from <boost/asio.hpp> so no need to include winsock twice
+#include <winsock2.h>
 #else
-#include <arpa/inet.h> // not included within <boost/asio.hpp> so necessary to include
-#include <netinet/in.h> // not included within <boost/asio.hpp> so necessary to include
+#include <arpa/inet.h>
+#include <netinet/in.h>
 #endif
-#define WIN32_LEAN_AND_MEAN
 #include <boost/asio.hpp>
-#undef WIN32_LEAN_AND_MEAN
 #include "Entity.hpp"
 #include "WebserverHost.hpp"
 
