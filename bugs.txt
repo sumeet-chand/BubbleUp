@@ -1,4 +1,4 @@
-Bugs
+Bug log
 
 Error ID: 1
 Description: Memory leak error when starting new game.
@@ -7,11 +7,11 @@ Date escalated: 5th August 2024
 Error message: Error in terminal output only appears while running program on linux
 
 
-
 Error ID: 2
 Description: Github Actions CI/CD error with Windows vm failing to compile code. Issue could be related to import for boost within WebserverClient.hpp
+possibly look at this answer https://stackoverflow.com/questions/1372480/c-redefinition-header-files-winsock2-h 
 Date escalated: 5th August 2024
-Github actions error message: 
+Error message: 
 
 Run g++ -fdiagnostics-color=always -ID:\a\BubbleUp\BubbleUp/headers -ID:/a/_temp/msys64/mingw64/include  `
 In file included from D:/a/_temp/msys64/mingw64/include/winerror.h:4739,
