@@ -99,40 +99,40 @@ jobs:
         Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/swresample-5.dll ${{ github.workspace }}/ -Force
 
     - name: Compile test binary
+      shell: bash
       run: |
-        g++ ` 
-        -fdiagnostics-color=always ` 
-        -I${{ github.workspace }}/headers `
-        -I${{ github.workspace }}/headers/buttons `
-        -I${{ github.workspace }}/headers/entities `
-        -ID:/a/_temp/msys64/mingw64/include  `
-        -g `
-        ${{ github.workspace }}/tests/testcases.cpp `
-        ${{ github.workspace }}/src/*.cpp `
-        ${{ github.workspace }}/src/buttons/*.cpp `
-        ${{ github.workspace }}/src/entities/*.cpp `
-        -o `
-        ${{ github.workspace }}/tests/testcases.exe `
-        -LD:/a/_temp/msys64/mingw64/lib `
-        -lboost_system-mt `
-        -lws2_32 `
-        -lmingw32 `
-        -lSDL2main `
-        -lSDL2 `
-        -lSDL2_image `
-        -lSDL2_ttf `
-        -lSDL2_mixer `
-        -lgtest `
-        -lgtest_main `
-        -lcurl `
-        -lzip `
-        -lz `
-        -lavformat `
-        -lavcodec `
-        -lavutil `
-        -lswscale `
-        -lavfilter `
-        -mwindows `
+        g++ \
+        -fdiagnostics-color=always \
+        -I${{ github.workspace }}/headers \
+        -I${{ github.workspace }}/headers/buttons \
+        -I${{ github.workspace }}/headers/entities \
+        -ID:/a/_temp/msys64/mingw64/include \
+        -g \
+        ${{ github.workspace }}/tests/testcases.cpp \
+        ${{ github.workspace }}/src/*.cpp \
+        ${{ github.workspace }}/src/buttons/*.cpp \
+        ${{ github.workspace }}/src/entities/*.cpp \
+        -o \
+        ${{ github.workspace }}/tests/testcases.exe \
+        -LD:/a/_temp/msys64/mingw64/lib \
+        -lboost_system-mt \
+        -lws2_32 \
+        -lmingw32 \
+        -lSDL2main \
+        -lSDL2 \
+        -lSDL2_image \
+        -lSDL2_ttf \
+        -lSDL2_mixer \
+        -lgtest \
+        -lgtest_main \
+        -lcurl \
+        -lzip \
+        -lz \
+        -lavformat \
+        -lavcodec \
+        -lavutil \
+        -lswscale \
+        -lavfilter \
 
     - name: Test test binary
       run: |
