@@ -6,18 +6,18 @@
     License: MIT License
 */
 
-// #pragma clang diagnostic push
-// #pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 #pragma once
 
 #include <iostream>
 #include <string>
 #ifdef _WIN32
-#include <winsock2.h>
+// #include <winsock2.h> already included from <boost/asio.hpp> so no need to include winsock twice
 #else
-#include <arpa/inet.h>
-#include <netinet/in.h>
+#include <arpa/inet.h> // not included within <boost/asio.hpp> so necessary to include
+#include <netinet/in.h> // not included within <boost/asio.hpp> so necessary to include
 #endif
 #include <boost/asio.hpp>
 #include "Entity.hpp"
@@ -357,4 +357,4 @@ public:
     }
 };
 
-// #pragma clang diagnostic pop
+#pragma clang diagnostic pop
