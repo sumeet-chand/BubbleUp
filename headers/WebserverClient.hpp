@@ -19,7 +19,9 @@
 #include <arpa/inet.h> // not included within <boost/asio.hpp> so necessary to include
 #include <netinet/in.h> // not included within <boost/asio.hpp> so necessary to include
 #endif
+#define WIN32_LEAN_AND_MEAN
 #include <boost/asio.hpp>
+#undef WIN32_LEAN_AND_MEAN
 #include "Entity.hpp"
 #include "WebserverHost.hpp"
 

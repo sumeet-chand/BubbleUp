@@ -6,7 +6,6 @@
     Purpose: Declaration file
     License: MIT License
 
-
     DESCRIPTION
 
     Declaration file of all global variables. Created to prevent polluting namespace with conflicting
@@ -14,7 +13,6 @@
 
     Declarations: ./globals.hpp
     Definitions: ./src/globals.cpp
-
 
     EXAMPLE
 
