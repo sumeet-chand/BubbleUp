@@ -103,17 +103,17 @@ jobs:
       run: |
         g++ \
         -fdiagnostics-color=always \
-        -I${{ github.workspace }}/headers \
-        -I${{ github.workspace }}/headers/buttons \
-        -I${{ github.workspace }}/headers/entities \
+        -I"${{ github.workspace }}/headers" \
+        -I"${{ github.workspace }}/headers/buttons" \
+        -I"${{ github.workspace }}/headers/entities" \
         -ID:/a/_temp/msys64/mingw64/include \
         -g \
-        ${{ github.workspace }}/tests/testcases.cpp \
-        ${{ github.workspace }}/src/*.cpp \
-        ${{ github.workspace }}/src/buttons/*.cpp \
-        ${{ github.workspace }}/src/entities/*.cpp \
+        "${{ github.workspace }}/tests/testcases.cpp" \
+        "${{ github.workspace }}/src/"*.cpp \
+        "${{ github.workspace }}/src/buttons/"*.cpp \
+        "${{ github.workspace }}/src/entities/"*.cpp \
         -o \
-        ${{ github.workspace }}/tests/testcases.exe \
+        "${{ github.workspace }}/tests/testcases.exe" \
         -LD:/a/_temp/msys64/mingw64/lib \
         -lboost_system-mt \
         -lws2_32 \
