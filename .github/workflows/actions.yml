@@ -353,7 +353,12 @@ jobs:
       uses: actions/download-artifact@v3
       with:
         name: linux-ffmpeg-build
-      continue-on-error: true # Allows workflow to continue even if the artifact does not exist
+      continue-on-error: true
+
+    - name: Extract FFmpeg build if artifact was downloaded
+      if: steps.download-artifact.outcome == 'success'
+      run: |
+        tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
 
     - name: Build FFmpeg
       if: steps.download-artifact.outcome == 'failure'
@@ -364,20 +369,22 @@ jobs:
         make -j$(nproc)
         sudo make install
 
-    - name: List contents of FFmpeg directory
-      run: ls -la ${HOME}/ffmpeg
+    - name: Create archive of FFmpeg build
+      if: steps.download-artifact.outcome == 'failure'
+      run: |
+        tar -czvf /home/runner/ffmpeg-build.tar.gz -C/home/runner ffmpeg
 
     - name: Upload FFmpeg build as artifact
       if: steps.download-artifact.outcome == 'failure'
       uses: actions/upload-artifact@v3
       with:
         name: linux-ffmpeg-build
-        path: /home/runner/ffmpeg
+        path: /home/runner/ffmpeg-build.tar.gz
 
-    # - name: Copy FFmpeg files to /usr
-    #   run: |
-    #     sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
-    #     sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
+    - name: Copy FFmpeg files to /usr
+      run: |
+        sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
+        sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
 
     # - name: Copy FFmpeg shared libs to workspace
     #   run: |
