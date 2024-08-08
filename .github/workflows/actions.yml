@@ -65,14 +65,30 @@ jobs:
     - name: Ensure FFmpeg directory exists
       run: mkdir -p C:/ffmpeg
 
+    - name: Debug Cache Keys
+      run: |
+        echo "Cache Key: ${{ runner.os }}-ffmpeg-${{ github.sha }}"
+        echo "Cache Path: C:/ffmpeg"
+
     - name: Cache FFmpeg build
       id: ffmpeg-cache
       uses: actions/cache@v2
       with:
         path: C:/ffmpeg
-        key: ${{ runner.os }}-ffmpeg-cache-key-v1
+        key: ${{ runner.os }}-ffmpeg-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-ffmpeg-
+          ${{ runner.os }}-
+
+    - name: Debug Cache Hit Status
+      run: |
+        echo "Cache hit status: ${{ steps.ffmpeg-cache.outputs.cache-hit }}"
+
+    - name: List FFmpeg Directory Contents
+      run: |
+        ls -l C:/ffmpeg
+        echo "Contents of cache directory:"
+        dir C:/ffmpeg
 
     - name: Build FFmpeg
       shell: msys2 {0}
@@ -325,27 +341,42 @@ jobs:
 
     - name: Install build dependencies
       run: |
-          sudo apt update
-          sudo apt install -y build-essential g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev googletest libgtest-dev yasm
-    
+        sudo apt update
+        sudo apt install -y build-essential g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev googletest libgtest-dev yasm
+
     - name: Ensure FFmpeg directory exists
       run: mkdir -p ${HOME}/ffmpeg
+
+    - name: Debug Cache Keys
+      run: |
+        echo "Cache Key: ${{ runner.os }}-ffmpeg-${{ github.sha }}"
+        echo "Cache Path: ${HOME}/ffmpeg"
 
     - name: Cache FFmpeg build
       id: ffmpeg-cache
       uses: actions/cache@v2
       with:
         path: ${HOME}/ffmpeg
-        key: ${{ runner.os }}-ffmpeg-${{ hashFiles('ffmpeg/.git/HEAD') }}
+        key: ${{ runner.os }}-ffmpeg-${{ github.sha }}
         restore-keys: |
           ${{ runner.os }}-ffmpeg-
+          ${{ runner.os }}-
+
+    - name: Debug Cache Hit Status
+      run: |
+        echo "Cache hit status: ${{ steps.ffmpeg-cache.outputs.cache-hit }}"
+
+    - name: List FFmpeg Directory Contents
+      run: |
+        ls -l ${HOME}/ffmpeg
+        echo "Contents of cache directory:"
 
     - name: Build FFmpeg
       if: steps.ffmpeg-cache.outputs.cache-hit != 'true'
       run: |
         cd ${HOME}/ffmpeg
         git clone https://git.ffmpeg.org/ffmpeg.git .
-        ./configure --prefix=${HOME}/ffmpeg/install  --enable-shared --enable-gpl --disable-programs
+        ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
         make -j$(nproc)
         sudo make install
     
