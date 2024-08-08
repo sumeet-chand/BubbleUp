@@ -363,7 +363,10 @@ jobs:
         ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
         make -j$(nproc)
         sudo make install
-    
+
+    - name: List contents of FFmpeg directory
+      run: ls -la ${HOME}/ffmpeg
+
     - name: Upload FFmpeg build as artifact
       if: steps.download-artifact.outcome == 'failure'
       uses: actions/upload-artifact@v3
