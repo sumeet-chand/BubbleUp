@@ -344,42 +344,33 @@ jobs:
         sudo apt update
         sudo apt install -y build-essential g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev googletest libgtest-dev yasm
 
-    - name: Check if FFmpeg cache exists
-      run: |
-        if [ -d "${HOME}/ffmpeg" ]; then
-          echo "Directory ${HOME}/ffmpeg cache exists with contents below."
-          ls {HOME}/ffmpeg
-        else
-          echo "Directory ${HOME}/ffmpeg cache doesn't exist."
-        fi
-
     - name: Ensure FFmpeg directory exists
       run: |
         mkdir -p ${HOME}/ffmpeg
 
-    - name: Cache FFmpeg build
-      id: ffmpeg-cache
-      uses: actions/cache@v2
+    - name: Download FFmpeg artifact if exists
+      id: download-artifact
+      uses: actions/download-artifact@v3
       with:
-        path: ${HOME}/ffmpeg
-        key: ${{ runner.os }}-ffmpeg-${{ github.sha }}
-        restore-keys: |
-          ${{ runner.os }}-ffmpeg-
-          ${{ runner.os }}-
+        name: linux-ffmpeg-build
+      continue-on-error: true # Allows workflow to continue even if the artifact does not exist
 
     - name: Build FFmpeg
-      if: steps.ffmpeg-cache.outputs.cache-hit != 'true'
+      if: steps.download-artifact.outcome == 'failure'
       run: |
         cd ${HOME}/ffmpeg
         git clone https://git.ffmpeg.org/ffmpeg.git .
         ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
         make -j$(nproc)
         sudo make install
-
-    - name: Check if FFmpeg built successfully
-      run: |
-        ls ${HOME}/ffmpeg
     
+    - name: Upload FFmpeg build as artifact
+      if: steps.download-artifact.outcome == 'failure'
+      uses: actions/upload-artifact@v3
+      with:
+        name: linux-ffmpeg-build
+        path: ${HOME}/ffmpeg
+
     # - name: Copy FFmpeg files to /usr
     #   run: |
     #     sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
