@@ -375,11 +375,15 @@ jobs:
         ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
         make -j$(nproc)
         sudo make install
-    
-    - name: Copy FFmpeg files to /usr
+
+    - name: Check if FFmpeg built successfully
       run: |
-        sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
-        sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
+        ls ${HOME}/ffmpeg
+    
+    # - name: Copy FFmpeg files to /usr
+    #   run: |
+    #     sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
+    #     sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
 
     # - name: Copy FFmpeg shared libs to workspace
     #   run: |
