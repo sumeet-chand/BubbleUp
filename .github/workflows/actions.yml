@@ -347,10 +347,10 @@ jobs:
     - name: Check if FFmpeg cache exists
       run: |
         if [ -d "${HOME}/ffmpeg" ]; then
-          echo "Directory ${HOME}/ffmpeg already exists."
+          echo "Directory ${HOME}/ffmpeg cache exists with contents below."
           ls {HOME}/ffmpeg
         else
-          echo "Directory ${HOME}/ffmpeg does not exist."
+          echo "Directory ${HOME}/ffmpeg cache doesn't exist."
         fi
 
     - name: Ensure FFmpeg directory exists
