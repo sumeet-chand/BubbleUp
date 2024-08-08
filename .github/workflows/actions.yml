@@ -136,8 +136,10 @@ jobs:
 
     - name: Test test binary
       run: |
-        mv tests/testcases.exe ..
-        ./testcases.exe
+        cd tests
+        mv testcases.exe ..
+        cd ..
+        ./testcases
 
     - name: Compile final binary
       run: |
@@ -254,7 +256,9 @@ jobs:
 
     - name: Test test binary 
       run: |
-        mv tests/testcases ..
+        cd tests
+        mv testcases ..
+        cd ..
         ./testcases
 
     - name: Compile final binary
@@ -406,7 +410,9 @@ jobs:
     - name: Test test binary
       if: steps.check_headless.outputs.headless != 'true'
       run: |
-        mv tests/testcases ..
+        cd tests
+        mv testcases ..
+        cd ..
         ./testcases
 
     - name: Compile final binary
