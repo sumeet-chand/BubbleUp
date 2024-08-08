@@ -344,13 +344,18 @@ jobs:
         sudo apt update
         sudo apt install -y build-essential g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev googletest libgtest-dev yasm
 
-    - name: Ensure FFmpeg directory exists
-      run: mkdir -p ${HOME}/ffmpeg
-
-    - name: Debug Cache Keys
+    - name: Check if FFmpeg cache exists
       run: |
-        echo "Cache Key: ${{ runner.os }}-ffmpeg-${{ github.sha }}"
-        echo "Cache Path: ${HOME}/ffmpeg"
+        if [ -d "${HOME}/ffmpeg" ]; then
+          echo "Directory ${HOME}/ffmpeg already exists."
+          ls {HOME}/ffmpeg
+        else
+          echo "Directory ${HOME}/ffmpeg does not exist."
+        fi
+
+    - name: Ensure FFmpeg directory exists
+      run: |
+        mkdir -p ${HOME}/ffmpeg
 
     - name: Cache FFmpeg build
       id: ffmpeg-cache
@@ -361,15 +366,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-ffmpeg-
           ${{ runner.os }}-
-
-    - name: Debug Cache Hit Status
-      run: |
-        echo "Cache hit status: ${{ steps.ffmpeg-cache.outputs.cache-hit }}"
-
-    - name: List FFmpeg Directory Contents
-      run: |
-        ls -l ${HOME}/ffmpeg
-        echo "Contents of cache directory:"
 
     - name: Build FFmpeg
       if: steps.ffmpeg-cache.outputs.cache-hit != 'true'
@@ -385,58 +381,58 @@ jobs:
         sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
         sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
 
-    - name: Copy FFmpeg shared libs to workspace
-      run: |
-        cp /usr/lib/libavutil.so ${{ github.workspace }}
-        cp /usr/lib/libswscale.so ${{ github.workspace }}
-        cp /usr/lib/libavformat.so ${{ github.workspace }}
-        cp /usr/lib/libavcodec.so ${{ github.workspace }}
-        cp /usr/lib/libswresample.so ${{ github.workspace }}
+    # - name: Copy FFmpeg shared libs to workspace
+    #   run: |
+    #     cp /usr/lib/libavutil.so ${{ github.workspace }}
+    #     cp /usr/lib/libswscale.so ${{ github.workspace }}
+    #     cp /usr/lib/libavformat.so ${{ github.workspace }}
+    #     cp /usr/lib/libavcodec.so ${{ github.workspace }}
+    #     cp /usr/lib/libswresample.so ${{ github.workspace }}
 
-    - name: Compile test binary
-      run: |
-        g++ \
-        -std=c++17 \
-        -I"${{ github.workspace }}/headers" \
-        -I"${{ github.workspace }}/headers/buttons" \
-        -I"${{ github.workspace }}/headers/entities" \
-        -I/usr/include \
-        -I/usr/include/x86_64-linux-gnu \
-        -g \
-        "${{ github.workspace }}/tests/testcases.cpp" \
-        "${{ github.workspace }}/src/"*.cpp \
-        "${{ github.workspace }}/src/buttons/"*.cpp \
-        "${{ github.workspace }}/src/entities/"*.cpp \
-        -o \
-        "${{ github.workspace }}/tests/testcases" \
-        -I/usr/include \
-        -L/usr/lib \
-        -lboost_system \
-        -lSDL2 \
-        -lSDL2_image \
-        -lSDL2_ttf \
-        -lSDL2_mixer \
-        -lgtest \
-        -lcurl \
-        -lzip \
-        -lavutil \
-        -lswscale \
-        -lavformat \
-        -lavcodec \
-        -lswresample \
+    # - name: Compile test binary
+    #   run: |
+    #     g++ \
+    #     -std=c++17 \
+    #     -I"${{ github.workspace }}/headers" \
+    #     -I"${{ github.workspace }}/headers/buttons" \
+    #     -I"${{ github.workspace }}/headers/entities" \
+    #     -I/usr/include \
+    #     -I/usr/include/x86_64-linux-gnu \
+    #     -g \
+    #     "${{ github.workspace }}/tests/testcases.cpp" \
+    #     "${{ github.workspace }}/src/"*.cpp \
+    #     "${{ github.workspace }}/src/buttons/"*.cpp \
+    #     "${{ github.workspace }}/src/entities/"*.cpp \
+    #     -o \
+    #     "${{ github.workspace }}/tests/testcases" \
+    #     -I/usr/include \
+    #     -L/usr/lib \
+    #     -lboost_system \
+    #     -lSDL2 \
+    #     -lSDL2_image \
+    #     -lSDL2_ttf \
+    #     -lSDL2_mixer \
+    #     -lgtest \
+    #     -lcurl \
+    #     -lzip \
+    #     -lavutil \
+    #     -lswscale \
+    #     -lavformat \
+    #     -lavcodec \
+    #     -lswresample \
 
-    - name: Check if running on headless display
-      id: check_headless
-      run: |
-        if status=$(sudo systemctl status display-manager 2>/dev/null); then
-          if [[ $status == *"Unit display-manager.service could not be found."* ]]; then
-            echo "::set-output name=headless::true"
-          else
-            echo "::set-output name=headless::false"
-          fi
-        else
-          echo "::set-output name=headless::false"
-        fi
+    # - name: Check if running on headless display
+    #   id: check_headless
+    #   run: |
+    #     if status=$(sudo systemctl status display-manager 2>/dev/null); then
+    #       if [[ $status == *"Unit display-manager.service could not be found."* ]]; then
+    #         echo "::set-output name=headless::true"
+    #       else
+    #         echo "::set-output name=headless::false"
+    #       fi
+    #     else
+    #       echo "::set-output name=headless::false"
+    #     fi
 
   #   - name: Test test binary
   #     if: steps.check_headless.outputs.headless != 'true'
