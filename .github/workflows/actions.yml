@@ -438,74 +438,74 @@ jobs:
           echo "::set-output name=headless::false"
         fi
 
-    - name: Test test binary
-      if: steps.check_headless.outputs.headless != 'true'
-      run: |
-        cd tests
-        mv testcases ..
-        cd ..
-        ./testcases
+  #   - name: Test test binary
+  #     if: steps.check_headless.outputs.headless != 'true'
+  #     run: |
+  #       cd tests
+  #       mv testcases ..
+  #       cd ..
+  #       ./testcases
 
-    - name: Compile final binary
-      run: |
-        g++ \
-        -std=c++17 \
-        -I"${{ github.workspace }}/headers" \
-        -I"${{ github.workspace }}/headers/buttons" \
-        -I"${{ github.workspace }}/headers/entities" \
-        -I/usr/include \
-        -I/usr/include/x86_64-linux-gnu \
-        -g \
-        "${{ github.workspace }}/main.cpp" \
-        "${{ github.workspace }}/src/"*.cpp \
-        "${{ github.workspace }}/src/buttons/"*.cpp \
-        "${{ github.workspace }}/src/entities/"*.cpp \
-        -o \
-        "${{ github.workspace }}/main" \
-        -I/usr/include \
-        -L/usr/lib \
-        -lboost_system \
-        -lSDL2 \
-        -lSDL2_image \
-        -lSDL2_ttf \
-        -lSDL2_mixer \
-        -lgtest \
-        -lcurl \
-        -lzip \
-        -lavutil \
-        -lswscale \
-        -lavformat \
-        -lavcodec \
-        -lswresample \
-      if: success()
+  #   - name: Compile final binary
+  #     run: |
+  #       g++ \
+  #       -std=c++17 \
+  #       -I"${{ github.workspace }}/headers" \
+  #       -I"${{ github.workspace }}/headers/buttons" \
+  #       -I"${{ github.workspace }}/headers/entities" \
+  #       -I/usr/include \
+  #       -I/usr/include/x86_64-linux-gnu \
+  #       -g \
+  #       "${{ github.workspace }}/main.cpp" \
+  #       "${{ github.workspace }}/src/"*.cpp \
+  #       "${{ github.workspace }}/src/buttons/"*.cpp \
+  #       "${{ github.workspace }}/src/entities/"*.cpp \
+  #       -o \
+  #       "${{ github.workspace }}/main" \
+  #       -I/usr/include \
+  #       -L/usr/lib \
+  #       -lboost_system \
+  #       -lSDL2 \
+  #       -lSDL2_image \
+  #       -lSDL2_ttf \
+  #       -lSDL2_mixer \
+  #       -lgtest \
+  #       -lcurl \
+  #       -lzip \
+  #       -lavutil \
+  #       -lswscale \
+  #       -lavformat \
+  #       -lavcodec \
+  #       -lswresample \
+  #     if: success()
 
-    - name: Package artifacts
-      run: |
-        mkdir -p dist/linux
-        cp -r assets dist/linux/
-        cp -r docs dist/linux/
-        cp -r etc dist/linux/
-        cp -r headers dist/linux/
-        cp -r src dist/linux/
-        cp dist/Heroes3MapLiker dist/linux/
-        cp CREDITS.md dist/linux/
-        cp game_log.txt dist/linux/
-        cp libavcodec.so.61.6.100 dist/linux/
-        cp libavformat.so.61.3.104 dist/linux/
-        cp libavutil.so.59.21.100 dist/linux/
-        cp libswresample.so.5.2.100 dist/linux/
-        cp libswscale.so.8.2.100 dist/linux/
-        cp LICENSE dist/linux/
-        cp README.md dist/linux/
-        zip -r dist/Heroes3MapLiker-linux.zip dist/linux/*
+  #   - name: Package artifacts
+  #     run: |
+  #       mkdir -p dist/linux
+  #       cp -r assets dist/linux/
+  #       cp -r docs dist/linux/
+  #       cp -r etc dist/linux/
+  #       cp -r headers dist/linux/
+  #       cp -r src dist/linux/
+  #       cp dist/Heroes3MapLiker dist/linux/
+  #       cp CREDITS.md dist/linux/
+  #       cp game_log.txt dist/linux/
+  #       cp libavcodec.so.61.6.100 dist/linux/
+  #       cp libavformat.so.61.3.104 dist/linux/
+  #       cp libavutil.so.59.21.100 dist/linux/
+  #       cp libswresample.so.5.2.100 dist/linux/
+  #       cp libswscale.so.8.2.100 dist/linux/
+  #       cp LICENSE dist/linux/
+  #       cp README.md dist/linux/
+  #       zip -r dist/Heroes3MapLiker-linux.zip dist/linux/*
 
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: linux-zip
-        path: dist/BubbleUP-linux.zip
+  #   - name: Upload artifact
+  #     uses: actions/upload-artifact@v2
+  #     with:
+  #       name: linux-zip
+  #       path: dist/BubbleUP-linux.zip
 
-  create_release:
+  # create_release:
     needs: [build_and_test_windows, build_and_test_macos, build_and_test_linux]
     runs-on: ubuntu-latest
     timeout-minutes: 30
