@@ -336,63 +336,89 @@ jobs:
     timeout-minutes: 30
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Install build dependencies
-      run: |
-        sudo apt update
-        sudo apt install -y build-essential g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev googletest libgtest-dev yasm
+      - name: Install build dependencies
+        run: |
+          sudo apt update
+          sudo apt install -y build-essential g++ libboost-all-dev libcurl4-gnutls-dev libzip-dev libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev googletest libgtest-dev yasm
 
-    - name: Ensure FFmpeg directory exists
-      run: |
-        mkdir -p ${HOME}/ffmpeg
+      - name: Ensure FFmpeg directory exists
+        run: mkdir -p ${HOME}/ffmpeg
 
-    - name: Download FFmpeg artifact if exists
-      id: download-artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: linux-ffmpeg-build
-      continue-on-error: true
+      - name: Download Artifact from Previous Run
+        id: download-artifact
+        run: |
+          # iterate backwards from most recent run to see if any run has artifact that matches name to use to download later on in workflow
+          curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+              -H "Accept: application/vnd.github.v3+json" \
+              https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/runs \
+              -o runs.json
 
-    - name: Extract FFmpeg build if artifact was downloaded
-      if: steps.download-artifact.outcome == 'success'
-      run: |
-        tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
+          # Iterate through runs to find one with artifacts
+          RUN_ID=$(jq -r '.workflow_runs[] | select(.status == "completed") | .id' runs.json)
+          for id in $RUN_ID; do
+            echo "Checking run ID: $id"
+            curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                -H "Accept: application/vnd.github.v3+json" \
+                https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/runs/$id/artifacts \
+                -o artifacts.json
 
-    - name: Build FFmpeg
-      if: steps.download-artifact.outcome == 'failure'
-      run: |
-        cd ${HOME}/ffmpeg
-        git clone https://git.ffmpeg.org/ffmpeg.git .
-        ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
-        make -j$(nproc)
-        sudo make install
+            ARTIFACT_ID=$(jq -r '.artifacts[] | select(.name == "linux-ffmpeg-build") | .id' artifacts.json)
+            if [ -n "$ARTIFACT_ID" ]; then
+              echo "Artifact found in run ID: $id"
+              curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+                  -H "Accept: application/vnd.github.v3+json" \
+                  https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$ARTIFACT_ID/zip \
+                  --output linux-ffmpeg-build.zip
+              unzip linux-ffmpeg-build.zip -d /home/runner/ffmpeg
+              exit 0
+            fi
+          done
 
-    - name: Create archive of FFmpeg build
-      if: steps.download-artifact.outcome == 'failure'
-      run: |
-        tar -czvf /home/runner/ffmpeg-build.tar.gz -C/home/runner ffmpeg
+          echo "No artifact found in recent runs"
+          exit 1
 
-    - name: Upload FFmpeg build as artifact
-      if: steps.download-artifact.outcome == 'failure'
-      uses: actions/upload-artifact@v3
-      with:
-        name: linux-ffmpeg-build
-        path: /home/runner/ffmpeg-build.tar.gz
+      - name: Extract FFmpeg build if artifact was downloaded
+        if: steps.download-artifact.outcome == 'success'
+        run: |
+          tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
 
-    - name: Copy FFmpeg files to /usr
-      run: |
-        sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
-        sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
+      - name: Build FFmpeg
+        if: failure() || !steps.download-artifact.outputs['success']
+        run: |
+          cd ${HOME}/ffmpeg
+          git clone https://git.ffmpeg.org/ffmpeg.git .
+          ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
+          make -j$(nproc)
+          sudo make install
 
-    - name: Copy FFmpeg shared libs to workspace
-      run: |
-        cp /usr/lib/libavutil.so ${{ github.workspace }}
-        cp /usr/lib/libswscale.so ${{ github.workspace }}
-        cp /usr/lib/libavformat.so ${{ github.workspace }}
-        cp /usr/lib/libavcodec.so ${{ github.workspace }}
-        cp /usr/lib/libswresample.so ${{ github.workspace }}
+      - name: Create archive of FFmpeg build
+        if: failure() || !steps.download-artifact.outputs['success']
+        run: |
+          tar -czvf /home/runner/linux-ffmpeg-build.tar.gz -C /home/runner ffmpeg
+
+      - name: Upload FFmpeg build as artifact
+        if: steps.download-artifact.outcome == 'failure'
+        uses: actions/upload-artifact@v3
+        with:
+          name: linux-ffmpeg-build
+          path: /home/runner/ffmpeg
+          if-no-files-found: warn
+
+      - name: Copy FFmpeg files to /usr
+        run: |
+          sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
+          sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
+
+    # - name: Copy FFmpeg shared libs to workspace
+    #   run: |
+    #     cp /usr/lib/libavutil.so ${{ github.workspace }}
+    #     cp /usr/lib/libswscale.so ${{ github.workspace }}
+    #     cp /usr/lib/libavformat.so ${{ github.workspace }}
+    #     cp /usr/lib/libavcodec.so ${{ github.workspace }}
+    #     cp /usr/lib/libswresample.so ${{ github.workspace }}
 
     # - name: Compile test binary
     #   run: |
