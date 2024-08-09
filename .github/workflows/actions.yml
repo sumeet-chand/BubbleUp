@@ -371,8 +371,8 @@ jobs:
               curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                   -H "Accept: application/vnd.github.v3+json" \
                   https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$ARTIFACT_ID/zip \
-                  --output linux-ffmpeg-build.tar.gz
-              tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner/
+                  --output linux-ffmpeg-build.zip
+              tar -xzvf linux-ffmpeg-build.zip -C /home/runner/
               exit 0
             fi
           done
