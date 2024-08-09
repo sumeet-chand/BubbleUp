@@ -371,8 +371,8 @@ jobs:
               curl -L -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
                   -H "Accept: application/vnd.github.v3+json" \
                   https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$ARTIFACT_ID/zip \
-                  --output linux-ffmpeg-build.zip
-              unzip linux-ffmpeg-build.zip -d /home/runner/
+                  --output linux-ffmpeg-build.tar.gz
+              tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner/
               exit 0
             fi
           done
@@ -403,6 +403,7 @@ jobs:
       - name: Create archive of FFmpeg build
         if: steps.extract-artifact.outcome == 'failure'
         run: |
+          # archive the /ffmpeg folder in /home/runner/ to /home/runner/linux-ffmpeg-build.tar.gz
           tar -czvf /home/runner/linux-ffmpeg-build.tar.gz -C /home/runner ffmpeg
 
       - name: Upload FFmpeg build as artifact
@@ -413,10 +414,10 @@ jobs:
           path: /home/runner/linux-ffmpeg-build.tar.gz
           if-no-files-found: warn
 
-      - name: Copy FFmpeg files to /usr
-        run: |
-          sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
-          sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
+      # - name: Copy FFmpeg files to /usr
+      #   run: |
+      #     sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
+      #     sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
 
     # - name: Copy FFmpeg shared libs to workspace
     #   run: |
