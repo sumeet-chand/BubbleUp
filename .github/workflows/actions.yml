@@ -8,7 +8,7 @@ on:
 jobs:
   build_and_test_windows:
     runs-on: windows-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
     - name: Checkout repository
@@ -67,7 +67,6 @@ jobs:
 
     - name: Download Artifact from Previous Run
       id: download-artifact
-      shell: pwsh
       run: |
         $token = '${{ secrets.GITHUB_TOKEN }}'
         $headers = @{
@@ -110,10 +109,10 @@ jobs:
       continue-on-error: true
       shell: pwsh
       run: |
-        $filePath = "C:\windows-ffmpeg-build.zip"
-        if (Test-Path $filePath) {
-          # Extract contents directly into C:\ffmpeg
-          Expand-Archive -Path $filePath -DestinationPath 'C:\ffmpeg' -Force
+        ls C:/
+        if (Test-Path "C:\windows-ffmpeg-build.zip") {
+          Expand-Archive -Path "C:\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
+          ls C:\ffmpeg
         } else {
           Write-Output "Artifact not found, skipping extraction"
           exit 1
@@ -144,7 +143,6 @@ jobs:
     
     - name: Copy ffmpeg files to /mingw64
       run: |
-        ls C:/ffmpeg
         Copy-Item -Path C:/ffmpeg/bin/* -Destination "D:/a/_temp/msys64/mingw64/bin" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/include/* -Destination "D:/a/_temp/msys64/mingw64/include" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/lib/* -Destination "D:/a/_temp/msys64/mingw64/lib" -Recurse -Force
@@ -270,7 +268,7 @@ jobs:
 
   # build_and_test_macos:
   #   runs-on: macos-latest
-  #   timeout-minutes: 30
+  #   timeout-minutes: 45
 
   #   steps:
   #   - name: Checkout repository
@@ -375,7 +373,7 @@ jobs:
 
   # build_and_test_linux:
   #   runs-on: ubuntu-latest
-  #   timeout-minutes: 30
+  #   timeout-minutes: 45
 
   #   steps:
   #     - name: Checkout repository
@@ -584,7 +582,7 @@ jobs:
   # create_release:
   #   needs: [build_and_test_windows, build_and_test_macos, build_and_test_linux]
   #   runs-on: ubuntu-latest
-  #   timeout-minutes: 30
+  #   timeout-minutes: 45
 
   #   steps:
   #   - name: Checkout repository
