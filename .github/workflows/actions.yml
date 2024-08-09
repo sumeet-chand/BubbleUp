@@ -107,7 +107,6 @@ jobs:
     - name: Extract FFmpeg build if artifact was downloaded
       id: extract-artifact
       continue-on-error: true
-      shell: pwsh
       run: |
         ls C:/
         if (Test-Path "C:\windows-ffmpeg-build.zip") {
