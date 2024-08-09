@@ -412,10 +412,10 @@ jobs:
           path: /home/runner/linux-ffmpeg-build.tar.gz
           if-no-files-found: warn
 
-      # - name: Copy FFmpeg files to /usr
-      #   run: |
-      #     sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
-      #     sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
+      - name: Copy FFmpeg files to /usr
+        run: |
+          sudo cp -rf ${HOME}/ffmpeg/install/include/* /usr/include
+          sudo cp -rf ${HOME}/ffmpeg/install/lib/* /usr/lib
 
     # - name: Copy FFmpeg shared libs to workspace
     #   run: |
