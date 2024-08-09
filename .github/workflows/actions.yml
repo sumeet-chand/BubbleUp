@@ -378,7 +378,6 @@ jobs:
           done
 
           echo "No artifact found in recent runs"
-          exit 1
 
       - name: Extract FFmpeg build if artifact was downloaded
         if: steps.download-artifact.outcome == 'success'
