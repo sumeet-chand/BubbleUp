@@ -73,37 +73,46 @@ jobs:
           "Authorization" = "token $token"
           "Accept" = "application/vnd.github.v3+json"
         }
-        
+
         # Download the list of runs
         Invoke-RestMethod -Uri "https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/runs" -Headers $headers | ConvertTo-Json | Set-Content -Path runs.json
-    
+
         # Iterate through runs to find one with artifacts
         $runs = Get-Content -Path runs.json | ConvertFrom-Json
         foreach ($run in $runs.workflow_runs) {
           if ($run.status -eq "completed") {
             $runId = $run.id
             Write-Output "Checking run ID: $runId"
-    
+
             # Get artifacts for the specific run
             Invoke-RestMethod -Uri "https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/runs/$runId/artifacts" -Headers $headers | ConvertTo-Json | Set-Content -Path artifacts.json
-    
+
             $artifacts = Get-Content -Path artifacts.json | ConvertFrom-Json
             foreach ($artifact in $artifacts.artifacts) {
               if ($artifact.name -eq "windows-ffmpeg-build") {
                 $artifactId = $artifact.id
                 Write-Output "Artifact found in run ID: $runId"
-    
+
                 # Download the artifact
                 $artifactUrl = "https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$artifactId/zip"
-                Invoke-RestMethod -Uri $artifactUrl -Headers $headers -OutFile windows-ffmpeg-build.zip
+                $outputPath = "C:\windows-ffmpeg-build.zip"
+                Write-Output "Downloading artifact from $artifactUrl to $outputPath"
+                Invoke-RestMethod -Uri $artifactUrl -Headers $headers -OutFile $outputPath
+
+                # Verify if the file was downloaded
+                if (Test-Path $outputPath) {
+                  Write-Output "Artifact downloaded successfully to $outputPath"
+                } else {
+                  Write-Output "Failed to download artifact. File not found at $outputPath."
+                }
                 exit 0
               }
             }
           }
         }
-    
+
         Write-Output "No artifact found in recent runs"
-    
+
     - name: Extract FFmpeg build if artifact was downloaded
       id: extract-artifact
       continue-on-error: true
