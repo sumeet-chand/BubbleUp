@@ -380,12 +380,17 @@ jobs:
           echo "No artifact found in recent runs"
 
       - name: Extract FFmpeg build if artifact was downloaded
-        if: steps.download-artifact.outcome == 'success'
+        id: extract-artifact
         run: |
-          tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
+          if [ -f "linux-ffmpeg-build.tar.gz" ]; then
+            tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
+          else
+            echo "Artifact not found, skipping extraction"
+            exit 1
+          fi
 
       - name: Build FFmpeg
-        if: failure() || !steps.download-artifact.outputs['success']
+        if: steps.extract-artifact.outcome == 'failure'
         run: |
           cd ${HOME}/ffmpeg
           git clone https://git.ffmpeg.org/ffmpeg.git .
@@ -394,12 +399,12 @@ jobs:
           sudo make install
 
       - name: Create archive of FFmpeg build
-        if: failure() || !steps.download-artifact.outputs['success']
+        if: steps.extract-artifact.outcome == 'failure'
         run: |
           tar -czvf /home/runner/linux-ffmpeg-build.tar.gz -C /home/runner ffmpeg
 
       - name: Upload FFmpeg build as artifact
-        if: steps.download-artifact.outcome == 'failure'
+        if: steps.extract-artifact.outcome == 'failure'
         uses: actions/upload-artifact@v3
         with:
           name: linux-ffmpeg-build
