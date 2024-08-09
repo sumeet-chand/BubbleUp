@@ -156,12 +156,12 @@ jobs:
         Copy-Item -Path C:/ffmpeg/include/* -Destination "D:/a/_temp/msys64/mingw64/include" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/lib/* -Destination "D:/a/_temp/msys64/mingw64/lib" -Recurse -Force
 
-    # - name: Copy FFmpeg DLLs to workspace
-    #   run: |
-    #     Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/avcodec-61.dll ${{ github.workspace }}/ -Force
-    #     Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/avformat-61.dll ${{ github.workspace }}/ -Force
-    #     Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/avutil-59.dll ${{ github.workspace }}/ -Force
-    #     Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/swresample-5.dll ${{ github.workspace }}/ -Force
+    - name: Copy FFmpeg DLLs to workspace
+      run: |
+        Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/avcodec-61.dll ${{ github.workspace }}/ -Force
+        Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/avformat-61.dll ${{ github.workspace }}/ -Force
+        Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/avutil-59.dll ${{ github.workspace }}/ -Force
+        Copy-Item -Path D:/a/_temp/msys64/mingw64/bin/swresample-5.dll ${{ github.workspace }}/ -Force
 
     # - name: Compile test binary
     #   shell: bash
