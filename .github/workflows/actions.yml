@@ -372,7 +372,7 @@ jobs:
                   -H "Accept: application/vnd.github.v3+json" \
                   https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$ARTIFACT_ID/zip \
                   --output linux-ffmpeg-build.zip
-              unzip linux-ffmpeg-build.zip -C /home/runner/
+              unzip linux-ffmpeg-build.zip -d /home/runner/
               exit 0
             fi
           done
