@@ -117,9 +117,17 @@ jobs:
       id: extract-artifact
       continue-on-error: true
       run: |
-        ls C:/
         if (Test-Path "C:\windows-ffmpeg-build.zip") {
+          Write-Output "Extracting artifact to C:\ffmpeg"
+          
+          # First extraction
           Expand-Archive -Path "C:\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
+          Write-Output "Contents of C:\ffmpeg after first extraction:"
+          ls C:\ffmpeg
+
+          # Second extraction
+          Expand-Archive -Path "C:\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
+          Write-Output "Contents of C:\ffmpeg after second extraction:"
           ls C:\ffmpeg
         } else {
           Write-Output "Artifact not found, skipping extraction"
