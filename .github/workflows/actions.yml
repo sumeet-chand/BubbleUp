@@ -143,7 +143,6 @@ jobs:
     
     - name: Copy ffmpeg files to /mingw64
       run: |
-        Remove-Item -Recurse C:/ffmpeg/lib/pkgconfig -Force
         Copy-Item -Path C:/ffmpeg/bin/* -Destination "D:/a/_temp/msys64/mingw64/bin" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/include/* -Destination "D:/a/_temp/msys64/mingw64/include" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/lib/* -Destination "D:/a/_temp/msys64/mingw64/lib" -Recurse -Force
