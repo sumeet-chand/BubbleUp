@@ -8,7 +8,7 @@ on:
 jobs:
   build_and_test_windows:
     runs-on: windows-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
     - name: Checkout repository
@@ -118,10 +118,9 @@ jobs:
       continue-on-error: true
       run: |
         if (Test-Path "C:\windows-ffmpeg-build.zip") {
-          Write-Output "Extracting zip twice as it's a nested zip"
+          Write-Output "Extracting artifact zip twice as it's a nested zip"
           Expand-Archive -Path "C:\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
           Expand-Archive -Path "C:\ffmpeg\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
-          Write-Output "Contents of c:\ffmpeg after extraction"
           ls C:\ffmpeg
         } else {
           Write-Output "Artifact not found, skipping extraction"
@@ -134,7 +133,7 @@ jobs:
       run: |
         cd C:/ffmpeg
         git clone https://git.ffmpeg.org/ffmpeg.git .
-        ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
+        ./configure --prefix=C:/ffmpeg --enable-shared --enable-gpl --disable-programs
         make -j$(nproc)
         make install
 
@@ -278,7 +277,7 @@ jobs:
 
   # build_and_test_macos:
   #   runs-on: macos-latest
-  #   timeout-minutes: 45
+  #   timeout-minutes: 60
 
   #   steps:
   #   - name: Checkout repository
@@ -383,7 +382,7 @@ jobs:
 
   # build_and_test_linux:
   #   runs-on: ubuntu-latest
-  #   timeout-minutes: 45
+  #   timeout-minutes: 60
 
   #   steps:
   #     - name: Checkout repository
@@ -592,7 +591,7 @@ jobs:
   # create_release:
   #   needs: [build_and_test_windows, build_and_test_macos, build_and_test_linux]
   #   runs-on: ubuntu-latest
-  #   timeout-minutes: 45
+  #   timeout-minutes: 60
 
   #   steps:
   #   - name: Checkout repository
