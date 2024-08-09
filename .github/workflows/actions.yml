@@ -122,6 +122,7 @@ jobs:
         Write-Output "Extracting artifact to C:\ffmpeg"
         if (Test-Path "C:\windows-ffmpeg-build.zip") {
           Expand-Archive -Path "C:\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
+          Expand-Archive -Path "C:\ffmpeg\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
           Write-Output "Contents of c:\ffmpeg after extraction"
           ls C:\ffmpeg
         } else {
