@@ -387,6 +387,7 @@ jobs:
             tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
           else
             echo "Artifact not found, skipping extraction"
+            exit 1
           fi
 
       - name: Build FFmpeg
