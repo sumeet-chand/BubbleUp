@@ -97,22 +97,23 @@ jobs:
                 # Download the artifact
                 $artifactUrl = "https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$artifactId/zip"
                 Invoke-RestMethod -Uri $artifactUrl -Headers $headers -OutFile windows-ffmpeg-build.zip
-                Expand-Archive -Path 'windows-ffmpeg-build.zip' -DestinationPath 'C:\ffmpeg'
                 exit 0
               }
             }
           }
         }
     
-        Write-Output "No artifact found in recent runs"    
+        Write-Output "No artifact found in recent runs"
     
     - name: Extract FFmpeg build if artifact was downloaded
       id: extract-artifact
       continue-on-error: true
+      shell: pwsh
       run: |
-        $filePath = "C:\ffmpeg\windows-ffmpeg-build.zip"
+        $filePath = "C:\windows-ffmpeg-build.zip"
         if (Test-Path $filePath) {
-          Expand-Archive -Path $filePath -DestinationPath 'C:\ffmpeg'
+          # Extract contents directly into C:\ffmpeg
+          Expand-Archive -Path $filePath -DestinationPath 'C:\ffmpeg' -Force
         } else {
           Write-Output "Artifact not found, skipping extraction"
           exit 1
@@ -143,6 +144,7 @@ jobs:
     
     - name: Copy ffmpeg files to /mingw64
       run: |
+        ls C:/ffmpeg
         Copy-Item -Path C:/ffmpeg/bin/* -Destination "D:/a/_temp/msys64/mingw64/bin" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/include/* -Destination "D:/a/_temp/msys64/mingw64/include" -Recurse -Force
         Copy-Item -Path C:/ffmpeg/lib/* -Destination "D:/a/_temp/msys64/mingw64/lib" -Recurse -Force
