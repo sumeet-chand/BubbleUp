@@ -381,8 +381,13 @@ jobs:
 
       - name: Extract FFmpeg build if artifact was downloaded
         id: extract-artifact
+        continue-on-error: true
         run: |
-          tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
+          if [ -f "linux-ffmpeg-build.tar.gz" ]; then
+            tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
+          else
+            echo "Artifact not found, skipping extraction"
+          fi
 
       - name: Build FFmpeg
         if: steps.extract-artifact.outcome == 'failure'
