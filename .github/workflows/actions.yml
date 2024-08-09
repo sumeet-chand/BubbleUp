@@ -404,7 +404,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: linux-ffmpeg-build
-          path: /home/runner/ffmpeg
+          path: /home/runner/linux-ffmpeg-build.tar.gz
           if-no-files-found: warn
 
       - name: Copy FFmpeg files to /usr
