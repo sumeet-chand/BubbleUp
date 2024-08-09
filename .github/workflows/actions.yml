@@ -372,7 +372,7 @@ jobs:
                   -H "Accept: application/vnd.github.v3+json" \
                   https://api.github.com/repos/SumeetSinghJi/BubbleUp/actions/artifacts/$ARTIFACT_ID/zip \
                   --output linux-ffmpeg-build.zip
-              unzip linux-ffmpeg-build.zip -d /home/runner/ffmpeg
+              unzip linux-ffmpeg-build.zip -d /home/runner/
               exit 0
             fi
           done
@@ -383,8 +383,9 @@ jobs:
         id: extract-artifact
         continue-on-error: true
         run: |
-          if [ -f "linux-ffmpeg-build.tar.gz" ]; then
-            tar -xzvf linux-ffmpeg-build.tar.gz -C /home/runner
+          FILE_PATH="/home/runner/linux-ffmpeg-build.tar.gz"
+          if [ -f "$FILE_PATH" ]; then
+            tar -xzvf "$FILE_PATH" -C /home/runner
           else
             echo "Artifact not found, skipping extraction"
             exit 1
