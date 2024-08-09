@@ -117,10 +117,8 @@ jobs:
       id: extract-artifact
       continue-on-error: true
       run: |
-        Write-Output "Contents of c:\ffmpeg before extraction"
-        ls c:\ffmpeg
-        Write-Output "Extracting artifact to C:\ffmpeg"
         if (Test-Path "C:\windows-ffmpeg-build.zip") {
+          Write-Output "Extracting zip twice as it's a nested zip"
           Expand-Archive -Path "C:\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
           Expand-Archive -Path "C:\ffmpeg\windows-ffmpeg-build.zip" -DestinationPath 'C:\ffmpeg' -Force
           Write-Output "Contents of c:\ffmpeg after extraction"
@@ -130,34 +128,34 @@ jobs:
           exit 1
         }
 
-    # - name: Build FFmpeg
-    #   shell: msys2 {0}
-    #   if: steps.extract-artifact.outcome == 'failure'
-    #   run: |
-    #     cd C:/ffmpeg
-    #     git clone https://git.ffmpeg.org/ffmpeg.git .
-    #     ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
-    #     make -j$(nproc)
-    #     make install
+    - name: Build FFmpeg
+      shell: msys2 {0}
+      if: steps.extract-artifact.outcome == 'failure'
+      run: |
+        cd C:/ffmpeg
+        git clone https://git.ffmpeg.org/ffmpeg.git .
+        ./configure --prefix=${HOME}/ffmpeg/install --enable-shared --enable-gpl --disable-programs
+        make -j$(nproc)
+        make install
 
-    # - name: Create archive of FFmpeg build
-    #   if: steps.extract-artifact.outcome == 'failure'
-    #   run: |
-    #     Compress-Archive -Path 'C:\ffmpeg\*' -DestinationPath 'C:\windows-ffmpeg-build.zip'
+    - name: Create archive of FFmpeg build
+      if: steps.extract-artifact.outcome == 'failure'
+      run: |
+        Compress-Archive -Path 'C:\ffmpeg\*' -DestinationPath 'C:\windows-ffmpeg-build.zip'
       
-    # - name: Upload FFmpeg build as artifact
-    #   if: steps.extract-artifact.outcome == 'failure'
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: windows-ffmpeg-build
-    #     path: C:\windows-ffmpeg-build.zip
-    #     if-no-files-found: warn
+    - name: Upload FFmpeg build as artifact
+      if: steps.extract-artifact.outcome == 'failure'
+      uses: actions/upload-artifact@v3
+      with:
+        name: windows-ffmpeg-build
+        path: C:\windows-ffmpeg-build.zip
+        if-no-files-found: warn
     
-    # - name: Copy ffmpeg files to /mingw64
-    #   run: |
-    #     Copy-Item -Path C:/ffmpeg/bin/* -Destination "D:/a/_temp/msys64/mingw64/bin" -Recurse -Force
-    #     Copy-Item -Path C:/ffmpeg/include/* -Destination "D:/a/_temp/msys64/mingw64/include" -Recurse -Force
-    #     Copy-Item -Path C:/ffmpeg/lib/* -Destination "D:/a/_temp/msys64/mingw64/lib" -Recurse -Force
+    - name: Copy ffmpeg files to /mingw64
+      run: |
+        Copy-Item -Path C:/ffmpeg/bin/* -Destination "D:/a/_temp/msys64/mingw64/bin" -Recurse -Force
+        Copy-Item -Path C:/ffmpeg/include/* -Destination "D:/a/_temp/msys64/mingw64/include" -Recurse -Force
+        Copy-Item -Path C:/ffmpeg/lib/* -Destination "D:/a/_temp/msys64/mingw64/lib" -Recurse -Force
 
     # - name: Copy FFmpeg DLLs to workspace
     #   run: |
