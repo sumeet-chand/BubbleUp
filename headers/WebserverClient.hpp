@@ -6,10 +6,8 @@
     License: MIT License
 */
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-
-#pragma once
+#ifndef WEBSERVERCLIENT_HPP
+#define WEBSERVERCLIENT_HPP
 
 #include <iostream>
 #include <string>
@@ -357,4 +355,4 @@ public:
     }
 };
 
-#pragma clang diagnostic pop
+#endif

@@ -7,7 +7,8 @@
 */
 
 
-#pragma once
+#ifndef BOT_HPP
+#define BOT_HPP
 
 #include "Player.hpp"
 #include "random"
@@ -29,3 +30,5 @@ public:
 
     void update_bot_movement(bool isMultiplayerGame, WebserverClient &webserverClientContext, WebserverHost &webserverHostContext);
 };
+
+#endif // BOT_HPP
