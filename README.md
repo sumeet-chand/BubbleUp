@@ -2,7 +2,7 @@
 
 Version: 0.2 NOT READY FOR PLAYING
 
-* Author: Sumeet Singh @ sumeet-singh.com
+* Author: Sumeet Singh
 * Dated: 09/04/2024
 * Minimum C++ Standard: C++17
 * Description: Full documentation located here "./docs/html/mainpage.html"
