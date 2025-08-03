@@ -29,7 +29,8 @@
  * 1. Include this header
  * include "DebugLogging.hpp"
  *
- * 2. Create object instance
+ * 2. Create object instance e.g. in your globals.hpp as an extern variable: extern DebugLogging logger;
+ * then in your globals.cpp as below
  * DebugLogging logger("game_log.txt");
  *
  * 3. Clear and reset logs
@@ -54,9 +55,12 @@ public:
     /**
      * @brief DebugLogging class constructor
      *
-     * DebugLogging class constructor
+     * DebugLogging class constructor, making explicit to prevent implicit conversions
+     * from string to DebugLogging object. This ensures that the class is only constructed
+     * when explicitly intended, preventing accidental conversions that could lead to bugs.
+     * e.g. DebugLogging logger = "game_log.txt"; // This would not compile
      */
-    DebugLogging(const std::string &fileName);
+    explicit DebugLogging(const std::string &fileName);
     /**
      * @brief DebugLogging class Deconstructor
      *

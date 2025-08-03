@@ -132,7 +132,7 @@ void draw_scene_1()
 
     // row 7
     render_text("Version: " + softwareVersion, (SCREEN_WIDTH * 0.1), (SCREEN_HEIGHT * 0.9), 0, 0, 0, 255, defaultFont);
-    render_text("by Sumeet Singh @sumeet-singh.com", (SCREEN_WIDTH * 0.4), (SCREEN_HEIGHT * 0.9), 0, 0, 0, 255, defaultFont);
+    render_text("by Sumeet Singh @ github.com/sumeet-chand/BubbleUp", (SCREEN_WIDTH * 0.4), (SCREEN_HEIGHT * 0.9), 0, 0, 0, 255, defaultFont);
 
     for (BaseButton *b : scene1buttons)
     {

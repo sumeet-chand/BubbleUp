@@ -3,4 +3,7 @@ game_log.txt
 
 # The GitHub Actions workflow files CI/CD costs too much to build the code repo in GitHub after
 # every commit, so we ignore the workflow files. It's for learning purposes only.
-.github/
+GitHub/
+
+# Ignore the build directory
+build/

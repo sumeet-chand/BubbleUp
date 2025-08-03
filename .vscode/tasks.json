@@ -141,7 +141,7 @@
         },
         { // Windows static analyse
             "type": "shell",
-            "label": "Windows cppcheck",
+            "label": "Windows cppcheck task.json task",
             "command": "cppcheck",
             "args": [
                 "--enable=all",
@@ -170,7 +170,7 @@
         },
         { // MacOS static analyse
             "type": "shell",
-            "label": "MacOS cppcheck",
+            "label": "MacOS cppcheck task.json task",
             "command": "cppcheck",
             "args": [
                 "--enable=all",
