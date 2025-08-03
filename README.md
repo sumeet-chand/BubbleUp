@@ -116,19 +116,12 @@ Keybindings changed in game via Settings - Keybindings button.
 
 
 * KEYBOARD  | GAMEPAD  | MOUSE/TOUCH  | ACTION
-* 
 * UP        | UP       |              |  Move up
-* 
 * DOWN      | DOWN     |              |  Move Down
-* 
 * LEFT      | LEFT     |              |  Move Left
-* 
 * RIGHT     | RIGHT    |              |  Move Right
-* 
 * ENTER     | A        | Left Click   |  Accept/Use
-* 
 * ESC       | B        | Right Click  |  Cancel/Return/Exit
-* 
 *           |          | Mousewheel   |  Scroll Up/Down
 
 
@@ -217,6 +210,16 @@ The Included CMAKElists.txt can be used to build a executable across any OS plat
 
 All requirements can easily be found here: .github\workflows\actions.yml
 
+* MYSY2 - if using Windows
+* clang - if using Windows
+* cppcheck - to test for errors
+* VSCode: the included .vscode tasks.json arguments are prefilled with default locations of 
+libraries above
+* CMAKE: the included CMAKELists.txt can be used to build the project
+* Doxygen: the included doxyfile can be used to generate documentation
+
+LIBRARIES USED
+
 * boost::asio & beast for POST Account details, and multiplayer
 * curl: for downloading game update
 * ffmpeg: for video playback
@@ -227,12 +230,6 @@ All requirements can easily be found here: .github\workflows\actions.yml
 * SDL2_mixer: for audio
 * SDL2_ttf: for rendering text to window
 * zlib: required for building libzip package
-
-Optional: The following are the source code build generation tools
-* VSCode: the included .vscode tasks.json arguments are prefilled with default locations of 
-libraries above
-* CMAKE: the included CMAKELists.txt can be used to build the project
-* Doxygen: the included doxyfile can be used to generate documentation
 
 
 ## MODDING
@@ -297,6 +294,6 @@ limited to a scene int naming convention and can choose to use names such as sce
 * Scene 31 = _____UNUSED_____
 * Scene 100 = Game Sandbox
 * Scene 101 = Game Tutorial
-* Scene 102 = beyond = Game
-* Scene 150 = Multiplayer Game
+* Scene 102 to 149 = Dedicated for Single player game
+* Scene >150 = For Multiplayer Game mode, but can be used for anything
 7. The CMAKElists.txt file can be used to build an executable across different platforms.

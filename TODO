@@ -1,5 +1,6 @@
 # TO DO
 
+* New game facing memory leak
 * Add to CI/CD pipeline
 * Fix cppcheck errors
 * On minimise does music stop?
@@ -50,3 +51,5 @@
 * Use Visual Studio to add .ico
 * Final game test with family member
 * To demonstrate engine create a raycaster - // https://www.youtube.com/watch?v=gYRrGTC7GtA&t=3s
+* choco install cloc, maybe include that in a github action? or after every build somewhere to get the statistics posted to know the progress for personal goals
+* Regenerate Doxyfiles on project completion

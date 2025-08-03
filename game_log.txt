@@ -1,18 +1,8 @@
-11:09:10 10/08/24 [CRITICAL] Starting Software
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2 TTF
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2 Image
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2 Mixer
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2 Mixer Audio
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2 window
-11:09:11 10/08/24 [CRITICAL] Success: initialised: SDL2 renderer
-11:09:17 10/08/24 [CRITICAL] Closing: dynamically created entities...
-11:09:17 10/08/24 [CRITICAL] Closing: Vectors...
-11:09:17 10/08/24 [CRITICAL] Closing: sound effects...
-11:09:17 10/08/24 [CRITICAL] Closing: music...
-11:09:17 10/08/24 [CRITICAL] Closing: textures...
-11:09:17 10/08/24 [CRITICAL] Closing: window...
-11:09:17 10/08/24 [CRITICAL] Closing: renderer...
-11:09:17 10/08/24 [CRITICAL] Closing: SDL Libraries...
-11:09:17 10/08/24 [CRITICAL] Success: Quit BubbleUP game engine
-11:09:12 10/08/24 [INFO] Music playing is: assets/sounds/music/Game Time - moodmode-studio.mp3
+16:29:53 03/08/25 [CRITICAL] Starting Software
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2 TTF
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2 Image
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2 Mixer
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2 Mixer Audio
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2 window
+16:29:54 03/08/25 [CRITICAL] Success: initialised: SDL2 renderer

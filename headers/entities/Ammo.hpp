@@ -12,7 +12,7 @@
 #include "Item.hpp"
 
 /**
- * @brief Item subclass Ammo/Mana refiles ranged weapons/Skills
+ * @brief Item subclass Ammo/Mana refills ranged weapons/Skills
  *
  */
 class Ammo : public Item
