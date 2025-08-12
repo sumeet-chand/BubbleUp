@@ -1412,8 +1412,8 @@ BaseButton *BaseButton::selectedButton{};
 
 std::vector<Score> scores{};
 
-UpdateApp updateApp = {softwareVersion, "https://github.com/SumeetSinghJi/BubbleUp",
-                       "https://github.com/SumeetSinghJi/BubbleUp/archive/refs/heads/main.zip", "", saveFileName, "BubbleUp.exe", "BubbleUp"};
+UpdateApp updateApp = {softwareVersion, "https://github.com/sumeet_chand/BubbleUp",
+                       "https://github.com/sumeet_chand/BubbleUp/archive/refs/heads/main.zip", "", saveFileName, "BubbleUp.exe", "BubbleUp"};
 
 DebugLogging logger("game_log.txt");
 

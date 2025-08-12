@@ -108,21 +108,23 @@ Full supported languages.
 Languages changed in game via Settings - Language button.
 
 
-
-## ACCESSIBILITY - CONTROLS & INPUTS
+## ACCESSIBILITY - SUPPORTED CONTROLLERS & INPUTS
 
 Full Controller supports: Mouse, Keyboard, Gamepad, Touch
 Keybindings changed in game via Settings - Keybindings button.
 
 
-* KEYBOARD  | GAMEPAD  | MOUSE/TOUCH  | ACTION
-* UP        | UP       |              |  Move up
-* DOWN      | DOWN     |              |  Move Down
-* LEFT      | LEFT     |              |  Move Left
-* RIGHT     | RIGHT    |              |  Move Right
-* ENTER     | A        | Left Click   |  Accept/Use
-* ESC       | B        | Right Click  |  Cancel/Return/Exit
-*           |          | Mousewheel   |  Scroll Up/Down
+## ACCESSIBILITY - KEYBINDS & CONTROLS
+
+| KEYBOARD | GAMEPAD | MOUSE/TOUCH | ACTION                  |
+|----------|---------|-------------|-------------------------|
+| UP       | UP      |             | Move up                 |
+| DOWN     | DOWN    |             | Move Down               |
+| LEFT     | LEFT    |             | Move Left               |
+| RIGHT    | RIGHT   |             | Move Right              |
+| ENTER    | A       | Left Click  | Accept/Use              |
+| ESC      | B       | Right Click | Cancel/Return/Exit      |
+| n/a      | n/a     | Mousewheel  | Scroll Up/Down          |
 
 
 _______________________________________________________________________________________________________
@@ -218,19 +220,49 @@ libraries above
 * CMAKE: the included CMAKELists.txt can be used to build the project
 * Doxygen: the included doxyfile can be used to generate documentation
 
-LIBRARIES USED
 
-* boost::asio & beast for POST Account details, and multiplayer
-* curl: for downloading game update
-* ffmpeg: for video playback
-* Google Test: for creating unit tests while not necessary, it's good to include
+#### LIBRARIES USED
+
+* boost::asio & beast: for POST Account details, and multiplayer
+    * libboost_system-mt.dll
+* curl: for downloading online game update
+    * libcurl-4.dll
+* ffmpeg: for video audio codec playback
+    * swresample-5.dll
+    * avutil-59.dll
+    * avformat-61.dll
+    * avcodec-61.dll
+    * libavformat.so - for linux
+    * libavutil.so - for linux
+    * libavcodec.so - for linux
+    * libswresample.so - for linux
+    * libswscale.so - for linux
+* Google Test: for tests 
 * libzip: for unzipping game update
+    * libzip.dll
 * SDL2: for Window, Event Loop, Input handling, Rendering
+    * SDL2.dll
 * SDL2_image: for images
+    * SDL2_image.dll
 * SDL2_mixer: for audio
+    * SDL2_mixer.dll
 * SDL2_ttf: for rendering text to window
+    * SDL2_TTF.dll
 * zlib: required for building libzip package
 
+
+## INCLUDED REPOSITORY FILES & DIRECTORIES FOR DATA INTEGRITY
+* README.md: This document. Use guide on software BubbleUp 
+* TODO.md: roadmap, changelog, version control log
+* LICENSE: Software licensing file
+* CREDITS.md: Contributors to develop program and sources of asset resources
+* Doxyfile, mainpage.md, ./docs: For C++ library Doxygen to build code documentation
+* .\etc: miscelanous files such as binaries for internet data  transmission between webserver and client multiplayer gameplay.
+* .\bin: build directory legacy files when compiling/building software binaries for multiple operating systems. The actual final software executable is in root .\ due to proximity of .dll or .so files and relative paths to other directores such as ./assets, ./headers, ./src, etc..
+* game_log.txt: Debug log output of executed software. Regenerated everytime sofware is run.
+* gamesave.txt: Saved gameplay and settings of users gameplay.
+* .docs\policies: contains the locations of various software usage/gameplay translated terms of use and policies
+* docs\SDL_keycodes.csv: Default keybinds used by SDL library
 
 ## MODDING
 
