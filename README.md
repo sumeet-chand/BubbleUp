@@ -1,11 +1,11 @@
 # BubbleUP
 
-Version: 0.2 NOT READY FOR PLAYING
+Version: 0.9 BETA (NOT READY FOR PLAYING)
 
-* Author: Sumeet Singh
-* Dated: 09/04/2024
+* Author: Sumeet Chand
+* Updated: 12/08/2024
 * Minimum C++ Standard: C++17
-* Description: Full documentation located here "./docs/html/mainpage.html"
+* Description: Code documentation here ./docs/html/mainpage.html
 * License: MIT License see "./LICENSE" file
 
 
@@ -20,7 +20,7 @@ Version: 0.2 NOT READY FOR PLAYING
 ## DESCRIPTION
 
 BubbleUP is a combined C++ 2D Game Engine with a built in feature-rich demonstration 2D game built 
-ontop of the SDL Framework. It includes classes for constructing interactive Buttons and fields to 
+on-top of the SDL Framework. It includes classes for constructing interactive Buttons and fields to 
 create stunning GUI, Forms and HUD. Includes countless game entities and level editor to create unique 
 stunning 2D games. Has built in scenes for achievements, leaderboards, multiplayer, and more. You can 
 download and easily modify this open-source code to create your own game by following the 
@@ -114,7 +114,7 @@ Full Controller supports: Mouse, Keyboard, Gamepad, Touch
 Keybindings changed in game via Settings - Keybindings button.
 
 
-## ACCESSIBILITY - KEYBINDS & CONTROLS
+## ACCESSIBILITY - KEY-BINDS & CONTROLS
 
 | KEYBOARD | GAMEPAD | MOUSE/TOUCH | ACTION                  |
 |----------|---------|-------------|-------------------------|
@@ -180,11 +180,23 @@ opening of game readme's, textures, map files and thus create a similar simple 9
 Thus, I hope this story and game evoke similar enjoyable moments for you. I encourage you, at least once in your 
 life, to pursue a nostalgic lifelong fascination you have, as it may bring closure to subconscious desires."
 
-                                      Sumeet Singh, 29th February 2024.
+                                      Sumeet Chand, 29th February 2024.
 
 
 
 _______________________________________________________________________________________________________
+
+
+### COMPILING | BUILDING SOFTWARE
+
+To build this repository/project/software yourself across any relevant operating system
+e.g. Windows, macOS, unix* etc. there are 3 ways of understanding this project simplified.
+
+1. It is recommended to read the GitHub CI/CD actions.yml
+located here: .github\workflows\actions.yml. This file lists the exact breakdown (libraries, linkers, directories, assets, etc.,) that's needed to compile the software from start to
+finish.
+
+2. Alternatively you can refer to the CMAKElists.txt as well as the tests\CMAKElists.txt
 
 
 ### Compiling - Automatic - CI/CD
@@ -194,7 +206,7 @@ It will on push
 1. Build tests
 2. Run tests
 3. On tests pass build main
-4. upload main os binaries as artefacts for manual download
+4. upload main os binaries as artifacts for manual download
 
 
 ### COMPILING - Manual
@@ -208,9 +220,7 @@ the included c_cpp_properties has JSON for all OS
 The Included CMAKElists.txt can be used to build a executable across any OS platform
 
 
-### REQUIREMENTS
-
-All requirements can easily be found here: .github\workflows\actions.yml
+## REQUIREMENTS
 
 * MYSY2 - if using Windows
 * clang - if using Windows
@@ -249,20 +259,27 @@ libraries above
 * SDL2_ttf: for rendering text to window
     * SDL2_TTF.dll
 * zlib: required for building libzip package
+    * zlib1.dll
 
 
 ## INCLUDED REPOSITORY FILES & DIRECTORIES FOR DATA INTEGRITY
+
+For data integrity of the project it is required when building this project the files
+and directories listed below, or if you are building/compiling to create your own game release recommended to keep the files below however the text files can be changed (with the exception
+of README.md whose version string within is used for curl update for online in place game update).
+
 * README.md: This document. Use guide on software BubbleUp 
 * TODO.md: roadmap, changelog, version control log
 * LICENSE: Software licensing file
 * CREDITS.md: Contributors to develop program and sources of asset resources
 * Doxyfile, mainpage.md, ./docs: For C++ library Doxygen to build code documentation
-* .\etc: miscelanous files such as binaries for internet data  transmission between webserver and client multiplayer gameplay.
-* .\bin: build directory legacy files when compiling/building software binaries for multiple operating systems. The actual final software executable is in root .\ due to proximity of .dll or .so files and relative paths to other directores such as ./assets, ./headers, ./src, etc..
-* game_log.txt: Debug log output of executed software. Regenerated everytime sofware is run.
+* .\etc: miscellaneous files such as binaries for internet data  transmission between webserver and client multiplayer gameplay.
+* .\bin: build directory legacy files when compiling/building software binaries for multiple operating systems. The actual final software executable is in root .\ due to proximity of .dll or .so files and relative paths to other directories such as ./assets, ./headers, ./src, etc..
+* game_log.txt: Debug log output of executed software. Regenerated every-time software is run.
 * gamesave.txt: Saved gameplay and settings of users gameplay.
 * .docs\policies: contains the locations of various software usage/gameplay translated terms of use and policies
-* docs\SDL_keycodes.csv: Default keybinds used by SDL library
+* docs\SDL_keycodes.csv: Default key-binds used by SDL library
+
 
 ## MODDING
 
