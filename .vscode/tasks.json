@@ -37,7 +37,8 @@
                 "-lavutil",
                 "-lswscale",
                 "-lavfilter",
-                // "-mwindows"
+                // "-mwindows" # if commented, the console window will not be shown when binary is run
+                // "-v" // add verbose output
             ],
             "options": {
                 "cwd": "${fileDirname}"

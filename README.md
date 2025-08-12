@@ -76,7 +76,7 @@ control, different language support, as well as keybinding functionality.
 _______________________________________________________________________________________________________
 
 
-## REQUIREMENTS
+## SYSTEM REQUIREMENTS
 
 * OS: 
     * Windows 10, 11
@@ -187,7 +187,7 @@ life, to pursue a nostalgic lifelong fascination you have, as it may bring closu
 _______________________________________________________________________________________________________
 
 
-### COMPILING | BUILDING SOFTWARE
+### COMPILING SOFTWARE INTRODUCTION
 
 To build this repository/project/software yourself across any relevant operating system
 e.g. Windows, macOS, unix* etc. there are 3 ways of understanding this project simplified.
@@ -199,7 +199,7 @@ finish.
 2. Alternatively you can refer to the CMAKElists.txt as well as the tests\CMAKElists.txt
 
 
-### Compiling - Automatic - CI/CD
+### COMPILING - AUTOMATICALLY WITH CI/CD
 
 There is a Github action here: .github\workflows\actions.yml
 It will on push
@@ -209,7 +209,7 @@ It will on push
 4. upload main os binaries as artifacts for manual download
 
 
-### COMPILING - Manual
+### COMPILING - MANUALLY
 
 the included .vscode has build tasks for each OS with a relevant default compiler
 * g++ - Windows
@@ -220,7 +220,7 @@ the included c_cpp_properties has JSON for all OS
 The Included CMAKElists.txt can be used to build a executable across any OS platform
 
 
-## REQUIREMENTS
+## COMPILING - SOFTWARE REQUIREMENTS
 
 * MYSY2 - if using Windows
 * clang - if using Windows
@@ -231,7 +231,7 @@ libraries above
 * Doxygen: the included doxyfile can be used to generate documentation
 
 
-#### LIBRARIES USED
+#### COMPILING - LIBRARIES REQUIRED
 
 * boost::asio & beast: for POST Account details, and multiplayer
     * libboost_system-mt.dll
@@ -262,7 +262,7 @@ libraries above
     * zlib1.dll
 
 
-## INCLUDED REPOSITORY FILES & DIRECTORIES FOR DATA INTEGRITY
+## COMPILING - REQUIRED FILES & DIRECTORIES
 
 For data integrity of the project it is required when building this project the files
 and directories listed below, or if you are building/compiling to create your own game release recommended to keep the files below however the text files can be changed (with the exception
@@ -276,7 +276,7 @@ of README.md whose version string within is used for curl update for online in p
 * .\etc: miscellaneous files such as binaries for internet data  transmission between webserver and client multiplayer gameplay.
 * .\bin: build directory legacy files when compiling/building software binaries for multiple operating systems. The actual final software executable is in root .\ due to proximity of .dll or .so files and relative paths to other directories such as ./assets, ./headers, ./src, etc..
 * game_log.txt: Debug log output of executed software. Regenerated every-time software is run.
-* gamesave.txt: Saved gameplay and settings of users gameplay.
+* gamesave.txt: Saved gameplay and settings of users gameplay. Regenerated on every save rewrite. Can be deleted if not required.
 * .docs\policies: contains the locations of various software usage/gameplay translated terms of use and policies
 * docs\SDL_keycodes.csv: Default key-binds used by SDL library
 
@@ -308,8 +308,7 @@ can comment out the existing entity code, or reuse it for own project
 and create a global bool variable to track in update() as per existing convention 
 5. Can create buttons from BaseButton.hpp subclasses
 6. Can create entities from Entity.hpp subclasses
-7. You can create any scene past the existing numbers to increase game engine/game options. You are not
-limited to a scene int naming convention and can choose to use names such as scene_gameplay
+7. You can create any scene past the existing numbers to increase game engine/game options. You are not limited to a scene int naming convention and can choose to use names such as scene_gameplay. Scenes are used for the SDL loop to break in and out of the program e.g. from pausing/breaking gameplay loop to viewing game options.
 * Scene 1 = Main Menu
 * Scene 2 = Settings
 * Scene 3 = Unlockables
@@ -345,4 +344,4 @@ limited to a scene int naming convention and can choose to use names such as sce
 * Scene 101 = Game Tutorial
 * Scene 102 to 149 = Dedicated for Single player game
 * Scene >150 = For Multiplayer Game mode, but can be used for anything
-7. The CMAKElists.txt file can be used to build an executable across different platforms.
+
